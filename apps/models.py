@@ -9,7 +9,12 @@ class User(db.Model):
 
 class Match(db.Model):
     match_id = db.Column(db.Integer, primary_key = True)
-
+    candidate1_id = db.Column(db.Integer, db.ForeignKey('user1._id'))
+    user1 = db.relationship('User', backref=db.backref('match', lazy='dynamic'))
+    candidate1_count = db.Column(db.Integer, primary_key = True)
+    candidate2_id = db.Column(db.Integer, db.ForeignKey('user2._id'))
+    user2 = db.relationship('User', backref=db.backref('match', lazy='dynamic'))
+    candidate2_count = db.Column(db.Integer, primary_key = True)
 
 class Candidate(db.Model):
     Cand_id = db.Column(db.Integer, primary_key = True)

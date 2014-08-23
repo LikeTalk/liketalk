@@ -4,9 +4,8 @@ from werkzeug.security import generate_password_hash, \
     check_password_hash
 from sqlalchemy import desc
 from apps import app, db
-from apps.forms import ArticleForm, CommentForm, JoinForm, LoginForm
+from apps.forms import CommentForm, JoinForm, LoginForm
 from apps.models import (
-    Article,
     Comment,
     User
 )
@@ -16,6 +15,9 @@ def match():
     return render_template("home.html")
 
 
+@app.route('/tournament',methods=['GET','POST'])
+def tournament():
+	return render_template("tournament.html")
 '''
 #
 # @error Handlers
@@ -30,7 +32,7 @@ def page_not_found(e):
 @app.errorhandler(500)
 def server_error(e):
     return render_template('500.html'), 500
-'''
+
 @app.route('/comment/create/<int:Cand_id>', methods=['GET', 'POST'])
 def comment_create(article_id):
     form = CommentForm()
@@ -105,3 +107,5 @@ def before_request():
     if 'user_email' in session:
         g.user_name = session['user_name']
         g.user_email = session['user_email']
+
+'''
