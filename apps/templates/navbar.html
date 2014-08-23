@@ -4,11 +4,16 @@
             <a class="navbar-brand" href="{{ url_for('article_list') }}">Liklion Flaskr</a>
         </div>
         <ul class="nav navbar-nav">
+<<<<<<< HEAD
             <li {% if active_tab == 'timeline' %}
                 class="active"
             {% endif %}>
                 <a href="{{ url_for('article_list') }}"> 타임라인</a>
             </li>
+=======
+            <li class="active"><a href="{{ url_for('article_list') }}">타임라인</a></li>
+            <li><a href="#">글쓰기</a></li>
+>>>>>>> a3b21fed8e022e652902899dabf940e739d77daf
         </ul>
     </div>
 </nav>

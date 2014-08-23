@@ -4,7 +4,8 @@ from apps import app
 
 @app.route('/', methods=['GET'])
 def article_list():
-    return render_template("index.html")
+    return render_template("home.html")
+
 
 
 '''
