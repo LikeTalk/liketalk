@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 application: lionchat0823
+>>>>>>> e427042ea684ce286abd187443de791ce2c0c12e
 version: 0-0-1-proto
 runtime: python27
 api_version: 1
@@ -13,7 +16,7 @@ builtins:
 
 ### handlers: set script or static files by url pattern ###
 handlers:
-- url: /static
+- url: /templates/assets
   static_dir: apps/static
 
 - url: .*

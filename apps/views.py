@@ -5,7 +5,7 @@ from apps import app
 
 @app.route('/', methods=['GET'])
 def article_list():
-    return render_template("index2.html")
+    return render_template("index.html")
 
 #
 # @error Handlers
