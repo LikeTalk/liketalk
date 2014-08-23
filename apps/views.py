@@ -6,6 +6,9 @@ from apps import app
 def article_list():
     return render_template("home.html")
 
+
+
+'''
 #
 # @error Handlers
 #
@@ -19,3 +22,4 @@ def page_not_found(e):
 @app.errorhandler(500)
 def server_error(e):
     return render_template('500.html'), 500
+'''
