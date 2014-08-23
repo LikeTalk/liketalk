@@ -15,6 +15,7 @@ builtins:
 handlers:
 - url: /static
   static_dir: apps/static
+  mime_type: "text/css"
 
 - url: .*
   script: apps.app
