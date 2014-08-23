@@ -6245,6 +6245,7 @@ $tournament-match-min-height: 100px;
   min-height: 100px;
 }
 
+
 .tournament__match_final {
   position: relative;
   overflow: hidden;
@@ -6294,20 +6295,26 @@ $tournament-match-min-height: 100px;
   font-size: 14px;
   font-weight: bold;
   transition: color .3s ease;
-  color: #ccc;
+  color: #000;
   text-decoration: none;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.2);
   display: block;
   position: relative;
-  width: auto;
-  height: 32px;
+  max-width: auto;
+  max-height: 32px;
   line-height: 32px;
   padding: 0 36px 0 36px;
   margin: auto;
 }
+
+.tournament__match__team > img {
+  width: 30px;
+  height: 30px;
+}
+
+
 .tournament__match__team:focus, .tournament__match__team:hover {
-  color: #fff;
+  color: #000;
 }
 .tournament__match__team:before, .tournament__match__team:after {
   content: '';
