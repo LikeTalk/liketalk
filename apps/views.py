@@ -1,11 +1,19 @@
 # -*- coding: utf-8 -*-
-from flask import render_template, request
-from apps import app
+from flask import render_template, request, redirect, url_for, flash, session, g, jsonify
+from werkzeug.security import generate_password_hash, \
+    check_password_hash
+from sqlalchemy import desc
+from apps import app, db
+from apps.forms import ArticleForm, CommentForm, JoinForm, LoginForm
+from apps.models import (
+    Article,
+    Comment,
+    User
+)
 
 @app.route('/', methods=['GET'])
-def article_list():
+def match():
     return render_template("home.html")
-
 
 
 '''
@@ -23,3 +31,77 @@ def page_not_found(e):
 def server_error(e):
     return render_template('500.html'), 500
 '''
+@app.route('/comment/create/<int:Cand_id>', methods=['GET', 'POST'])
+def comment_create(article_id):
+    form = CommentForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            comment = Comment(
+                content=form.content.data,
+                candidate=Article.query.get(article_id)
+            )
+
+            db.session.add(comment)
+            db.session.commit()
+
+            flash(u'댓글을 작성하였습니다.', 'success')
+        return redirect(url_for('match', id=Cand_id))
+    return render_template('match', form=form)
+
+@app.route('/user/join/', methods=['GET', 'POST'])
+def user_join():
+    form = JoinForm()
+
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            user = User(
+                email=form.email.data,
+                password=generate_password_hash(form.password.data),
+                name=form.name.data
+            )
+
+            db.session.add(user)
+            db.session.commit()
+
+            flash(u'가입이 완료 되었습니다.', 'success')
+            return redirect(url_for('match'))
+    return render_template('user/join.html', form=form, active_tab='user_join')
+
+@app.route('/login', methods=['GET', 'POST'])
+def log_in():
+    form = LoginForm()
+
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            email = form.email.data
+            pwd = form.password.data
+
+            user = User.query.get(email)
+            if user is None:
+                flash(u'존재하지 않는 e-mail입니다.', 'danger')
+            elif not check_password_hash(user.password, pwd):
+                flash(u'pw가 일치하지 않습니다.', 'danger')
+            else:
+                session.permanent = True
+                session['user_email'] = user.email
+                session['user_name'] = user.name
+
+                flash(u'로그인 완료.', 'success')
+                return redirect(url_for('match'))
+
+    return render_template('user/login.html', form=form, active_tab='log_in')
+
+
+@app.route('/logout')
+def log_out():
+    session.clear()
+
+    return redirect(url_for('article_list'))
+
+@app.before_request
+def before_request():
+    g.user_name = None
+
+    if 'user_email' in session:
+        g.user_name = session['user_name']
+        g.user_email = session['user_email']
