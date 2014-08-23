@@ -1,19 +1,12 @@
 <nav class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{ url_for('article_list') }}">Liklion Flaskr</a>
+            <a class="navbar-brand" href="{{ url_for('article_list') }}">멋쟁이 사자차럼 인기투표</a>
         </div>
         <ul class="nav navbar-nav">
-<<<<<<< HEAD
-            <li {% if active_tab == 'timeline' %}
-                class="active"
-            {% endif %}>
-                <a href="{{ url_for('article_list') }}"> 타임라인</a>
-            </li>
-=======
-            <li class="active"><a href="{{ url_for('article_list') }}">타임라인</a></li>
-            <li><a href="#">글쓰기</a></li>
->>>>>>> a3b21fed8e022e652902899dabf940e739d77daf
+            <li class="active"><a href="{{ url_for('article_list') }}">오늘의 투표</a></li>
+            <li><a href="#">대진표 및 결과</a></li>
+            <li><a href="#">자랑스런 아가사자들</a></li>
         </ul>
     </div>
 </nav>
