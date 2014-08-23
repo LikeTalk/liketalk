@@ -4,8 +4,10 @@ from apps import app
 
 @app.route('/', methods=['GET'])
 def article_list():
-    return render_template("index2.html")
+    return render_template("index.html")
 
+
+'''
 #
 # @error Handlers
 #
@@ -19,3 +21,4 @@ def page_not_found(e):
 @app.errorhandler(500)
 def server_error(e):
     return render_template('500.html'), 500
+'''
