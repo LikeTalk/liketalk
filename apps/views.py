@@ -12,12 +12,12 @@ from apps.models import (
 
 @app.route('/', methods=['GET'])
 def match():
-    return render_template("home.html")
+    return render_template("home.html", active_tab="match")
 
 
 @app.route('/tournament',methods=['GET','POST'])
 def tournament():
-	return render_template("tournament.html")
+	return render_template("tournament.html", active_tab="tournament")
 '''
 #
 # @error Handlers
