@@ -9,9 +9,10 @@ from apps.models import User, Comment, Match, Candidate
 
 @app.route('/main', methods=['GET','POST'])
 def match():
+    '''
     matchinfo = {}
     match_id = 1
-    matchinfo['match'] = Match.query.get(match_id)
+    matchinfo['match'] = Match.query.get(match_id)'''
     try:
         return render_template("home.html", matchinfo = matchinfo, active_tab="match")
     except:
