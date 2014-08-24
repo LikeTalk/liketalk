@@ -12,8 +12,9 @@ def match():
     matchinfo = {}
     match_id = 1
     matchinfo['match'] = Match.query.get(match_id)
+    comments = Comment.query.order_by(desc(Comment.date_created)).filter()##matc_ id를 나중에 넣어야함
     try:
-        return render_template("home.html", matchinfo=matchinfo, active_tab="match")
+        return render_template("home.html", matchinfo=matchinfo, active_tab="match", comments=comments)
     except:
         return redirect(url_for('login'))
 
@@ -46,6 +47,7 @@ def login():
 
     return render_template('user/login.html', form=form, active_tab='log_in')
 
+<<<<<<< HEAD
 '''
 @app.route('/main', methods=['GET','POST'])
 def match():
@@ -59,6 +61,8 @@ def match():
         return redirect(url_for('login'))
 
 
+=======
+>>>>>>> b662f460b832863caed8baf7a930feb0cac9f124
 '''
 """
 @app.route('/cand_one_count/<int:match_num>', methods = ['GET', 'POST'])
@@ -117,23 +121,24 @@ def page_not_found(e):
 def server_error(e):
     return render_template('500.html'), 500
 '''
+<<<<<<< HEAD
 
 
 @app.route('/comment/create/<int:Cand_id>', methods=['GET', 'POST'])
 def comment_create(Cand_id):
     form = CommentForm()
+=======
+@app.route('/comment/create', methods=['GET', 'POST'])
+def comment_create():
+>>>>>>> b662f460b832863caed8baf7a930feb0cac9f124
     if request.method == 'POST':
-        if form.validate_on_submit():
-            comment = Comment(
-                content=form.content.data,
-                candidate=Article.query.get(article_id)
-            )
-
-            db.session.add(comment)
-            db.session.commit()
-
-        return redirect(url_for('match', id=Cand_id))
-    return render_template('match', form=form)
+       comment = Comment(
+            content = request.form['content']
+       )
+       db.session.add(comment)
+       db.session.commit()
+       return redirect(url_for('match'))
+    return render_template('home.html')
 '''
 @app.route('/user/join/', methods=['GET', 'POST'])
 def user_join():
