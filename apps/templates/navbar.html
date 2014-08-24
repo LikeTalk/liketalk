@@ -6,7 +6,7 @@
         <ul class="nav navbar-nav">
             <li {% if active_tab == 'match' %} class="active"{% endif %}><a href="{{ url_for('match') }}">오늘의 투표</a></li>
             <li{% if active_tab == 'tournament' %} class ="active"{% endif %}><a href="{{url_for('tournament')}}">대진표 및 결과</a></li>
-            <li><a href="#">자랑스런 아가사자들</a></li>
+            <li><a href="{{url_for('login')}}">자랑스런 아가사자들</a></li>
         </ul>
     </div>
 </nav>

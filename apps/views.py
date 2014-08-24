@@ -10,10 +10,53 @@ from apps.models import (
     User
 )
 
-@app.route('/', methods=['GET'])
+
+@app.route('/main', methods=['GET'])
 def match():
     return render_template("home.html", active_tab="match")
 
+
+
+@app.route('/', methods = ['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            email = form.email.data
+            pwd = form.password.data
+
+            user = User.query.get(email)
+            if user is None:
+                flash(u'존재하지 않는 이메일입니다.', 'danger')
+            elif not check_password_hash(user.password, pwd):
+                flash(u'비밀번호가 일치하지 않습니다', 'danger')
+            else:
+                session.permanent = True
+                session['user_id'] = user.email
+                flash(u'로그인 완료', 'success')
+                return redirect(url_for('match'))
+
+    return render_template('user/login.html', form=form, active_tab='log_in')
+
+@app.route('/user_join', methods = ['GET', 'POST'])
+def user_join():
+    form = JoinForm()
+
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            user = User(
+                email = form.email.data,
+                password = generate_password_hash(form.password.data)
+            )
+            db.session.add(user)
+            db.session.commit()
+
+            flash(u'가입이 완료되었습니다.','success')
+            return redirect(url_for('match'))
+        else:
+            flash(u'작성형식에 맞지 않습니다.','success')
+    else:
+        return render_template('user/join.html', form=form)
 
 @app.route('/tournament',methods=['GET','POST'])
 def tournament():

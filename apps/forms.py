@@ -32,11 +32,6 @@ class JoinForm(Form):
         [validators.data_required(u'패스워드를 한번 더 입력하세요.')],
         description={'placeholder': u'패스워드를 한번 더 입력하세요.'}
     )
-    name = StringField(
-        u'이름',
-        [validators.data_required(u'이름을 입력하시기 바랍니다.')],
-        description={'placeholder': u'이름을 입력하세요.'}
-    )
 
 class LoginForm(Form):
     email = EmailField(

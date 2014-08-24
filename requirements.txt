@@ -6,4 +6,8 @@ flask-sqlalchemy
 flask-migrate
 flask
 flask-script
+flask-wtf
+wtform
+itsdangerous
+werkzeug
 mako
