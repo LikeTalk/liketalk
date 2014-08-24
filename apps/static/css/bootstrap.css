@@ -6337,3 +6337,13 @@ $tournament-match-min-height: 100px;
 .tournament__round:first-child .tournament__match__team:before {
   display: none;
 }
+
+.pollTable {
+  width: auto;
+}
+
+.pollTable > tbody > tr > td {
+  width: 100px;
+  background-color: #FFF;
+  vertical-align: middle;
+}
