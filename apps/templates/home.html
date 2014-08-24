@@ -192,7 +192,7 @@
             </label>
         </div>
         <div class="llCommentCreate">
-                <form action="{{ url_for('comment_create', Cand_id=candidate_number) }}" role="form" method="post">
+                <form action="{{ url_for('comment_create') }}" role="form" method="post">
                         <textarea class="text required form-control" cols="40" placeholder=" 댓 글 댓 글 댓 글 댓 글 댓 글 " required="required" rows="3" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 73px;"></textarea>
             <input class="btn" name="comment" type="submit" value="POST">댓글</button>
         </div>

@@ -100,8 +100,8 @@ def page_not_found(e):
 def server_error(e):
     return render_template('500.html'), 500
 '''
-@app.route('/comment/create/<int:Cand_id>', methods=['GET', 'POST'])
-def comment_create(Cand_id):
+@app.route('/comment/create', methods=['GET', 'POST'])
+def comment_create():
     form = CommentForm()
     if request.method == 'POST':
         if form.validate_on_submit():
