@@ -75,9 +75,9 @@ def page_not_found(e):
 @app.errorhandler(500)
 def server_error(e):
     return render_template('500.html'), 500
-
+'''
 @app.route('/comment/create/<int:Cand_id>', methods=['GET', 'POST'])
-def comment_create(article_id):
+def comment_create(Cand_id):
     form = CommentForm()
     if request.method == 'POST':
         if form.validate_on_submit():
@@ -89,10 +89,9 @@ def comment_create(article_id):
             db.session.add(comment)
             db.session.commit()
 
-            flash(u'댓글을 작성하였습니다.', 'success')
         return redirect(url_for('match', id=Cand_id))
     return render_template('match', form=form)
-
+'''
 @app.route('/user/join/', methods=['GET', 'POST'])
 def user_join():
     form = JoinForm()
