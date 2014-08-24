@@ -4712,7 +4712,7 @@ a.thumbnail.active {
 }
 .progress {
   height: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   overflow: hidden;
   background-color: #f5f5f5;
   border-radius: 4px;
@@ -6336,4 +6336,15 @@ $tournament-match-min-height: 100px;
 }
 .tournament__round:first-child .tournament__match__team:before {
   display: none;
+}
+
+.pollTable {
+  width: auto;
+}
+
+.pollTable > tbody > tr > td {
+  width: 100px;
+  background-color: #FFF;
+  vertical-align: middle;
+  padding-bottom: 20px;
 }
