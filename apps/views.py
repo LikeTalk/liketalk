@@ -12,7 +12,7 @@ def match():
     matchinfo = {}
     match_id = 1
     matchinfo['match'] = Match.query.get(match_id)
-    comments = Comment.query.get(match_id).order_by(desc(Comment.date_created))
+    comments = Comment.query.order_by(desc(Comment.date_created)).filter()##matc_ id를 나중에 넣어야함
     try:
         return render_template("home.html", matchinfo=matchinfo, active_tab="match", comments=comments)
     except:
