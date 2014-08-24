@@ -1,43 +1,7 @@
+{% extends "layout.html" %}
 
-<!DOCTYPE html>
-<html lang="ko-kr">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block contents %}
 
-    <title>멋쟁이 사자처럼 인기투표</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    
-
-    
-        <link rel="shortcut icon" href="/static/images/favicon.ico"/>
-    
-</head>
-<body>
-
-    
-        <nav class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/main"><strong>멋쟁이 사자차럼 인기투표</strong></a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li  class="active"><a href="/main">오늘의 투표</a></li>
-            <li><a href="/tournament">대진표 및 결과</a></li>
-            <li><a href="/">자랑스런 아가사자들</a></li>
-        </ul>
-    </div>
-</nav>
-    
-
-    <div class="container">
-        
-            
-    
-
-        
-        
 <div class="panel panel-danger">
 	<div class=panel-heading>
 		<h1 class="text-center"> 아기사자 프로필 </h1>
@@ -45,70 +9,39 @@
 	<br>
 <div class="container-fluid">
 <!--profile contents-->
-
-<div class="row">
-		<div class="col-xs-4 col-xs-offset-1">
-			<center>
-			<img src="http://likelion.net/members/kaist/t1.jpg" class="img-responsive img-rounded" alt="Resposive Image">
-			</center>
-		</div>
+	<center>
+		<img src="http://likelion.net/members/kaist/t1.jpg" class="img-responsive img-rounded" alt="Resposive Image">
+	</center>
 	</br>
-</div>
-</br>
-</br>
 
 <!--put primary candidate_id, name, shool-->
-<table class="table" style= "width : 300px" >
-	<tr>
-		<td> 이름</td>
-		<td> 이태우</td>
-	</tr>
-	<tr>
-		<td> 학교</td>
-		<td> 카이스트</td>
-	</tr>
-	<tr>
-		<td> facebook</td>
-		<td> facebook.com/qqqqqq</td>
-	</tr>
-
-
-</table>
-
-
-
-
-<br>
-<br>
-<div class="container-fluid">
-	
-</div>
-<br>
-<div class="container">
-	
-</div>
-</div>
-
-<div class="panel panel-danger">
-	<div class=panel-heading>
-		<h1 class="text-center"> 응원글</h1>
-	</div>
+	<center>
+		<table class="table" style= "width : 300px" >
+			<tr>
+				<td> 이름</td>
+				<td> 이태우</td>
+			</tr>
+			<tr>
+				<td> 학교</td>
+				<td> 카이스트</td>
+			</tr>
+			<tr>
+				<td> facebook</td>
+				<td> facebook.com/qqqqqq</td>
+			</tr>
+		</table>
+	</center>
 	<br>
-	<div class=panel-body>
-		<p> blahblah </p>
+	<br>
+
+	<div class="panel panel-danger">
+		<div class=panel-heading>
+			<h1 class="text-center"> 응원글</h1>
+		</div>
+		<br>
+		<div class=panel-body>
+			<p> blahblah </p>
+		</div>
 	</div>
-
 </div>
-
-
-
-    </div>
-
-
-
-    <script src="/static/js/jquery-1.11.1.min.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
-    <script src="/static/js/base.js"></script>
-
-</body>
-</html>
+{% endblock %}
