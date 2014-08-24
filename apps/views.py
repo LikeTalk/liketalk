@@ -47,6 +47,41 @@ def login():
     return render_template('user/login.html', form=form, active_tab='log_in')
 
 
+@app.route('/main', methods=['GET','POST'])
+def match():
+    '''
+    matchinfo = {}
+    match_id = 1
+    matchinfo['match'] = Match.query.get(match_id)'''
+    try:
+        return render_template("home.html", matchinfo = matchinfo, active_tab="match")
+    except:
+        return redirect(url_for('login'))
+
+
+'''
+@app.route('/cand_one_count/<int:match_num>', methods = ['GET', 'POST'])
+def vote(match_num):
+    candA = Match.query.
+'''
+
+
+@app.route('/tournament',methods=['GET','POST'])
+def tournament():
+    return render_template("tournament.html", active_tab="tournament")
+
+
+
+@app.route('/candidate_list', methods=['GET', 'POST'])
+def candidate_list():
+    return render_template("candidate_list.html", active_tab="candidate_list")
+
+
+@app.route('/candidate', methods=['GET', 'POST'])
+def candidate():
+    return render_template("candidate_page.html", active_tab="candidate")
+
+
 @app.route('/user_join', methods=['GET', 'POST'])
 def user_join():
     form = JoinForm()
@@ -97,9 +132,9 @@ def page_not_found(e):
 @app.errorhandler(500)
 def server_error(e):
     return render_template('500.html'), 500
-
+'''
 @app.route('/comment/create/<int:Cand_id>', methods=['GET', 'POST'])
-def comment_create(article_id):
+def comment_create(Cand_id):
     form = CommentForm()
     if request.method == 'POST':
         if form.validate_on_submit():
@@ -111,10 +146,9 @@ def comment_create(article_id):
             db.session.add(comment)
             db.session.commit()
 
-            flash(u'댓글을 작성하였습니다.', 'success')
         return redirect(url_for('match', id=Cand_id))
     return render_template('match', form=form)
-
+'''
 @app.route('/user/join/', methods=['GET', 'POST'])
 def user_join():
     form = JoinForm()

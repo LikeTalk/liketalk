@@ -2,6 +2,30 @@
 
 {% block contents %}
 <div class="panel panel-danger">
+    <div class=panel-heading>
+        <h1 class="text-center"> 오늘의 매치업</h1>
+    </div>
+    <br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-1">
+            <center>
+            <img src="/static/images/1.jpg" class="img-responsive img-rounded" alt="Resposive Image">
+            </center>
+        </div>
+        <div class="col-xs-2">
+            <center>
+            <h1 class="text-center"> V.S. </h1>
+            </center>
+        </div>
+        <div class="col-xs-4">
+            <center>
+            <img src="/static/images/img1.jpg" class="img-responsive img-rounded" alt="Resposive Image">
+            </center>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
 	<div class=panel-heading>
 		<h1 class="text-center"> 오늘의 매치업</h1>
 	</div>
@@ -35,6 +59,42 @@
 <br>
 
 <div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-1"> 
+            <center>
+            <ul class="list-unstyled">
+                <li>이름: 강민지</li>
+                <li>나이: 26 </li>
+                <li>직업: 백수 </li>
+            </ul>
+            </center>
+        </div>
+        <div class="col-xs-4 col-xs-offset-2"> 
+            <center>
+            <ul class="list-unstyled">
+                <li>이름: 이석민2</li>
+                <li>나이: 26 </li>
+                <li>직업: 백수 </li>
+            </ul>
+            </center>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-1">
+            <center><p><a class="btn btn-primary btn-lg " role="button">이석민1</a></p></center>
+        </div>
+        <div class="col-xs-4 col-xs-offset-2"> 
+            <center><p><a class="btn btn-primary btn-lg" role="button">이석민2</a></p></center>
+        </div>
+        <div class="col-xs-1">
+        </div>
+    </div>
+</div>
 	<div class="row">
 		<div class="col-xs-4 col-xs-offset-1">
 			<center>
@@ -118,13 +178,42 @@
 
 
 <div class="panel panel-danger">
-	<div class=panel-heading>
-		<h1 class="text-center"> 응원글</h1>
-	</div>
-	<br>
-	<div class=panel-body>
-		<p> blahblah </p>
-	</div>
+    <div class=panel-heading>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="cand_A" value={{ True }}>{{ matchinfo.match.candidate_A_namename }}</input>
+                <input type="checkbox" name="cand_B" value={{ True }}>{{ matchinfo.match.candidate_B_namename }}</input>
+            </label>
+        </div>
+        <div class="llCommentCreate">
+                <form action="{{ url_for('comment_create', Cand_id=candidate_number) }}" role="form" method="post">
+                        {{ form.hidden_tag() }}
+
+                        {% if form.errors %}
+                            <div class="alert alert-danger fade in">
+                                <a class="close" data-dismiss="alert" href="#">&times;</a>
+                                {% for field, errors in form.errors.items() %}
+                                    <ul>
+                                        {% for error in errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </ul>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                {% from "_form_field.html" import render_field %}
+                {% for field in form if field.widget.input_type != 'hidden' %}
+                    {{ render_field(field, class="form-control") }}
+                {% endfor %}
+           
+            <button type="submit" value="POST">작성</button>
+        </div>
+        <br>
+    </div>
+    <div class=panel-body>
+    </div>
+</div>
 
 </div>
 
