@@ -2,9 +2,6 @@
 
 {% block contents %}
 
-<link href='css/bootstrap.css' rel='stylesheet' type='text/css'>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
 <div class="panel panel-danger">
   <div class=panel-heading>
     <button> Group A</button>
@@ -39,7 +36,7 @@
       <p>선생님</p>
       <p>카이스트</p>
        <p>진행중인 라운드 n</p>
-      <a href="{{ url_for('candidate_page') }}" id="social">더보기</a>
+      <a href="{{ url_for('candidate') }}" id="social">더보기</a>
       <a href="https://www.facebook.com/tprpc" id="social">facebook</a>
      
     </div>
@@ -516,7 +513,7 @@
 </td>
 </tr>
 </table>
-
+</div>
 
 
 {% endblock %}

@@ -21,7 +21,7 @@ def match():
 '''
 @app.route('/cand_one_count/<int:match_num>', methods = ['GET', 'POST'])
 def vote(match_num):
-    candA = Match.query.
+    candA = Match.query.all()#ahyoung added '.all()'
 '''
 
 
@@ -46,13 +46,13 @@ def login():
 
     return render_template('user/login.html', form=form, active_tab='log_in')
 
-
+'''
 @app.route('/main', methods=['GET','POST'])
 def match():
-    '''
+    
     matchinfo = {}
     match_id = 1
-    matchinfo['match'] = Match.query.get(match_id)'''
+    matchinfo['match'] = Match.query.get(match_id)
     try:
         return render_template("home.html", matchinfo = matchinfo, active_tab="match")
     except:
@@ -60,16 +60,16 @@ def match():
 
 
 '''
+"""
 @app.route('/cand_one_count/<int:match_num>', methods = ['GET', 'POST'])
 def vote(match_num):
     candA = Match.query.
-'''
+"""
 
 
-@app.route('/tournament',methods=['GET','POST'])
+@app.route('/tournament', methods=['GET', 'POST'])
 def tournament():
     return render_template("tournament.html", active_tab="tournament")
-
 
 
 @app.route('/candidate_list', methods=['GET', 'POST'])
@@ -102,22 +102,6 @@ def user_join():
     else:
         return render_template('user/join.html', form=form)
 
-
-@app.route('/tournament', methods=['GET', 'POST'])
-def tournament():
-    return render_template("tournament.html", active_tab="tournament")
-
-
-@app.route('/candidate_list', methods=['GET', 'POST'])
-def candidate_list():
-    return render_template("candidate_list.html", active_tab="candidate")
-
-
-@app.route('/candidate_page', methods=['GET'])  # ahyoung
-def candidate_page():
-    #candidate_profile = Candidate.query.get()
-    return render_template("candidate_page.html")
-
 '''
 #
 # @error Handlers
@@ -133,6 +117,8 @@ def page_not_found(e):
 def server_error(e):
     return render_template('500.html'), 500
 '''
+
+
 @app.route('/comment/create/<int:Cand_id>', methods=['GET', 'POST'])
 def comment_create(Cand_id):
     form = CommentForm()
@@ -206,5 +192,4 @@ def before_request():
     if 'user_email' in session:
         g.user_name = session['user_name']
         g.user_email = session['user_email']
-
 '''
