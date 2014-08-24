@@ -6,7 +6,7 @@ from apps import app, db
 from apps.forms import CommentForm, JoinForm, LoginForm
 from apps.models import User, Comment, Match, Candidate
 
-
+'''
 @app.route('/main', methods=['GET', 'POST'])
 def match():
     matchinfo = {}
@@ -17,7 +17,7 @@ def match():
         return render_template("home.html", matchinfo=matchinfo, active_tab="match", comments=comments)
     except:
         return redirect(url_for('login'))
-
+'''
 
 '''
 @app.route('/cand_one_count/<int:match_num>', methods = ['GET', 'POST'])
@@ -47,8 +47,6 @@ def login():
 
     return render_template('user/login.html', form=form, active_tab='log_in')
 
-<<<<<<< HEAD
-'''
 @app.route('/main', methods=['GET','POST'])
 def match():
     
@@ -61,9 +59,7 @@ def match():
         return redirect(url_for('login'))
 
 
-=======
->>>>>>> b662f460b832863caed8baf7a930feb0cac9f124
-'''
+
 """
 @app.route('/cand_one_count/<int:match_num>', methods = ['GET', 'POST'])
 def vote(match_num):
@@ -121,16 +117,8 @@ def page_not_found(e):
 def server_error(e):
     return render_template('500.html'), 500
 '''
-<<<<<<< HEAD
-
-
-@app.route('/comment/create/<int:Cand_id>', methods=['GET', 'POST'])
-def comment_create(Cand_id):
-    form = CommentForm()
-=======
 @app.route('/comment/create', methods=['GET', 'POST'])
 def comment_create():
->>>>>>> b662f460b832863caed8baf7a930feb0cac9f124
     if request.method == 'POST':
        comment = Comment(
             content = request.form['content']
