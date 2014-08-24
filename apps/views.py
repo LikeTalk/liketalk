@@ -7,24 +7,6 @@ from apps.forms import CommentForm, JoinForm, LoginForm
 from apps.models import User, Comment, Match, Candidate
 
 
-@app.route('/main', methods=['GET','POST'])
-def match():
-    '''
-    matchinfo = {}
-    match_id = 1
-    matchinfo['match'] = Match.query.get(match_id)'''
-    try:
-        return render_template("home.html", matchinfo = matchinfo, active_tab="match")
-    except:
-        return redirect(url_for('login'))
-
-
-'''
-@app.route('/cand_one_count/<int:match_num>', methods = ['GET', 'POST'])
-def vote(match_num):
-    candA = Match.query.
-'''
-
 @app.route('/', methods = ['GET','POST'])
 def login():
     form = LoginForm()
@@ -47,6 +29,41 @@ def login():
     return render_template('user/login.html', form=form, active_tab='log_in')
 
 
+@app.route('/main', methods=['GET','POST'])
+def match():
+    '''
+    matchinfo = {}
+    match_id = 1
+    matchinfo['match'] = Match.query.get(match_id)'''
+    try:
+        return render_template("home.html", matchinfo = matchinfo, active_tab="match")
+    except:
+        return redirect(url_for('login'))
+
+
+'''
+@app.route('/cand_one_count/<int:match_num>', methods = ['GET', 'POST'])
+def vote(match_num):
+    candA = Match.query.
+'''
+
+
+@app.route('/tournament',methods=['GET','POST'])
+def tournament():
+    return render_template("tournament.html", active_tab="tournament")
+
+
+
+@app.route('/candidate_list', methods=['GET', 'POST'])
+def candidate_list():
+    return render_template("candidate_list.html", active_tab="candidate_list")
+
+
+@app.route('/candidate', methods=['GET', 'POST'])
+def candidate():
+    return render_template("candidate_page.html", active_tab="candidate")
+
+
 @app.route('/user_join', methods=['GET', 'POST'])
 def user_join():
     form = JoinForm()
@@ -67,17 +84,6 @@ def user_join():
     else:
         return render_template('user/join.html', form=form)
 
-
-
-@app.route('/tournament',methods=['GET','POST'])
-def tournament():
-	return render_template("tournament.html", active_tab="tournament")
-
-
-
-@app.route('/candidate_list', methods=['GET', 'POST'])
-def candidate_list():
-    return render_template("candidate_list.html", active_tab="candidate")
 
 '''
 #
