@@ -28,33 +28,33 @@
         </div>
     </div>
 =======
-	<div class=panel-heading>
-		<h1 class="text-center"> 오늘의 매치업</h1>
-	</div>
-	<br>
+    <div class=panel-heading>
+        <h1 class="text-center"> 오늘의 매치업</h1>
+    </div>
+    <br>
 
 <!-- 각자 candidate 설명:이름과 학교, 나이 -->
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-4 col-xs-offset-1">
-				<center>
-				<img src="/static/images/1.jpg" class="img-responsive img-rounded" alt="Resposive Image">
-				</center>
-			</div>
-			<div class="col-xs-2">
-				<center>
-				<h1 class="text-center"> V.S. </h1>
-				</center>
-			</div>
-			<div class="col-xs-4">
-				<center>
-				<img src="/static/images/img1.jpg" class="img-responsive img-rounded" alt="Resposive Image">
-				</center>
-			</div>
-			<div class="col-xs-1">
-			</div>
-		</div>
-	</div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-1">
+                <center>
+                <img src="/static/images/1.jpg" class="img-responsive img-rounded" alt="Resposive Image">
+                </center>
+            </div>
+            <div class="col-xs-2">
+                <center>
+                <h1 class="text-center"> V.S. </h1>
+                </center>
+            </div>
+            <div class="col-xs-4">
+                <center>
+                <img src="/static/images/img1.jpg" class="img-responsive img-rounded" alt="Resposive Image">
+                </center>
+            </div>
+            <div class="col-xs-1">
+            </div>
+        </div>
+    </div>
 
 >>>>>>> 5442ae22e2b587500a2388ade1b158a1eb65347b
 </div>
@@ -100,85 +100,85 @@
     </div>
 </div>
 =======
-	<div class="row">
-		<div class="col-xs-4 col-xs-offset-1">
-			<center>
-			<ul class="list-unstyled">
-				<li>이름: {{ matchinfo.match.candidate_A_namename }}</li>
-				<li>나이: 26 </li>
-				<li>직업: 백수 </li>
-			</ul>
-			</center>
-		</div>
-		<div class="col-xs-4 col-xs-offset-2">
-			<center>
-			<ul class="list-unstyled">
-				<li>이름: {{ matchinfo.match.candidate_B_namename }}</li>
-				<li>나이: 26 </li>
-				<li>직업: 백수 </li>
-			</ul>
-			</center>
-		</div>
-		<div class="col-xs-1">
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-1">
+            <center>
+            <ul class="list-unstyled">
+                <li>이름: {{ matchinfo.match.candidate_A_namename }}</li>
+                <li>나이: 26 </li>
+                <li>직업: 백수 </li>
+            </ul>
+            </center>
+        </div>
+        <div class="col-xs-4 col-xs-offset-2">
+            <center>
+            <ul class="list-unstyled">
+                <li>이름: {{ matchinfo.match.candidate_B_namename }}</li>
+                <li>나이: 26 </li>
+                <li>직업: 백수 </li>
+            </ul>
+            </center>
+        </div>
+        <div class="col-xs-1">
     </div>
-	<br>
-	<br>
+    <br>
+    <br>
 
-	<!-- 투표하는 버튼 -->
-	<!-- if 투표안했으면 - 이 창 보여주기  -->
+    <!-- 투표하는 버튼 -->
+    <!-- if 투표안했으면 - 이 창 보여주기  -->
 
-	<div class="container-fluid panel-footer">
-		<div class="row">
-			<div class="col-xs-4 col-xs-offset-1">
-				<center><p><a class="btn btn-primary btn-lg " role="button">이석민1</a></p></center>
-			</div>
-			<div class="col-xs-4 col-xs-offset-2"> 
-				<center><p><a class="btn btn-primary btn-lg" role="button">이석민2</a></p></center>
-			</div>
-			<div class="col-xs-1">
-			</div>
-		</div>
-	</div>
+    <div class="container-fluid panel-footer">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-1">
+                <center><p><a class="btn btn-primary btn-lg " role="button">이석민1</a></p></center>
+            </div>
+            <div class="col-xs-4 col-xs-offset-2"> 
+                <center><p><a class="btn btn-primary btn-lg" role="button">이석민2</a></p></center>
+            </div>
+            <div class="col-xs-1">
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- Poll 결과표 보여주기 -->
 <!-- if 투표했으면 - 결과창 보여주기 -->
 
 <div class="panel panel-danger">
-	<div class="panel-heading">
-		<strong>결과보기</strong>  <span class="p11"> 	기간 : <span class="ls0">2013.07.26 ~ 2013.07.29</span> <span class="bar2 p11">|</span>  참여자수 : <strong class="txt_point">114</strong> 명</span>
-	</div>
-	<div class="panel-body">
-		<table class="pollTable">
-			<tbody>
-				<tr>
-					<td class="#">강민지</td>
-					<td style="width:300px;">	
-						<div class="progress pollprogress">
-							<div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 14%;"> 14%
-							</div>
-						</div>
-					</td>
-					<td style="width:20px;">
-					</td>
-					<td class="#"> 36표</td>
-				</tr>
-				<tr>
-					<td class="#">이석민</td>
-					<td style="width:300px;">
-						<div class="progress pollprogress">
-							<div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 86%;"> 86%
-							</div>
-						</div>							
-						<!-- 이곳에 progress bar 넣기 -->	
-					</td>
-					<td style="width:20px;">
-					</td>
-					<td class="#"> 192표</span></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+    <div class="panel-heading">
+        <strong>결과보기</strong>  <span class="p11">   기간 : <span class="ls0">2013.07.26 ~ 2013.07.29</span> <span class="bar2 p11">|</span>  참여자수 : <strong class="txt_point">114</strong> 명</span>
+    </div>
+    <div class="panel-body">
+        <table class="pollTable">
+            <tbody>
+                <tr>
+                    <td class="#">강민지</td>
+                    <td style="width:300px;">   
+                        <div class="progress pollprogress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 14%;"> 14%
+                            </div>
+                        </div>
+                    </td>
+                    <td style="width:20px;">
+                    </td>
+                    <td class="#"> 36표</td>
+                </tr>
+                <tr>
+                    <td class="#">이석민</td>
+                    <td style="width:300px;">
+                        <div class="progress pollprogress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width: 86%;"> 86%
+                            </div>
+                        </div>                          
+                        <!-- 이곳에 progress bar 넣기 -->    
+                    </td>
+                    <td style="width:20px;">
+                    </td>
+                    <td class="#"> 192표</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 >>>>>>> 5442ae22e2b587500a2388ade1b158a1eb65347b
 </div>
 
@@ -193,27 +193,8 @@
         </div>
         <div class="llCommentCreate">
                 <form action="{{ url_for('comment_create', Cand_id=candidate_number) }}" role="form" method="post">
-                        {{ form.hidden_tag() }}
-
-                        {% if form.errors %}
-                            <div class="alert alert-danger fade in">
-                                <a class="close" data-dismiss="alert" href="#">&times;</a>
-                                {% for field, errors in form.errors.items() %}
-                                    <ul>
-                                        {% for error in errors %}
-                                            {{ error }}
-                                        {% endfor %}
-                                    </ul>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-
-                {% from "_form_field.html" import render_field %}
-                {% for field in form if field.widget.input_type != 'hidden' %}
-                    {{ render_field(field, class="form-control") }}
-                {% endfor %}
-           
-            <button type="submit" value="POST">작성</button>
+                        <textarea class="text required form-control" cols="40" placeholder=" 댓 글 댓 글 댓 글 댓 글 댓 글 " required="required" rows="3" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 73px;"></textarea>
+            <input class="btn" name="comment" type="submit" value="POST">댓글</button>
         </div>
         <br>
     </div>
