@@ -16,8 +16,7 @@ def match():
     return render_template("home.html", active_tab="match")
 
 
-
-@app.route('/', methods = ['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if request.method == 'POST':
@@ -38,29 +37,38 @@ def login():
 
     return render_template('user/login.html', form=form, active_tab='log_in')
 
-@app.route('/user_join', methods = ['GET', 'POST'])
+
+@app.route('/user_join', methods=['GET', 'POST'])
 def user_join():
     form = JoinForm()
 
     if request.method == 'POST':
         if form.validate_on_submit():
             user = User(
-                email = form.email.data,
-                password = generate_password_hash(form.password.data)
+                email=form.email.data,
+                password=generate_password_hash(form.password.data)
             )
             db.session.add(user)
             db.session.commit()
 
-            flash(u'가입이 완료되었습니다.','success')
+            flash(u'가입이 완료되었습니다.', 'success')
             return redirect(url_for('match'))
         else:
-            flash(u'작성형식에 맞지 않습니다.','success')
+            flash(u'작성형식에 맞지 않습니다.', 'success')
     else:
         return render_template('user/join.html', form=form)
 
-@app.route('/tournament',methods=['GET','POST'])
+
+@app.route('/tournament', methods=['GET', 'POST'])
 def tournament():
-	return render_template("tournament.html", active_tab="tournament")
+    return render_template("tournament.html", active_tab="tournament")
+
+
+@app.route('/candidate_list', methods=['GET', 'POST'])
+def candidate_list():
+    return render_template("candidate_list.html", active_tab="candidate")
+
+
 '''
 #
 # @error Handlers
