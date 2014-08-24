@@ -87,6 +87,7 @@ sub {
 }
 img {
   border: 0;
+  margin:auto;
 }
 svg:not(:root) {
   overflow: hidden;
@@ -6351,10 +6352,10 @@ $tournament-match-min-height: 100px;
 
 
 .body_m {background:#999;}
-#social {padding-left:30px;color:#20d8b8; text-decoration:none;font-size:30px;}
+#social {padding-left:30px;color:#1FFFB4; text-decoration:none;font-size:18px;}
 #social:hover {color:#fff;}
 #list {border-radius:50%; height:120px;}
-.sub { bottom:0px; width:100%; position:absolute; background:#636363; height:40px; text-align:center;color:#fff; padding-bottom:20px;font-size:18px; font-weight:300; }
+.sub { bottom:0px; width:100%; position:absolute; background:#BA1E55; height:40px; text-align:center;color:#fff; padding-bottom:20px; padding-top:5px; font-size:18px; font-weight:300; }
 #titulo {font-size:20px;}
 
 .titulo{
@@ -6366,6 +6367,7 @@ $tournament-match-min-height: 100px;
   margin: 0 auto;
   -webkit-perspective: 1000;
   -moz-perspective: 1000;
+ margin-right: 20px;
   
 
 }
@@ -6382,6 +6384,7 @@ $tournament-match-min-height: 100px;
   -moz-transition: 0.6s;
   -moz-transform-style: preserve-3d;
   position: relative;
+
 }
 
 .front, .back {
@@ -6390,6 +6393,7 @@ $tournament-match-min-height: 100px;
   position: absolute;
   top: 0;
   left: 0;
+
 }
 
 .front {
@@ -6400,19 +6404,25 @@ $tournament-match-min-height: 100px;
 }
 
 .flip-container, .front, .back {
-  width: 14.375em;
-  height: 14.375em;
+  width: 12em;
+  height: 15em;
 }
 
 .back {
-   background:#636363;
+   background:#BA1E55;
   padding-top:30px;
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
 }
 .back p {
-  margin-left:30px;
+  margin-left:10px;
   color:white;font-weight:300;
+
+}
+
+.baby_lion_list {
+  border :100px;
+  border-color: white;
 }
 
 /*blur*/
@@ -6422,4 +6432,8 @@ $tournament-match-min-height: 100px;
   filter: blur(7px);
   -webkit-transform: translateY(0px)
                      translate3d(0,0,0);
+}
+
+.each_button{
+  margin-left: 20px;
 }

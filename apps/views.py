@@ -7,7 +7,26 @@ from apps.forms import CommentForm, JoinForm, LoginForm
 from apps.models import User, Comment, Match, Candidate
 
 
-@app.route('/', methods = ['GET','POST'])
+@app.route('/main', methods=['GET', 'POST'])
+def match():
+    matchinfo = {}
+    match_id = 1
+    matchinfo['match'] = Match.query.get(match_id)
+    comments = Comment.query.get(match_id).order_by(desc(Comment.date_created))
+    try:
+        return render_template("home.html", matchinfo=matchinfo, active_tab="match", comments=comments)
+    except:
+        return redirect(url_for('login'))
+
+
+'''
+@app.route('/cand_one_count/<int:match_num>', methods = ['GET', 'POST'])
+def vote(match_num):
+    candA = Match.query.
+'''
+
+
+@app.route('/', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if request.method == 'POST':
@@ -27,19 +46,6 @@ def login():
                 return redirect(url_for('match'))
 
     return render_template('user/login.html', form=form, active_tab='log_in')
-
-
-@app.route('/main', methods=['GET','POST'])
-def match():
-    '''
-    matchinfo = {}
-    match_id = 1
-    matchinfo['match'] = Match.query.get(match_id)'''
-    try:
-        return render_template("home.html", matchinfo = matchinfo, active_tab="match")
-    except:
-        return redirect(url_for('login'))
-
 
 '''
 @app.route('/cand_one_count/<int:match_num>', methods = ['GET', 'POST'])
@@ -85,6 +91,21 @@ def user_join():
         return render_template('user/join.html', form=form)
 
 
+@app.route('/tournament', methods=['GET', 'POST'])
+def tournament():
+    return render_template("tournament.html", active_tab="tournament")
+
+
+@app.route('/candidate_list', methods=['GET', 'POST'])
+def candidate_list():
+    return render_template("candidate_list.html", active_tab="candidate")
+
+
+@app.route('/candidate_page', methods=['GET'])  # ahyoung
+def candidate_page():
+    #candidate_profile = Candidate.query.get()
+    return render_template("candidate_page.html")
+
 '''
 #
 # @error Handlers
@@ -102,19 +123,14 @@ def server_error(e):
 '''
 @app.route('/comment/create', methods=['GET', 'POST'])
 def comment_create():
-    form = CommentForm()
     if request.method == 'POST':
-        if form.validate_on_submit():
-            comment = Comment(
-                content=form.content.data,
-                candidate=Article.query.get(article_id)
-            )
-
-            db.session.add(comment)
-            db.session.commit()
-
-        return redirect(url_for('match', id=Cand_id))
-    return render_template('match', form=form)
+       comment = Comment(
+            content = request.form['content']
+       )
+       db.session.add(comment)
+       db.session.commit()
+       return redirect(url_for('match'))
+    return render_template('home.html')
 '''
 @app.route('/user/join/', methods=['GET', 'POST'])
 def user_join():
