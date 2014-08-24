@@ -7,13 +7,13 @@ from apps.forms import CommentForm, JoinForm, LoginForm
 from apps.models import User, Comment, Match, Candidate
 
 
-@app.route('/main', methods=['GET','POST'])
+@app.route('/main', methods=['GET', 'POST'])
 def match():
     matchinfo = {}
     match_id = 1
     matchinfo['match'] = Match.query.get(match_id)
     try:
-        return render_template("home.html", matchinfo = matchinfo, active_tab="match")
+        return render_template("home.html", matchinfo=matchinfo, active_tab="match")
     except:
         return redirect(url_for('login'))
 
@@ -24,7 +24,8 @@ def vote(match_num):
     candA = Match.query.
 '''
 
-@app.route('/', methods = ['GET','POST'])
+
+@app.route('/', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if request.method == 'POST':
@@ -67,16 +68,20 @@ def user_join():
         return render_template('user/join.html', form=form)
 
 
-
-@app.route('/tournament',methods=['GET','POST'])
+@app.route('/tournament', methods=['GET', 'POST'])
 def tournament():
-	return render_template("tournament.html", active_tab="tournament")
-
+    return render_template("tournament.html", active_tab="tournament")
 
 
 @app.route('/candidate_list', methods=['GET', 'POST'])
 def candidate_list():
     return render_template("candidate_list.html", active_tab="candidate")
+
+
+@app.route('/candidate_page', methods=['GET'])  # ahyoung
+def candidate_page():
+    #candidate_profile = Candidate.query.get()
+    return render_template("candidate_page.html")
 
 '''
 #
