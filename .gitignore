@@ -54,4 +54,5 @@ docs/_build/
 
 app.yaml
 
-apps/setting.py
+apps/settings.py
+
