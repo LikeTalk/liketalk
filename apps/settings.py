@@ -8,13 +8,13 @@ Configuration for Flask app
 
 class Config(object):
     # Set secret key to use session
-    SECRET_KEY = "policyinformer"
+    SECRET_KEY = "planfindtheir"
     debug = False
 
 
 class Production(Config):
     debug = True
     CSRF_ENABLED = False
-    ADMIN = "essemfly@gmail.com"
-    SQLALCHEMY_DATABASE_URI = 'mysql+gaerdbms:///Liketalk?instance=policyinformer:essemfly0803'
+    ADMIN = "khszone02@gmail.com"
+    SQLALCHEMY_DATABASE_URI = 'mysql+gaerdbms:///comment?instance=planfindtheir:findtheir'
     migration_directory = 'migrations'
