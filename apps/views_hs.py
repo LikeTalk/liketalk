@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import render_template, request, redirect, url_for, flash, session, g, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
-from sqlalchemy import desc
+from sqlalchemy import desc, asc
 from apps import app, db
 from apps.forms import CommentForm, JoinForm, LoginForm
 from apps.models import User, Comment, Match, Candidate
@@ -53,8 +53,9 @@ def match():
     matchinfo = {}
     match_id = 1
     matchinfo['match'] = Match.query.get(match_id)
+    comments=Comment.query.order_by(asc(Comment.date_created)).all()
     try:
-        return render_template("home.html", matchinfo = matchinfo, active_tab="match")
+        return render_template("home.html", matchinfo = matchinfo, active_tab="match", comments=comments)
     except:
         return redirect(url_for('login'))
 
