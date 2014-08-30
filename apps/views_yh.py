@@ -6,12 +6,9 @@ from apps import app, db
 from apps.forms import CommentForm, JoinForm, LoginForm
 from apps.models import User, Comment, Match, Candidate, GameHistory
 
-'''
-처음 접속을 하면 무조건 로그인을 한다.
-    1. 먼저 USER Table에 들어가서 입력된 이메일이 DB에 있는 회원가입인지 살핀다.
-        1.
+from itertools import count, izip
 
-'''
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -45,53 +42,66 @@ def before_request():
         g.user_id = session['user_id']
 
 
+def check_user_match(user_id):
+    # user_id 은 로그인한 유저의 아이디
+    user_game_history = GameHistory.query.order_by(asc(GameHistory.done_game)).filter(GameHistory.user_id == user_id).all()
+    # Return 값은 List of dictionaries
+
+    user_new_history = []
+    for idx in user_game_history:
+        # 따라서 Idx 는 각각 dictionary
+        if idx.done_game not in user_new_history:
+            user_new_history.append(idx.done_game)
+
+    def missing_elements(L):
+        start, end = L[0], L[-1]
+        return sorted(set(range(start, end + 1)).difference(L))
+
+    if len(user_new_history) == 0:
+        user_new_history.append(1)
+        return 1
+    else:
+        A = missing_elements(user_new_history)
+        if len(A) > 0:
+            return A[0]
+        else:
+            return user_new_history[len(user_new_history)-1] + 1
+
+
+
 
 @app.route('/main', methods=['GET', 'POST'])
 def match():
-    match_id = 1
     if g.user_id == None:
         flash(u'로그인 후에 이용해주세요', 'danger')
         return redirect(url_for('login'))
     else:
-        user_game_info = {}
-        logged_user_id = g.user_id
-        user_game_info['myuser'] = GameHistory.query.order_by(asc(GameHistory.done_game)).filter(
-            GameHistory.user_id == logged_user_id).all()
-        if user_game_info['myuser'] == None:
-            match_id = 1
-        else:
-            it = 0
-            for x in user_game_info['myuser']:
-                it += 1
-                if x.done_game != it:
-                    match_id = it
-                    break
-                else:
-                    if it > len(user_game_info):
-                        match_id = it
+        match_id = check_user_match(g.user_id)
+        flash(match_id)
         matchinfo = {}
         matchinfo['match'] = Match.query.get(match_id)
-        return render_template("home_yh.html", matchinfo=matchinfo, active_tab="match", test=user_game_info)
+        return render_template("home_yh.html", matchinfo=matchinfo, active_tab="match")
 
 
 @app.route('/vote/ <matnum>/ <int:candnum>', methods=['GET'])
 def vote(matnum, candnum):
+    matnum = int(matnum)
     this_match = Match.query.get(matnum)
     if candnum == 1:
         this_match.candidate_A_count += 1
     elif candnum == 2:
         this_match.candidate_B_count += 1
 
-    logged_user_id = g.user_id
 
     # 유저가 이 게임을 했다.
     this_game = GameHistory(
-        user_id=logged_user_id,
+        user_id=g.user_id,
         done_game=matnum
     )
 
     db.session.add(this_game)
     db.session.commit()
+
 
     return redirect(url_for('match'))
 
