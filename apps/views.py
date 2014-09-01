@@ -14,7 +14,7 @@ from person_info import uos,ajou,gachon,hanyang,kaist,khu,korea,mju,sejong,snu_y
 @app.route('/testtest')
 def testest():
     # return "\n".join( [ student[0] for student in  uos.students] )
-    
+
 
 
 
@@ -93,7 +93,7 @@ def match():
         flash(match_id)
         matchinfo = {}
         matchinfo['match'] = Match.query.get(match_id)
-        return render_template("home_yh.html", matchinfo=matchinfo, active_tab="match")
+        return render_template("home.html", matchinfo=matchinfo, active_tab="match")
 
 
 @app.route('/vote/ <matnum>/ <int:candnum>', methods=['GET'])
