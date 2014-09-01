@@ -9,6 +9,18 @@ from apps.models import User, Comment, Match, Candidate, GameHistory
 from itertools import count, izip
 
 
+from person_info import uos,ajou,gachon,hanyang,kaist,khu,korea,mju,sejong,snu_yonsei,ssu,uos
+
+@app.route('/testtest')
+def testest():
+    # return "\n".join( [ student[0] for student in  uos.students] )
+    
+
+
+
+
+
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -33,6 +45,7 @@ def login():
                 flash(u'로그인 완료', 'success')
                 return redirect(url_for('match'))
     return render_template('user/login.html', form=form, active_tab='log_in')
+
 
 
 @app.before_request
@@ -135,6 +148,7 @@ def user_join():
         return render_template('user/join.html', form=form)
 
 
+
 @app.route('/tournament', methods=['GET', 'POST'])
 def tournament():
     if g.user_id == None:
@@ -142,6 +156,7 @@ def tournament():
         return redirect(url_for('login'))
     else:
         return render_template("tournament.html", active_tab="tournament")
+
 
 
 @app.route('/candidate_list', methods=['GET', 'POST'])
@@ -153,6 +168,7 @@ def candidate_list():
         return render_template("candidate_list.html")
 
 
+
 @app.route('/candidate', methods=['GET', 'POST'])
 def candidate():
     if g.user_id == None:
@@ -160,6 +176,7 @@ def candidate():
         return redirect(url_for('login'))
     else:
         return render_template("candidate_page.html", active_tab="candidate")
+
 
 
 @app.before_request

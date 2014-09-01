@@ -9,6 +9,8 @@ class User(db.Model):
 
 class Match(db.Model):
     match_id = db.Column(db.Integer, primary_key = True)
+    season_num = db.Column(db.Integer)
+    game_round = db.Column(db.Integer)
     candidate_A_namename = db.Column(db.String(255))
     candidate_A_count = db.Column(db.Integer, default = 0, nullable = False)
     candidate_B_namename = db.Column(db.String(255))
