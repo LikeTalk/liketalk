@@ -15,6 +15,6 @@ manager = Manager(app)
 migrate = Migrate(app,db)
 manager.add_command('db',MigrateCommand)
 
-import views_yh, models
+import views, models
 #(Guess - Export)
 
