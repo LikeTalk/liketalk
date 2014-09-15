@@ -50,11 +50,13 @@ def input_match():
         nameA = A[0]
         nameA = unicode(nameA, 'utf-8')
         orgA = A[1]
+        orgA = unicode(orgA, 'utf-8')
         photoA = A[2]
 
         nameB = B[0]
         nameB = unicode(nameB, 'utf-8')
         orgB = B[1]
+        orgB = unicode(orgB, 'utf-8')
         photoB = B[2]
 
         my_match = Match(
@@ -80,22 +82,25 @@ def new_match(season):
         cand_num = db.session.query(Match).filter(Match.season_num == season, Match.game_round == idx)[0]
         candA_num = cand_num.candidate_A_count
         candB_num = cand_num.candidate_B_count
-        if candA_num > candB_num:
+        if int(candA_num) >= int(candB_num):
             winner = cand_num.candidate_A_namename
+            new_cand.append(winner)
             # winner = unicode(winner, 'utf-8')
         else:
             winner = cand_num.candidate_B_namename
             # winner = unicode(winner, 'utf-8')
+            new_cand.append(winner)
 
     random.shuffle(new_cand)
-
+    my_iter = 0
     for idx in xrange(0, len(new_cand), 2):
         my_match = Match(
             season_num=int(season / 2),
-            game_round=idx,
+            game_round=my_iter,
             candidate_A_namename=new_cand[idx],
             candidate_B_namename=new_cand[idx + 1],
         )
+        my_iter += 1
         db.session.add(my_match)
         db.session.commit()
 
