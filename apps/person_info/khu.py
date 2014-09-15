@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-<<<<<<< HEAD
-
-=======
->>>>>>> 47851ed75ac2b8c57e4e76e3ab26badddf74ad86
 import random
 teachers = [
     ["김지호", "경희대 한의예과", "/members/khu/t1.jpg", "한의학 + 프로그래밍 = 듀얼마스터"],
