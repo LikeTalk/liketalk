@@ -18,6 +18,60 @@ def chunk(mylist):
     return [list(x) for x in temp]
 
 
+@app.route('/newnew_input')
+def newnew():
+    # return "\n".join( [ student[0] for student in  kaist.students] )
+    ajou_info = [st for st in ajou.students] + [tc for tc in ajou.teachers]
+    gachon_info = [st for st in gachon.students] + [tc for tc in gachon.teachers]
+    hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
+    kaist_info = [st for st in kaist.students] + [tc for tc in kaist.teachers]
+    khu_info = [st for st in khu.students] + [tc for tc in khu.teachers]
+    mju_info = [st for st in mju.students] + [tc for tc in mju.teachers]
+    sejong_info = [st for st in sejong.students] + [tc for tc in sejong.teachers]
+    snu_yonseig_info = [st for st in snu_yonsei.students] + [tc for tc in snu_yonsei.teachers]
+    ssu_info = [st for st in ssu.students] + [tc for tc in ssu.teachers]
+    uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
+
+    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info
+    #random.shuffle(all_info)
+
+    idx = 0
+    for each_member in all_info:
+        dummy = "o"
+        season = 0
+        name = each_member[0]
+        school = each_member[1]
+        photo_link = each_member[2]
+
+        each_match = Match(
+            season_num = 0,
+            game_round = idx,
+            candidate_A_namename=name,
+            candidate_A_photolink=photo_link,
+            candidate_A_school=school,
+            candidate_B_namename= dummy,
+            candidate_B_photolink = dummy,
+            candidate_B_school = dummy
+        )
+        db.session.add(each_match)
+        db.session.commit()
+        idx += 1
+
+
+
+# 뭐하지?
+'''
+1. 유저가 로그인을 했습니다.
+2. 32명을 랜덤으로 뿌려줌 ㅋㅋ
+'''
+
+
+
+
+
+
+
+
 # 한 번 들어가면 season을 입력시켜준다.
 @app.route('/input_match')
 def input_match():
