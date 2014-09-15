@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
+<<<<<<< HEAD
 
+=======
+>>>>>>> 47851ed75ac2b8c57e4e76e3ab26badddf74ad86
 import random
 
 teachers = [
     ["박재영", "서울시립대 컴퓨터과학부", "/members/uos/t1.jpg", "취직했으나, 입사 포기하고 멋사 진행중."],
     ["박건수", "서울시립대 컴퓨터과학부", "/members/uos/t2.jpg", "멘붕 장인"],
     ["조인행", "서울시립대 컴퓨터과학부", "/members/uos/t3.jpg", "전략적인 선택이군요, 멋쟁이사자님"]
-  ]
+]
 
 students = [
     ["곽재만", "서울시립대 도시행정학과", "/members/uos/s1.jpg"],
@@ -28,7 +31,7 @@ students = [
     ["최용현", "서울시립대 경영학부", "/members/uos/s17.jpg"],
     ["최철헌", "서울시립대 컴퓨터과학부", "/members/uos/s18.jpg"],
     ["최태림", "서울시립대 경영학부", "/members/uos/s19.jpg"]
-  ]
+]
 
 random.shuffle(teachers)
 random.shuffle(students)

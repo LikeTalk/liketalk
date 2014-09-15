@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import json
 from flask import render_template, request, redirect, url_for, flash, session, g, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy import desc, asc
@@ -129,8 +130,64 @@ def test():
     )
     db.session.add(this_game)
     db.session.commit()
-
     return jsonify(next_data = next_data)
+
+
+
+@app.route('/testtest')
+def testest():
+    return "\n".join([student[0] for student in uos.students])
+
+
+@app.route('/match_data', methods=['GET'])
+def match_data():
+    r = [
+        [
+            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1, "displaySeed": "D1", "score": 47},
+             {"name": "Andrew Miller", "id": "andrew-miller", "seed": 2}],
+            [{"name": "James Coutry", "id": "james-coutry", "seed": 3},
+             {"name": "Sam Merrill", "id": "sam-merrill", "seed": 4}],
+            [{"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5},
+             {"name": "Everett Zettersten", "id": "everett-zettersten", "seed": 6}],
+            [{"name": "John Scott", "id": "john-scott", "seed": 7},
+             {"name": "Teddy Koufus", "id": "teddy-koufus", "seed": 8}],
+            [{"name": "Arnold Palmer", "id": "arnold-palmer", "seed": 9},
+             {"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10}],
+            [{"name": "Jesse James", "id": "jesse-james", "seed": 1},
+             {"name": "Scott Anderson", "id": "scott-anderson", "seed": 12}],
+            [{"name": "Josh Groben", "id": "josh-groben", "seed": 13},
+             {"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14}],
+            [{"name": "Jake Coutry", "id": "jake-coutry", "seed": 15},
+             {"name": "Spencer Zettersten", "id": "spencer-zettersten", "seed": 16}]
+        ],
+        [
+            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
+             {"name": "James Coutry", "id": "james-coutry", "seed": 3}],
+            [{"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5},
+             {"name": "Teddy Koufus", "id": "teddy-koufus", "seed": 8}],
+            [{"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10},
+             {"name": "Scott Anderson", "id": "scott-anderson", "seed": 12}],
+            [{"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14},
+             {"name": "Jake Coutry", "id": "jake-coutry", "seed": 15}]
+        ],
+        [
+            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
+             {"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5}],
+            [{"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10},
+             {"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14}]
+        ],
+        [
+            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
+             {"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10}]
+        ],
+        [
+            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1}]
+        ]
+    ]
+
+    # return jsonify(name = "Erik", id = "erik", seed = 1)
+    return json.dumps(r)
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -165,8 +222,10 @@ def before_request():
 
 def check_user_match(user_email):
     # user_id 은 로그인한 유저의 아이디
+
     user_game_history = GameHistory.query.order_by(asc(GameHistory.done_game)).filter(
         GameHistory.user_email == user_email).all()
+
     # Return 값은 List of dictionaries
 
     user_new_history = []
@@ -192,15 +251,18 @@ def check_user_match(user_email):
 
 @app.route('/main', methods=['GET', 'POST'])
 def match():
-    if g.user_email == None:
+
+    if g.user_email is None:
         flash(u'로그인 후에 이용해주세요', 'danger')
         return redirect(url_for('login'))
     else:
+
         match_id = check_user_match(g.user_email)
         #flash(match_id)
         player_game = Match.query.filter(Match.game_round == match_id).all()
         player_game = player_game[0]
-        # player_game= db.session.query(Match).filter_by(Match.game_round == match_id)
+
+        comments = Comment.query.order_by(asc(Comment.date_created)).all()
 
         next_data = {}
         next_data['Aphoto'] = player_game.candidate_A_photolink
@@ -209,7 +271,7 @@ def match():
         next_data['Bname'] = player_game.candidate_B_namename
 
 
-        return render_template("home.html", player_game=player_game, active_tab="match")
+        return render_template("home.html", player_game=player_game, active_tab="match", comments = comments)
 
 
 '''
@@ -244,13 +306,11 @@ def vote(matnum, candnum):
     elif candnum == 2:
         this_match.candidate_B_count += 1
 
-
     # 유저가 이 게임을 했다.
     this_game = GameHistory(
         user_email=g.user_email,
         done_game=matnum
     )
-
     db.session.add(this_game)
     db.session.commit()
 
@@ -315,4 +375,14 @@ def candidate():
         return render_template("candidate_page.html", active_tab="candidate")
 
 
+@app.route('/comment/create', methods=['GET', 'POST'])
+def comment_create():
+    if request.method == 'POST':
+        comment = Comment(
+            content=request.form['content']
+        )
+        db.session.add(comment)
+        db.session.commit()
+        return redirect(url_for('match'))
+    return render_template('home.html')
 

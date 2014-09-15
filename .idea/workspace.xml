@@ -2,221 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fccc03fa-89c9-403c-8b83-0bbe3d8cc1f0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s17.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s18.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s19.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s20.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s21.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/s9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/t1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/t2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/t3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ajou/t4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/gachon.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/gachon/s11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/gachon/s2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/gachon/s3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/gachon/s5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/gachon/s6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/gachon/s7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/gachon/s8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/gachon/s9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/gachon/t1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/gachon/t2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/gachon/t3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang/s1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang/s10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang/s11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang/s12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang/s2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang/s3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang/s4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang/s5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang/s6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang/s7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang/s8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang/s9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang/t1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/hanyang/t2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/kaist.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/kaist/s1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/kaist/s10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/kaist/s11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/kaist/s2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/kaist/s3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/kaist/s4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/kaist/s5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/kaist/s6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/kaist/s7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/kaist/s8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/kaist/s9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/kaist/t1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/kaist/t2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/khu.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/khu/s1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/khu/s2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/khu/s3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/khu/s4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/khu/s5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/khu/s6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/khu/t1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/khu/t2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/s10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/s11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/s12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/s13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/s14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/s15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/s2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/s3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/s4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/s5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/s6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/s7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/s8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/s9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/t1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/t2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/t3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/t4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/korea/t5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/s9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/t1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/t2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/t3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/t4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/mju/t5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/s1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/s10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/s11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/s12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/s13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/s2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/s3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/s4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/s5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/s6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/s7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/s8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/s9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/t1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/t2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/t3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/sejong/t4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s0.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s17.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s18.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s19.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/s9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/t1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/t2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/t3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/snu_yonsei/t4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ssu-temp.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ssu.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ssu/s1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ssu/s10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ssu/s2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ssu/s3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ssu/s4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ssu/s5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ssu/s6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ssu/s8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ssu/s9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ssu/t1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ssu/t2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/ssu/t3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s11.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s12.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s13.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s14.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s15.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s16.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s17.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s18.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s19.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/s9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/t1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/t2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/likelion_photo-master/uos/t3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/migrations/versions/54b7c30dee9a_.py" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/static/js/jquery.gracket.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/static/js/jquery.gracket.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/apps/static/js/test.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/templates/home_hs.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/views_hs.py" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/apps/templates/tournament.html" afterPath="$PROJECT_DIR$/apps/templates/tournament1.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/person_info/ajou.py" afterPath="$PROJECT_DIR$/apps/person_info/ajou.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/static/js/base.js" afterPath="$PROJECT_DIR$/apps/static/js/base.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.yaml" afterPath="$PROJECT_DIR$/app.yaml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/templates/base.html" afterPath="$PROJECT_DIR$/apps/templates/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/person_info/gachon.py" afterPath="$PROJECT_DIR$/apps/person_info/gachon.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/person_info/hanyang.py" afterPath="$PROJECT_DIR$/apps/person_info/hanyang.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/templates/home.html" afterPath="$PROJECT_DIR$/apps/templates/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/templates/home_hs.html" afterPath="$PROJECT_DIR$/apps/templates/home_hs.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/person_info/kaist.py" afterPath="$PROJECT_DIR$/apps/person_info/kaist.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/person_info/khu.py" afterPath="$PROJECT_DIR$/apps/person_info/khu.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/person_info/korea.py" afterPath="$PROJECT_DIR$/apps/person_info/korea.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/templates/user/login.html" afterPath="$PROJECT_DIR$/apps/templates/user/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/static/js/main.js" afterPath="$PROJECT_DIR$/apps/static/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/person_info/mju.py" afterPath="$PROJECT_DIR$/apps/person_info/mju.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/models.py" afterPath="$PROJECT_DIR$/apps/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/templates/navbar.html" afterPath="$PROJECT_DIR$/apps/templates/navbar.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/person_info/sejong.py" afterPath="$PROJECT_DIR$/apps/person_info/sejong.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/person_info/snu_yonsei.py" afterPath="$PROJECT_DIR$/apps/person_info/snu_yonsei.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/person_info/ssu.py" afterPath="$PROJECT_DIR$/apps/person_info/ssu.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/templates/tournament.html" afterPath="$PROJECT_DIR$/apps/templates/tournament.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/person_info/uos.py" afterPath="$PROJECT_DIR$/apps/person_info/uos.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/views.py" afterPath="$PROJECT_DIR$/apps/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -242,117 +48,84 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-              <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-              <folding>
-                <element signature="e#30#53#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.yaml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
-              <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appengine_config.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/appengine_config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="450">
-              <caret line="19" column="66" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/static/js/main.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1174" max-vertical-offset="1650">
-              <caret line="85" column="2" selection-start-line="85" selection-start-column="2" selection-end-line="85" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/static/js/base.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="825">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31034482" vertical-offset="3720" max-vertical-offset="4860">
-              <caret line="257" column="0" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
-              <folding>
-                <element signature="e#24#113#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/templates/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.78" vertical-offset="1494" max-vertical-offset="2160">
-              <caret line="77" column="223" selection-start-line="77" selection-start-column="223" selection-end-line="77" selection-end-column="223" />
-              <folding>
-                <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="candidate_list.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/templates/candidate_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="7875">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/templates/user/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.125" vertical-offset="105" max-vertical-offset="570">
-              <caret line="28" column="123" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="123" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="570">
+              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requirements.txt" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2925" max-vertical-offset="5910">
+              <caret line="312" column="5" selection-start-line="312" selection-start-column="5" selection-end-line="312" selection-end-column="5" />
               <folding>
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#24#35#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="candidate_page.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/templates/candidate_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="5.7083335" vertical-offset="137" max-vertical-offset="870">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/templates/home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.637931" vertical-offset="0" max-vertical-offset="2520">
+              <caret line="76" column="50" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tournament1.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/templates/tournament1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="5.0" vertical-offset="120" max-vertical-offset="2130">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tournament.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/templates/tournament.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="900">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -378,7 +151,6 @@
         <option value="$PROJECT_DIR$/apps/templates/index.html" />
         <option value="$PROJECT_DIR$/app.yaml" />
         <option value="$PROJECT_DIR$/apps/settings.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/apps/templates/login.html" />
         <option value="$PROJECT_DIR$/manager.py" />
         <option value="$PROJECT_DIR$/migrations/versions/35ebdc8b5620_.py" />
@@ -408,6 +180,7 @@
         <option value="$PROJECT_DIR$/apps/templates/user/login.html" />
         <option value="$PROJECT_DIR$/apps/static/js/main.js" />
         <option value="$PROJECT_DIR$/apps/templates/home.html" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/apps/views.py" />
       </list>
     </option>
@@ -472,7 +245,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="migrations" />
+              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -505,68 +278,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="liketalk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="liketalk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="liketalk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="liketalk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="liketalk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="liketalk" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -584,6 +295,7 @@
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="recentsLimit" value="5" />
     <property name="LayoutCode.rearrangeEntriesPython" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -810,16 +522,16 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24926901" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286445" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286445" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919255" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -848,13 +560,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/apps/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="150">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/templates/messages.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="300">
@@ -866,7 +571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="465">
           <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -874,7 +578,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="525">
           <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -889,59 +592,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="510">
-          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/static/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="150">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/templates/messages.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="300">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="465">
-          <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="525">
-          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="405">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -980,14 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="285">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Google-drive/github/1.LikeLion-Webservice_Project/2.Project/0.Mini_Blog_Login/450543c72d08.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="555">
@@ -999,7 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="660">
           <caret line="10" column="24" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,23 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/person_info/gachon.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/person_info/khu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1038,7 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
           <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1046,15 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
           <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/person_info/sejong.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="777">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,7 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="777">
           <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1070,7 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="764">
           <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,7 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
           <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1086,47 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="777">
           <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/person_info/hanyang.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/person_info/ajou.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/templates/home_hs.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2400">
-          <caret line="0" column="4" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/views_hs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.759947" vertical-offset="2081" max-vertical-offset="2850">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/person_info/kaist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
-          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1134,15 +704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="285">
           <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/templates/user/join.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1150,15 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="315">
           <caret line="11" column="97" selection-start-line="11" selection-start-column="97" selection-end-line="11" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="58" max-vertical-offset="705">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1166,9 +718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="474">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1176,7 +725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
           <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1184,76 +732,179 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
           <caret line="10" column="23" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-          <folding>
-            <element signature="e#30#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/templates/user/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.125" vertical-offset="105" max-vertical-offset="570">
-          <caret line="28" column="123" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="123" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/templates/candidate_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7875">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="450">
+        <state vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="450">
           <caret line="19" column="66" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
-          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/person_info/ajou.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
+          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/static/members/ajou/s12.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/static/members/ajou/s2.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/person_info/sejong.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="777">
+          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/templates/candidate_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="11.875" vertical-offset="285" max-vertical-offset="7875">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/person_info/kaist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
+          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/person_info/khu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
+          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/person_info/hanyang.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
+          <caret line="0" column="23" selection-start-line="0" selection-start-column="23" selection-end-line="0" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/person_info/gachon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/static/members/ajou/s1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/static/members/ajou/s7.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/static/members/ajou/s13.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/static/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1174" max-vertical-offset="1650">
+        <state vertical-scroll-proportion="1.7160162" vertical-offset="0" max-vertical-offset="1650">
           <caret line="85" column="2" selection-start-line="85" selection-start-column="2" selection-end-line="85" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/static/js/base.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="825">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state vertical-scroll-proportion="-0.071428575" vertical-offset="69" max-vertical-offset="825">
+          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/static/members/ajou/s18.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/templates/user/join.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="754">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/templates/user/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="570">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/templates/home.html">
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.78" vertical-offset="1494" max-vertical-offset="2160">
-          <caret line="77" column="223" selection-start-line="77" selection-start-column="223" selection-end-line="77" selection-end-column="223" />
-          <folding>
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#1;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="705">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/templates/tournament1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.0" vertical-offset="120" max-vertical-offset="2130">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/templates/tournament.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="900">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/templates/candidate_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.7083335" vertical-offset="137" max-vertical-offset="870">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31034482" vertical-offset="3720" max-vertical-offset="4860">
-          <caret line="257" column="0" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2925" max-vertical-offset="5910">
+          <caret line="312" column="5" selection-start-line="312" selection-start-column="5" selection-end-line="312" selection-end-column="5" />
           <folding>
-            <element signature="e#24#113#0" expanded="true" />
+            <element signature="e#24#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/templates/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.637931" vertical-offset="0" max-vertical-offset="2520">
+          <caret line="76" column="50" selection-start-line="76" selection-start-column="50" selection-end-line="76" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>

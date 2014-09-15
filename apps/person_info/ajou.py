@@ -2,11 +2,12 @@
 import random
 
 teachers = [
-    ["김진오", "아주대 미디어학과",       "/members/ajou/t1.jpg", "게으르지만 열심히 하고 싶은 꼬마 프로그래머"],
+    ["김진오", "아주대 미디어학과",       "/members/ajou/t1.jpg",
+        "게으르지만 열심히 하고 싶은 꼬마 프로그래머"],
     ["박순영", "아주대 미디어학과",       "/members/ajou/t2.jpg", "전 서서도 잠을 잘 수 있습니다."],
     ["어수웅", "아주대 정보컴퓨터공학과", "/members/ajou/t3.jpg", "Null point exception"],
     ["최경철", "아주대 미디어학과",       "/members/ajou/t4.jpg", "자아정체성 혼란 디자이너"]
-  ]
+]
 
 
 students = [
@@ -31,7 +32,7 @@ students = [
     ["김재은", "아주대 미디어학과",         "/members/ajou/s19.jpg"],
     ["주정은", "아주대 심리학과",           "/members/ajou/s20.jpg"],
     ["김도아", "아주대 심리학과",           "/members/ajou/s21.jpg"]
-  ]
+]
 
 random.shuffle(teachers)
 random.shuffle(students)

@@ -1,10 +1,15 @@
 # -*- coding: utf-8 -*-
+<<<<<<< HEAD
 
+=======
+>>>>>>> 47851ed75ac2b8c57e4e76e3ab26badddf74ad86
 import random
 
 teachers = [
-    ["이태우", "KAIST 전산학과", "/members/kaist/t1.jpg", "Indentation Error"],  # 마지막에 쉼표 잊지 마시고
-    ["김동우", "KAIST 전산학과", "/members/kaist/t2.jpg", "Syntax Error"]  #여기도 마지막에 쉼표 잊지 마시고
+    # 마지막에 쉼표 잊지 마시고
+    ["이태우", "KAIST 전산학과", "/members/kaist/t1.jpg", "Indentation Error"],
+    #여기도 마지막에 쉼표 잊지 마시고
+    ["김동우", "KAIST 전산학과", "/members/kaist/t2.jpg", "Syntax Error"]
 ]
 
 students = [

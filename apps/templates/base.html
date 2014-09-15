@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="ko-kr">
 <head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>멋쟁이 사자처럼 인기투표</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
 
-    
+    {% block scripts %}
+    <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.gracket.min.js') }}"></script>
+
+    {% endblock %}
+
 
     {% block favicon %}
         <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}"/>
@@ -16,10 +24,5 @@
 <body>
 {% block layout %}{% endblock %}
 
-{% block scripts %}
-    <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
-{% endblock %}
 </body>
 </html>

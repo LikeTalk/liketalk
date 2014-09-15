@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
+<<<<<<< HEAD
 
+=======
+>>>>>>> 47851ed75ac2b8c57e4e76e3ab26badddf74ad86
 import random
 
 teachers = [
@@ -21,5 +24,3 @@ students = [
 
 random.shuffle(teachers)
 random.shuffle(students)
-
-

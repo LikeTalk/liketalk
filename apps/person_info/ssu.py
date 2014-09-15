@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
+<<<<<<< HEAD
 
+=======
+>>>>>>> 47851ed75ac2b8c57e4e76e3ab26badddf74ad86
 import random
 
 teachers = [
-    ["김종찬", "숭실대 컴퓨터학부", "/members/ssu/t1.jpg", "Tech and Tech of Passion will change this world."],  # 마지막에 쉼표 잊지 마시고
-    ["김진아", "단국대 컴퓨터학부", "/members/ssu/t2.jpg", "실행이 답이다"],  #여기도 마지막에 쉼표 잊지 마시고
-    ["황성현", "성균관대 소프트웨어학과", "/members/ssu/t3.jpg", "sunghyun.kitchen"]  #마지막 element는 쉼표로 끝나지 않음
+    ["김종찬", "숭실대 컴퓨터학부", "/members/ssu/t1.jpg",
+        "Tech and Tech of Passion will change this world."],
+    ["김진아", "단국대 컴퓨터학부", "/members/ssu/t2.jpg", "실행이 답이다"],
+    ["황성현", "성균관대 소프트웨어학과", "/members/ssu/t3.jpg", "sunghyun.kitchen"]
 ]
 
 students = [

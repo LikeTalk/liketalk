@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
+<<<<<<< HEAD
 
+=======
+>>>>>>> 47851ed75ac2b8c57e4e76e3ab26badddf74ad86
 import random
 
 teachers = [
-    ["김상선", "명지대 컴퓨터공학과", "/members/mju/t1.jpg", "나는 수업중이다."], #마지막에 쉼표 잊지 마시고
-    ["이상준", "명지대 컴퓨터공학과", "/members/mju/t2.jpg", "나도 수업중이다."], #여기도 마지막에 쉼표 잊지 마시고
-    ["박세진", "명지대 컴퓨터공학과", "/members/mju/t3.jpg", "멋쟁이 사자로 만들어 드립니다."], #여기도 마지막에 쉼표 잊지 마시고
-    ["신승수", "명지대 컴퓨터공학과", "/members/mju/t4.jpg", "제 글까지 보고있다니...심심하신가 봅니다."], #여기도 마지막에 쉼표 잊지 마시고
-    ["최인용", "명지대 컴퓨터공학과", "/members/mju/t5.jpg", "Syntax Error"] #마지막 element는 쉼표로 끝나지 않음
-  ]
+    ["김상선", "명지대 컴퓨터공학과", "/members/mju/t1.jpg", "나는 수업중이다."],
+    ["이상준", "명지대 컴퓨터공학과", "/members/mju/t2.jpg", "나도 수업중이다."],
+    ["박세진", "명지대 컴퓨터공학과", "/members/mju/t3.jpg", "멋쟁이 사자로 만들어 드립니다."],
+    ["신승수", "명지대 컴퓨터공학과", "/members/mju/t4.jpg",
+        "제 글까지 보고있다니...심심하신가 봅니다."],
+    ["최인용", "명지대 컴퓨터공학과", "/members/mju/t5.jpg", "Syntax Error"]
+]
 
 students = [
     ["박상현", "명지대 디지털미디어학과", "/members/mju/s1.jpg"],
@@ -26,8 +30,7 @@ students = [
     ["송수연", "명지대 전공자유학부", "/members/mju/s13.jpg"],
     ["신지원", "명지대 전공자유학부", "/members/mju/s14.jpg"],
     ["권미정", "안양대 영어영문학과", "/members/mju/s15.jpg"]
-  ]
+]
 
 random.shuffle(teachers)
 random.shuffle(students)
-

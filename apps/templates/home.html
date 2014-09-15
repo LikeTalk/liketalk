@@ -124,16 +124,40 @@
 	</div>
 </div>
 
-
 <div class="panel panel-danger">
-	<div class=panel-heading>
-		<h1 class="text-center"> 응원글</h1>
-	</div>
-	<br>
-	<div class=panel-body>
-		<p> blahblah </p>
-	</div>
+    <div class=panel-heading>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="cand_A" value={{ True }}>{{ matchinfo.match.candidate_A_namename }}</input>
+                <input type="checkbox" name="cand_B" value={{ True }}>{{ matchinfo.match.candidate_B_namename }}</input>
+            </label>
+        </div>
+        <div class="llCommentCreate">
+                <form action="{{ url_for('comment_create') }}" role="form" method="post">
+                        <textarea class="text required form-control" name="content" cols="40" placeholder=" 댓 글 댓 글 댓 글 댓 글 댓 글 " required="required" rows="3" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 73px;"></textarea>
+            <button class="btn" name="comment_btn" type="submit" value="POST">댓글</button>
+        </div>
+        <br>
+    </div>
+    <div class=panel-body>
+        <div class="llCommentList">
+            {% if comments %}
+                {% for comment in comments %}
+                    <div class="well well-sm">
+                        <span class="badge">익명{{ loop.index }}</span> {{ comment.content.decode('utf-8') }}
+                        <span class="float-right">
+                            <small>
+                               <em style="float: right">{{ comment.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</em>
+                            </small>
+                        </span>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
 
 </div>
+
 
 {% endblock %}
