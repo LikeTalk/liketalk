@@ -251,7 +251,6 @@ def check_user_match(user_email):
 
 @app.route('/main', methods=['GET', 'POST'])
 def match():
-
     if g.user_email is None:
         flash(u'로그인 후에 이용해주세요', 'danger')
         return redirect(url_for('login'))
