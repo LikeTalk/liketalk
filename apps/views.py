@@ -10,7 +10,7 @@ from apps.models import User, Comment, Match, Candidate, GameHistory
 import random
 import math
 from itertools import count, izip
-from person_info import uos, ajou, gachon, hanyang, kaist, khu, korea, mju, sejong, snu_yonsei, ssu
+from person_info import uos, ajou, gachon, hanyang, kaist, khu, korea, mju, sejong, snu_yonsei, ssu, teacher
 
 
 def chunk(mylist):
@@ -56,6 +56,111 @@ def newnew():
         db.session.add(each_match)
         db.session.commit()
         idx += 1
+
+
+# Candidate DB에 선수들을 다 집어넣는 함수
+@app.route('/total_allinone')
+def all_in():
+    ajou_info = [st for st in ajou.students] + [tc for tc in ajou.teachers]
+    gachon_info = [st for st in gachon.students] + [tc for tc in gachon.teachers]
+    hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
+    kaist_info = [st for st in kaist.students] + [tc for tc in kaist.teachers]
+    khu_info = [st for st in khu.students] + [tc for tc in khu.teachers]
+    mju_info = [st for st in mju.students] + [tc for tc in mju.teachers]
+    sejong_info = [st for st in sejong.students] + [tc for tc in sejong.teachers]
+    snu_yonseig_info = [st for st in snu_yonsei.students] + [tc for tc in snu_yonsei.teachers]
+    ssu_info = [st for st in ssu.students] + [tc for tc in ssu.teachers]
+    uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
+    master_info = [tc for tc in teacher.master]
+
+    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info + master_info
+
+    for each_member in all_info:
+        name = each_member[0]
+        school = each_member[1]
+        photo_link = each_member[2]
+
+        member = Candidate(
+            name = name,
+            photolink = photo_link,
+            school = school
+        )
+
+        db.session.add(member)
+        db.session.commit()
+
+
+# Candidate DB에서 꺼내와서 선수들을 그룹별로 집어넣는 함수
+@app.route('/group_likelion')
+def grouping():
+    ajou_info = [st for st in ajou.students] + [tc for tc in ajou.teachers]
+    gachon_info = [st for st in gachon.students] + [tc for tc in gachon.teachers]
+    hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
+    kaist_info = [st for st in kaist.students] + [tc for tc in kaist.teachers]
+    khu_info = [st for st in khu.students] + [tc for tc in khu.teachers]
+    mju_info = [st for st in mju.students] + [tc for tc in mju.teachers]
+    sejong_info = [st for st in sejong.students] + [tc for tc in sejong.teachers]
+    snu_yonseig_info = [st for st in snu_yonsei.students] + [tc for tc in snu_yonsei.teachers]
+    ssu_info = [st for st in ssu.students] + [tc for tc in ssu.teachers]
+    uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
+    master_info = [tc for tc in teacher.master]
+
+    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info + master_info
+
+    # 이렇게 불러오는거야 ㅋㅋㅋ
+    #candidate_members = Candidate.query.all()
+    #candidate_members[0].photolink
+
+    candidate_members = Candidate.query.all()
+    random.shuffle(candidate_members)
+    candidate_members = candidate_members[:160]
+    candidate_members = chunk(candidate_members)
+
+    idx = 0
+
+    for each_pair in candidate_members:
+        A = each_pair[0]
+        B = each_pair[1]
+
+        nameA = A.name
+        orgA = A.school
+        photoA = A.photolink
+
+        nameB = B.name
+        orgB = B.school
+        photoB = B.photolink
+
+        if idx < 32:
+            game_group = "A"
+        elif idx <= 32 and idx < 64:
+            game_group = "B"
+        elif idx <= 64 and idx < 96:
+            game_group = "C"
+        elif idx <= 96 and idx < 128:
+            game_group = "D"
+        #elif idx <= 128 and idx < 160:
+        else:
+            game_group = "E"
+
+        my_match = Match(
+            season_num=32,
+            game_round=idx,
+            candidate_A_namename=nameA,
+            candidate_A_photolink=photoA,
+            candidate_A_school=orgA,
+            candidate_B_namename=nameB,
+            candidate_B_photolink=photoB,
+            candidate_B_school=orgB,
+            group = game_group
+        )
+        db.session.add(my_match)
+        db.session.commit()
+        idx += 1
+
+
+
+
+
 
 
 
