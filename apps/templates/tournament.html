@@ -26,11 +26,11 @@
 {% block contents %}
 <div class="panel panel-danger">
   <div class=panel-heading>
-    <button> Group A</button>
-    <button> Group B</button>
-    <button> Group C</button>
-    <button> Group D</button>
-    <button> Group E</button>
+    <a class="group-btn btn btn-default" param="0" role="button">Group A</a>
+    <a class="group-btn btn btn-default" param="1" role="button"> Group B</a>
+    <a class="group-btn btn btn-default" param="2" role="button"> Group C</a>
+    <a class="group-btn btn btn-default" param="3" role="button"> Group D</a>
+    <a class="group-btn btn btn-default" param="4" role="button"> Group E</a>
 
   </div>
 	<!-- empty gracket element -->
@@ -38,13 +38,22 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			
-			$.getJSON('/match_data', function(data) {
-                  
+			$.getJSON('/match_data/0', function(data) {
                   $(".my_gracket").gracket({ src : data });
 
                 });
-			
+	
+			$('.group-btn').click(function() {
+				var param = $(this).attr('param');
+				console.log(param);
+				$.getJSON('/match_data/'+param, function(data) {
+                  $(".my_gracket").text('');
+                  $(".my_gracket").gracket({ src : data });
+
+                });
+	
+			});
+					
 		});
 	</script>
 </div>
