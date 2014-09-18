@@ -586,9 +586,9 @@ def match_B():
         player_game = Match.query.filter(Match.group == 2, Match.game_round == match_id[1]).all()
         player_game = player_game[0]
 
-        comments = Comment.query.order_by(asc(Comment.date_created)).all()
+        comments = Comment.query.filter(Comment.match_id == match_id[1]).order_by(asc(Comment.date_created)).all()
 
-        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments)
+        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments, match_id = match_id[1])
 
 
 @app.route('/main/C', methods=['GET', 'POST'])
@@ -601,9 +601,9 @@ def match_C():
         player_game = Match.query.filter(Match.group == 3, Match.game_round == match_id[2]).all()
         player_game = player_game[0]
 
-        comments = Comment.query.order_by(asc(Comment.date_created)).all()
+        comments = Comment.query.filter(Comment.match_id == match_id[2]).order_by(asc(Comment.date_created)).all()
 
-        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments)
+        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments, match_id = match_id[2])
 
 
 @app.route('/main/D', methods=['GET', 'POST'])
@@ -616,9 +616,9 @@ def match_D():
         player_game = Match.query.filter(Match.group == 4, Match.game_round == match_id[3]).all()
         player_game = player_game[0]
 
-        comments = Comment.query.order_by(asc(Comment.date_created)).all()
+        comments = Comment.query.filter(Comment.match_id == match_id[3]).order_by(asc(Comment.date_created)).all()
 
-        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments)
+        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments, match_id = match_id[3])
 
 
 @app.route('/main/E', methods=['GET', 'POST'])
@@ -633,9 +633,9 @@ def match_E():
         player_game = Match.query.filter(Match.group == 5, Match.game_round == match_id[4]).all()
         player_game = player_game[0]
 
-        comments = Comment.query.order_by(asc(Comment.date_created)).all()
+        comments = Comment.query.filter(Comment.match_id == match_id[4]).order_by(asc(Comment.date_created)).all()
 
-        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments)
+        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments, match_id = match_id[4])
 
 
 @app.route('/main', methods=['GET', 'POST'])
