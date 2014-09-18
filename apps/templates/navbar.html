@@ -7,10 +7,13 @@
             <li {% if active_tab == 'match' %} class="active"{% endif %}><a href="{{ url_for('match') }}">오늘의 투표</a></li>
             <li{% if active_tab == 'tournament' %} class ="active"{% endif %}><a href="{{url_for('tournament')}}">대진표 및 결과</a></li>
             <li{% if active_tab == 'candidate_list' %} class ="active"{% endif %}><a href="{{url_for('candidate_list')}}">조별 그룹</a></li>
-             <li{% if active_tab == 'candidate' %} class ="active"{% endif %}><a href="{{url_for('candidate')}}">한명한명 보기</a></li>
-            <li{% if active_tab == 'log_in' %} class ="active"{% endif %}><a href="{{url_for('user_join')}}">회원가입 </a></li>
-            <li{% if active_tab == 'log_in' %} class ="active"{% endif %}><a href="{{url_for('login')}}">로그인 </a></li>
-            <li{% if active_tab == 'log_out' %} class ="active"{% endif %}><a href="{{url_for('log_out')}}">로그아웃 </a></li>
+
+            {% if g.user_email != None %}
+            <li>{{ g.user_email }} 님 안녕하세요. <a href = "{{ url_for('log_out')}}"> 로그아웃 </a></li>
+            {% else %}
+            <li {% if active_tab == 'log_in' %} class="active" {% endif %}><a href="{{ url_for('login')}}"> 로그인</a> </li>
+            <li {% if active_tab == 'user_join' %} class ="active"{% endif %}><a href="{{url_for('user_join')}}">회원가입 </a></li>
+            {% endif %}
         </ul>
     </div>
 </nav>

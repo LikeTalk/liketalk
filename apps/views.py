@@ -22,18 +22,24 @@ def chunk(mylist):
 def newnew():
     # return "\n".join( [ student[0] for student in  kaist.students] )
     ajou_info = [st for st in ajou.students] + [tc for tc in ajou.teachers]
-    gachon_info = [st for st in gachon.students] + [tc for tc in gachon.teachers]
-    hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
+    gachon_info = [st for st in gachon.students] + \
+        [tc for tc in gachon.teachers]
+    hanyang_info = [st for st in hanyang.students] + \
+        [tc for tc in hanyang.teachers]
     kaist_info = [st for st in kaist.students] + [tc for tc in kaist.teachers]
     khu_info = [st for st in khu.students] + [tc for tc in khu.teachers]
     mju_info = [st for st in mju.students] + [tc for tc in mju.teachers]
-    sejong_info = [st for st in sejong.students] + [tc for tc in sejong.teachers]
-    snu_yonseig_info = [st for st in snu_yonsei.students] + [tc for tc in snu_yonsei.teachers]
+    sejong_info = [st for st in sejong.students] + \
+        [tc for tc in sejong.teachers]
+    snu_yonseig_info = [st for st in snu_yonsei.students] + [
+        tc for tc in snu_yonsei.teachers]
     ssu_info = [st for st in ssu.students] + [tc for tc in ssu.teachers]
     uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
 
-    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info
-    #random.shuffle(all_info)
+    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + \
+        khu_info + mju_info + sejong_info + \
+        snu_yonseig_info + ssu_info + uos_info
+    # random.shuffle(all_info)
 
     idx = 0
     for each_member in all_info:
@@ -44,19 +50,18 @@ def newnew():
         photo_link = each_member[2]
 
         each_match = Match(
-            season_num = 0,
-            game_round = idx,
+            season_num=0,
+            game_round=idx,
             candidate_A_namename=name,
             candidate_A_photolink=photo_link,
             candidate_A_school=school,
-            candidate_B_namename= dummy,
-            candidate_B_photolink = dummy,
-            candidate_B_school = dummy
+            candidate_B_namename=dummy,
+            candidate_B_photolink=dummy,
+            candidate_B_school=dummy
         )
         db.session.add(each_match)
         db.session.commit()
         idx += 1
-
 
 
 # 뭐하지?
@@ -66,28 +71,28 @@ def newnew():
 '''
 
 
-
-
-
-
-
-
 # 한 번 들어가면 season을 입력시켜준다.
 @app.route('/input_match')
 def input_match():
     # return "\n".join( [ student[0] for student in  kaist.students] )
     ajou_info = [st for st in ajou.students] + [tc for tc in ajou.teachers]
-    gachon_info = [st for st in gachon.students] + [tc for tc in gachon.teachers]
-    hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
+    gachon_info = [st for st in gachon.students] + \
+        [tc for tc in gachon.teachers]
+    hanyang_info = [st for st in hanyang.students] + \
+        [tc for tc in hanyang.teachers]
     kaist_info = [st for st in kaist.students] + [tc for tc in kaist.teachers]
     khu_info = [st for st in khu.students] + [tc for tc in khu.teachers]
     mju_info = [st for st in mju.students] + [tc for tc in mju.teachers]
-    sejong_info = [st for st in sejong.students] + [tc for tc in sejong.teachers]
-    snu_yonseig_info = [st for st in snu_yonsei.students] + [tc for tc in snu_yonsei.teachers]
+    sejong_info = [st for st in sejong.students] + \
+        [tc for tc in sejong.teachers]
+    snu_yonseig_info = [st for st in snu_yonsei.students] + [
+        tc for tc in snu_yonsei.teachers]
     ssu_info = [st for st in ssu.students] + [tc for tc in ssu.teachers]
     uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
 
-    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info
+    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + \
+        khu_info + mju_info + sejong_info + \
+        snu_yonseig_info + ssu_info + uos_info
     random.shuffle(all_info)
     all_info = chunk(all_info)
     random.shuffle(all_info)
@@ -133,7 +138,8 @@ def new_match(season):
     new_cand = []
     idx = 0
     for idx in range(season):
-        cand_num = db.session.query(Match).filter(Match.season_num == season, Match.game_round == idx)[0]
+        cand_num = db.session.query(Match).filter(
+            Match.season_num == season, Match.game_round == idx)[0]
         candA_num = cand_num.candidate_A_count
         candB_num = cand_num.candidate_B_count
         if int(candA_num) >= int(candB_num):
@@ -168,19 +174,23 @@ def test():
     cand1_count = request.args.get('cand1_count', 0, type=int)
     cand2_count = request.args.get('cand2_count', 0, type=int)
 
-    next_game = db.session.query(Match).filter(Match.season_num == season, Match.game_round == roundnum + 1)[0]
+    next_game = db.session.query(Match).filter(
+        Match.season_num == season, Match.game_round == roundnum + 1)[0]
 
-    next_data = {"Aphotolink": str('static/')+str(next_game.candidate_A_photolink), "Bphotolink": str('static/')+str(next_game.candidate_B_photolink),
-                 "Acount": next_game.candidate_A_count, "Bcount": next_game.candidate_B_count,
-                 "Aname" : next_game.candidate_A_namename, "Bname" : next_game.candidate_B_namename, "Aschool" : next_game.candidate_A_school,
-                 "Bschool" : next_game.candidate_B_school, "next_round" : roundnum + 1 }
+    next_data = {
+        "Aphotolink": str('static/') + str(next_game.candidate_A_photolink), "Bphotolink": str('static/') + str(next_game.candidate_B_photolink),
+        "Acount": next_game.candidate_A_count, "Bcount": next_game.candidate_B_count,
+        "Aname": next_game.candidate_A_namename, "Bname": next_game.candidate_B_namename, "Aschool": next_game.candidate_A_school,
+        "Bschool": next_game.candidate_B_school, "next_round": roundnum + 1}
 
     if cand1_selected == 0 and cand1_count == 0:
         # cand2 selected
-        this_match = db.session.query(Match).filter(Match.season_num == season, Match.game_round == roundnum)[0]
+        this_match = db.session.query(Match).filter(
+            Match.season_num == season, Match.game_round == roundnum)[0]
         this_match.candidate_B_count += 1
     elif cand2_selected == 0 and cand2_count == 0:
-        this_match = db.session.query(Match).filter(Match.season_num == season, Match.game_round == roundnum)[0]
+        this_match = db.session.query(Match).filter(
+            Match.season_num == season, Match.game_round == roundnum)[0]
         this_match.candidate_A_count += 1
 
     this_game = GameHistory(
@@ -189,8 +199,7 @@ def test():
     )
     db.session.add(this_game)
     db.session.commit()
-    return jsonify(next_data = next_data)
-
+    return jsonify(next_data=next_data)
 
 
 @app.route('/testtest')
@@ -246,7 +255,6 @@ def match_data():
 
     # return jsonify(name = "Erik", id = "erik", seed = 1)
     return json.dumps(r)
-
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -316,7 +324,7 @@ def match():
     else:
 
         match_id = check_user_match(g.user_email)
-        #flash(match_id)
+        # flash(match_id)
         player_game = Match.query.filter(Match.game_round == match_id).all()
         player_game = player_game[0]
 
@@ -328,8 +336,7 @@ def match():
         next_data['Aname'] = player_game.candidate_A_namename
         next_data['Bname'] = player_game.candidate_B_namename
 
-
-        return render_template("home.html", player_game=player_game, active_tab="match", comments = comments)
+        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments)
 
 
 '''
@@ -403,7 +410,7 @@ def user_join():
         else:
             flash(u'작성형식에 맞지 않습니다.', 'success')
     else:
-        return render_template('user/join.html', form=form)
+        return render_template('user/join.html', form=form, active_tab="user_join")
 
 
 @app.route('/tournament', methods=['GET', 'POST'])
@@ -443,4 +450,3 @@ def comment_create():
         db.session.commit()
         return redirect(url_for('match'))
     return render_template('home.html')
-
