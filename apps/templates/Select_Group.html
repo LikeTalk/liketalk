@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+
+
+
+<div class = "row placeholders" style="margin-top: 20%;">
+    <div class="col-md-15 col-sm-3">
+        <a href = "{{ url_for('match_A') }}">  <img class="img-responsive" alt="200x200" src="static/images/A.jpg"> </a>
+    </div>
+
+    <div class="col-md-15 col-sm-3">
+        <a href = "{{ url_for('match_B')  }}">   <img class="img-responsive" alt="200x200" src="static/images/B.jpg"></a>
+    </div>
+
+    <div class="col-md-15 col-sm-3">
+        <a href = "{{ url_for('match_C')  }}">   <img class="img-responsive" alt="200x200" src="static/images/C.jpg"> </a>
+    </div>
+
+    <div class="col-md-15 col-sm-3">
+        <a href = "{{ url_for('match_D')  }}">   <img class="img-responsive" alt="200x200" src="static/images/D.jpg"> </a>
+    </div>
+
+    <div class="col-md-15 col-sm-3">
+        <a href = "{{ url_for('match_E')  }}">   <img class="img-responsive" alt="200x200" src="static/images/E.jpg"> </a>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

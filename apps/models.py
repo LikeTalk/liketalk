@@ -10,7 +10,7 @@ class Match(db.Model):
     match_id = db.Column(db.Integer, primary_key = True)
     season_num = db.Column(db.Integer)
     game_round = db.Column(db.Integer)
-    group = db.Column(db.String(255))
+    group = db.Column(db.Integer)
 
     candidate_A_namename = db.Column(db.String(255))
     candidate_A_school = db.Column(db.String(255))
@@ -32,6 +32,9 @@ class Candidate(db.Model):
 
 class Comment(db.Model):
     Comment_id = db.Column(db.Integer, primary_key = True)
+    match = db.relationship('Match')
+    match_id = db.Column(db.Integer, db.ForeignKey('match.match_id'))
+    user_index = db.Column(db.Integer)
     content = db.Column(db.Text())
     date_created = db.Column(db.DateTime(), default=db.func.now())
     likecount = db.Column(db.Integer, default = 0, nullable = False)
@@ -42,3 +45,25 @@ class GameHistory(db.Model):
     user = db.relationship('User')
     user_email = db.Column(db.String(255), db.ForeignKey('user.email'))
     done_game = db.Column(db.Integer, default = 0, nullable = False)
+    done_game_group = db.Column(db.Integer)
+    done_game_season = db.Column(db.Integer)
+    done_game_result = db.Column(db.Integer)
+
+
+class Winner(db.Model):
+    User_Indiv_Game_id = db.Column(db.Integer, primary_key = True)
+    user = db.relationship('User')
+    user_email = db.Column(db.String(255), db.ForeignKey('user.email'))
+    game_season = db.Column(db.Integer)
+    game_group = db.Column(db.Integer)
+    game_round = db.Column(db.Integer)
+    winner_A_namename = db.Column(db.String(255))
+    winner_A_school = db.Column(db.String(255))
+    winner_A_photolink = db.Column(db.String(255))
+
+
+class UserCommentHistory(db.Model):
+    UCH_id=db.Column(db.Integer, primary_key = True)
+    user = db.relationship('User')
+    user_email = db.Column(db.String(255), db.ForeignKey('user.email'))
+    commented_match = db.Column(db.Integer, default=0, nullable = False)
