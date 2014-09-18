@@ -311,18 +311,19 @@ def testest():
         return render_template("Select_Group.html", active_tab="group")
 
 
-@app.route('/match_data', methods=['GET'])
-def match_data():
+@app.route('/match_data/<int:group_sort>', methods=['GET'])
+def match_data(group_sort):
     match_all = Match.query.all()
     count_data = []
     candidate_data = []
     seed_data = []
-    # test_name = match_all[0].candidate_A_namename
-
-    #일단 A그룹에 대해서만 생각해보자
     r = [[], [], [], [], [], []]
+    
+    #set 32 people 
+    n1 = group_sort * 16
+    n2 = n1 + 16
 
-    for i in range(16):
+    for i in range(n1, n2):
         name_A = match_all[i].candidate_A_namename
         name_B = match_all[i].candidate_B_namename
         seed_num_A = (i + 1) * 2 - 1
@@ -330,6 +331,7 @@ def match_data():
         add_name = [{"name": name_A, "id": name_A, "seed": seed_num_A}, {"name": name_B, "id": name_B, "seed": seed_num_B}]
         r[0].append(add_name)
 
+        #make list(size=16) for calculation tournament
         if match_all[i].candidate_A_count > match_all[i].candidate_B_count:
             count_data.append(match_all[i].candidate_A_count)
             candidate_data.append(name_A)
