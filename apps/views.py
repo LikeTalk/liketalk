@@ -12,38 +12,6 @@ import math
 from itertools import count, izip
 from person_info import uos, ajou, gachon, hanyang, kaist, khu, korea, mju, sejong, snu_yonsei, ssu, teacher
 
-'''
-@app.route('/fill_in_user_indiv_model')
-def fill_in_user_indiv():
-    user_email = g.user_email
-    My_Match = Match.query.all()
-    for each_match in My_Match:
-        season = each_match.season_num
-        game_round = each_match.game_round
-        A_name = each_match.candidate_A_namename
-        A_school = each_match.candidate_A_school
-        A_photo = each_match.candidate_A_photolink
-        B_name = each_match.candidate_B_namename
-        B_school = each_match.candidate_B_school
-        B_photo = each_match.candidate_B_photolink
-
-        each_game = User_Indiv_Game(
-            user_email = user_email,
-            game_season = season,
-            game_round = game_round,
-            candidate_A_namename = A_name,
-            candidate_A_school = A_school,
-            candidate_A_photolink = A_photo,
-            candidate_B_namename = B_name,
-            candidate_B_school = B_school,
-            candidate_B_photolink = B_photo
-        )
-
-        db.session.add(each_game)
-        db.session.commit()
-'''
-
-
 
 def chunk(mylist):
     temp = zip(*[iter(mylist)] * 2)
@@ -54,17 +22,23 @@ def chunk(mylist):
 def newnew():
     # return "\n".join( [ student[0] for student in  kaist.students] )
     ajou_info = [st for st in ajou.students] + [tc for tc in ajou.teachers]
-    gachon_info = [st for st in gachon.students] + [tc for tc in gachon.teachers]
-    hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
+    gachon_info = [st for st in gachon.students] + \
+        [tc for tc in gachon.teachers]
+    hanyang_info = [st for st in hanyang.students] + \
+        [tc for tc in hanyang.teachers]
     kaist_info = [st for st in kaist.students] + [tc for tc in kaist.teachers]
     khu_info = [st for st in khu.students] + [tc for tc in khu.teachers]
     mju_info = [st for st in mju.students] + [tc for tc in mju.teachers]
-    sejong_info = [st for st in sejong.students] + [tc for tc in sejong.teachers]
-    snu_yonseig_info = [st for st in snu_yonsei.students] + [tc for tc in snu_yonsei.teachers]
+    sejong_info = [st for st in sejong.students] + \
+        [tc for tc in sejong.teachers]
+    snu_yonseig_info = [st for st in snu_yonsei.students] + [
+        tc for tc in snu_yonsei.teachers]
     ssu_info = [st for st in ssu.students] + [tc for tc in ssu.teachers]
     uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
 
+
     all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info
+
     # random.shuffle(all_info)
 
     idx = 0
@@ -88,6 +62,7 @@ def newnew():
         db.session.add(each_match)
         db.session.commit()
         idx += 1
+
 
 
 # Candidate DB에 선수들을 다 집어넣는 함수
@@ -170,7 +145,6 @@ def grouping():
             game_group = 3
         elif idx >= 48 and idx < 60:
             game_group = 4
-        #elif idx <= 128 and idx < 160:
         else:
             game_group = 5
 
@@ -193,35 +167,30 @@ def grouping():
             game_round = 1
 
 
-# 뭐하지?
-'''
-1. 유저가 로그인을 했습니다.
-2. 32명을 랜덤으로 뿌려줌 ㅋㅋ
-'''
-
-
-
-
-
-
-
 
 # 한 번 들어가면 season을 입력시켜준다.
+# 지워도 되는 부분
 @app.route('/input_match')
 def input_match():
     # return "\n".join( [ student[0] for student in  kaist.students] )
     ajou_info = [st for st in ajou.students] + [tc for tc in ajou.teachers]
-    gachon_info = [st for st in gachon.students] + [tc for tc in gachon.teachers]
-    hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
+    gachon_info = [st for st in gachon.students] + \
+        [tc for tc in gachon.teachers]
+    hanyang_info = [st for st in hanyang.students] + \
+        [tc for tc in hanyang.teachers]
     kaist_info = [st for st in kaist.students] + [tc for tc in kaist.teachers]
     khu_info = [st for st in khu.students] + [tc for tc in khu.teachers]
     mju_info = [st for st in mju.students] + [tc for tc in mju.teachers]
-    sejong_info = [st for st in sejong.students] + [tc for tc in sejong.teachers]
-    snu_yonseig_info = [st for st in snu_yonsei.students] + [tc for tc in snu_yonsei.teachers]
+    sejong_info = [st for st in sejong.students] + \
+        [tc for tc in sejong.teachers]
+    snu_yonseig_info = [st for st in snu_yonsei.students] + [
+        tc for tc in snu_yonsei.teachers]
     ssu_info = [st for st in ssu.students] + [tc for tc in ssu.teachers]
     uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
 
-    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info
+    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + \
+        khu_info + mju_info + sejong_info + \
+        snu_yonseig_info + ssu_info + uos_info
     random.shuffle(all_info)
     all_info = chunk(all_info)
     random.shuffle(all_info)
@@ -267,7 +236,8 @@ def new_match(season):
     new_cand = []
     idx = 0
     for idx in range(season):
-        cand_num = db.session.query(Match).filter(Match.season_num == season, Match.game_round == idx)[0]
+        cand_num = db.session.query(Match).filter(
+            Match.season_num == season, Match.game_round == idx)[0]
         candA_num = cand_num.candidate_A_count
         candB_num = cand_num.candidate_B_count
         if int(candA_num) >= int(candB_num):
@@ -302,7 +272,9 @@ def test():
     cand1_count = request.args.get('cand1_count', 0, type=int)
     cand2_count = request.args.get('cand2_count', 0, type=int)
 
-    next_game = db.session.query(Match).filter(Match.season_num == season, Match.game_round == roundnum + 1)[0]
+    next_game = db.session.query(Match).filter(
+        Match.season_num == season, Match.game_round == roundnum + 1)[0]
+
 
     next_data = {"Aphotolink": str('static/') + str(next_game.candidate_A_photolink),
                  "Bphotolink": str('static/') + str(next_game.candidate_B_photolink),
@@ -313,10 +285,12 @@ def test():
 
     if cand1_selected == 0 and cand1_count == 0:
         # cand2 selected
-        this_match = db.session.query(Match).filter(Match.season_num == season, Match.game_round == roundnum)[0]
+        this_match = db.session.query(Match).filter(
+            Match.season_num == season, Match.game_round == roundnum)[0]
         this_match.candidate_B_count += 1
     elif cand2_selected == 0 and cand2_count == 0:
-        this_match = db.session.query(Match).filter(Match.season_num == season, Match.game_round == roundnum)[0]
+        this_match = db.session.query(Match).filter(
+            Match.season_num == season, Match.game_round == roundnum)[0]
         this_match.candidate_A_count += 1
 
     this_game = GameHistory(
@@ -339,49 +313,123 @@ def testest():
 
 @app.route('/match_data', methods=['GET'])
 def match_data():
-    r = [
-        [
-            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1, "displaySeed": "D1", "score": 47},
-             {"name": "Andrew Miller", "id": "andrew-miller", "seed": 2}],
-            [{"name": "James Coutry", "id": "james-coutry", "seed": 3},
-             {"name": "Sam Merrill", "id": "sam-merrill", "seed": 4}],
-            [{"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5},
-             {"name": "Everett Zettersten", "id": "everett-zettersten", "seed": 6}],
-            [{"name": "John Scott", "id": "john-scott", "seed": 7},
-             {"name": "Teddy Koufus", "id": "teddy-koufus", "seed": 8}],
-            [{"name": "Arnold Palmer", "id": "arnold-palmer", "seed": 9},
-             {"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10}],
-            [{"name": "Jesse James", "id": "jesse-james", "seed": 1},
-             {"name": "Scott Anderson", "id": "scott-anderson", "seed": 12}],
-            [{"name": "Josh Groben", "id": "josh-groben", "seed": 13},
-             {"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14}],
-            [{"name": "Jake Coutry", "id": "jake-coutry", "seed": 15},
-             {"name": "Spencer Zettersten", "id": "spencer-zettersten", "seed": 16}]
-        ],
-        [
-            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
-             {"name": "James Coutry", "id": "james-coutry", "seed": 3}],
-            [{"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5},
-             {"name": "Teddy Koufus", "id": "teddy-koufus", "seed": 8}],
-            [{"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10},
-             {"name": "Scott Anderson", "id": "scott-anderson", "seed": 12}],
-            [{"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14},
-             {"name": "Jake Coutry", "id": "jake-coutry", "seed": 15}]
-        ],
-        [
-            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
-             {"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5}],
-            [{"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10},
-             {"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14}]
-        ],
-        [
-            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
-             {"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10}]
-        ],
-        [
-            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1}]
-        ]
-    ]
+    match_all = Match.query.all()
+    count_data = []
+    candidate_data = []
+    seed_data = []
+    # test_name = match_all[0].candidate_A_namename
+
+    #일단 A그룹에 대해서만 생각해보자
+    r = [[], [], [], [], [], []]
+
+    for i in range(16):
+        name_A = match_all[i].candidate_A_namename
+        name_B = match_all[i].candidate_B_namename
+        seed_num_A = (i + 1) * 2 - 1
+        seed_num_B = (i + 1) * 2
+        add_name = [{"name": name_A, "id": name_A, "seed": seed_num_A}, {"name": name_B, "id": name_B, "seed": seed_num_B}]
+        r[0].append(add_name)
+
+        if match_all[i].candidate_A_count > match_all[i].candidate_B_count:
+            count_data.append(match_all[i].candidate_A_count)
+            candidate_data.append(name_A)
+            seed_data.append(seed_num_A)
+        else:
+            count_data.append(match_all[i].candidate_B_count)
+            candidate_data.append(name_B)
+            seed_data.append(seed_num_B)
+
+
+    ### tournament
+    totalgames = len(count_data)-1
+    gameid = 0
+    roundid = 0
+    count_nextround = []
+    candidate_nextround = []
+    seed_nextround = []
+    r_num = 1
+    teamlist = count_data
+
+    while gameid < totalgames:
+        if gameid in [8, 12, 14]:
+            teamlist = count_nextround
+            candidate_data = candidate_nextround
+            seed_data = seed_nextround
+            count_nextround = []
+            candidate_nextround = []
+            seed_nextround = []
+            roundid = 0
+            r_num += 1
+
+        homeid = teamlist[roundid]
+        awayid = teamlist[roundid + 1]
+        name_A = candidate_data[roundid]
+        name_B = candidate_data[roundid + 1]
+        seed_num_A = seed_data[roundid]
+        seed_num_B = seed_data[roundid + 1]
+        add_name = [{"name": name_A, "id": name_A, "seed": seed_num_A}, {"name": name_B, "id": name_B, "seed": seed_num_B}]
+        r[r_num].append(add_name)
+
+        if homeid > awayid:
+            count_nextround.append(homeid)
+            candidate_nextround.append(name_A)
+            seed_nextround.append(seed_num_A)
+
+        else:
+            count_nextround.append(awayid)
+            candidate_nextround.append(name_B)
+            seed_nextround.append(seed_num_B)
+    
+        gameid += 1
+        roundid += 2
+
+    add_name = [{"name": candidate_nextround, "id": candidate_nextround, "seed": seed_nextround}]
+    r[r_num + 1].append(add_name)
+
+
+    # r = [
+    #     [
+    #         [{"name": test_name, "id": test_name, "seed": 1, "displaySeed": "D1", "score": 47},
+    #          {"name": "Andrew Miller", "id": "andrew-miller", "seed": 2}],
+    #         [{"name": "James Coutry", "id": "james-coutry", "seed": 3},
+    #          {"name": "Sam Merrill", "id": "sam-merrill", "seed": 4}],
+    #         [{"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5},
+    #          {"name": "Everett Zettersten", "id": "everett-zettersten", "seed": 6}],
+    #         [{"name": "John Scott", "id": "john-scott", "seed": 7},
+    #          {"name": "Teddy Koufus", "id": "teddy-koufus", "seed": 8}],
+    #         [{"name": "Arnold Palmer", "id": "arnold-palmer", "seed": 9},
+    #          {"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10}],
+    #         [{"name": "Jesse James", "id": "jesse-james", "seed": 1},
+    #          {"name": "Scott Anderson", "id": "scott-anderson", "seed": 12}],
+    #         [{"name": "Josh Groben", "id": "josh-groben", "seed": 13},
+    #          {"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14}],
+    #         [{"name": "Jake Coutry", "id": "jake-coutry", "seed": 15},
+    #          {"name": "Spencer Zettersten", "id": "spencer-zettersten", "seed": 16}]
+    #     ],
+    #     [
+    #         [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
+    #          {"name": "James Coutry", "id": "james-coutry", "seed": 3}],
+    #         [{"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5},
+    #          {"name": "Teddy Koufus", "id": "teddy-koufus", "seed": 8}],
+    #         [{"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10},
+    #          {"name": "Scott Anderson", "id": "scott-anderson", "seed": 12}],
+    #         [{"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14},
+    #          {"name": "Jake Coutry", "id": "jake-coutry", "seed": 15}]
+    #     ],
+    #     [
+    #         [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
+    #          {"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5}],
+    #         [{"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10},
+    #          {"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14}]
+    #     ],
+    #     [
+    #         [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
+    #          {"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10}]
+    #     ],
+    #     [
+    #         [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1}]
+    #     ]
+    # ]
 
     # return jsonify(name = "Erik", id = "erik", seed = 1)
     return json.dumps(r)
@@ -717,7 +765,7 @@ def user_join():
         else:
             flash(u'작성형식에 맞지 않습니다.', 'success')
     else:
-        return render_template('user/join.html', form=form)
+        return render_template('user/join.html', form=form, active_tab="user_join")
 
 
 @app.route('/tournament', methods=['GET', 'POST'])
@@ -927,10 +975,4 @@ def comment_create():
         db.session.commit()
         return redirect(url_for('testest'))
     return render_template('home.html')
-
-
-
-
-
-
 
