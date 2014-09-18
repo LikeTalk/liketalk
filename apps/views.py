@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy import desc, asc
 from apps import app, db
 from apps.forms import CommentForm, JoinForm, LoginForm
-from apps.models import User, Comment, Match, Candidate, GameHistory, Winner
+from apps.models import User, Comment, Match, Candidate, GameHistory, Winner, UserCommentHistory
 
 import random
 import math
@@ -571,9 +571,9 @@ def match_A():
         match_id = check_user_match(g.user_email)
         player_game = Match.query.filter(Match.group == 1, Match.game_round == match_id[0]).all()
         player_game = player_game[0]
-        comments = Comment.query.order_by(asc(Comment.date_created)).all()
+        comments = Comment.query.filter(Comment.match_id == match_id[0]).order_by(asc(Comment.date_created)).all()
 
-        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments)
+        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments, match_id = match_id[0])
 
 
 @app.route('/main/B', methods=['GET', 'POST'])
@@ -666,7 +666,7 @@ def vote(matnum, candnum, gamegroup):
     # # SEASON 도 뽑아오기
     matnum = int(matnum)
     # 얘는 match round
-    this_match = Match.query.filter(Match.game_round == matnum).all()
+    this_match = Match.query.filter(Match.game_round == matnum, Match.group == gamegroup).all()
     this_match = this_match[0]
     gameresult = 0
     if candnum == 1:
@@ -674,13 +674,13 @@ def vote(matnum, candnum, gamegroup):
         gameresult = candnum
         winner_name = this_match.candidate_A_namename
         winner_school = this_match.candidate_A_school
-        winner_photo = this_match.candidate_A_school
+        winner_photo = this_match.candidate_A_photolink
     elif candnum == 2:
         this_match.candidate_B_count += 1
         gameresult = candnum
         winner_name = this_match.candidate_B_namename
         winner_school = this_match.candidate_B_school
-        winner_photo = this_match.candidate_B_school
+        winner_photo = this_match.candidate_B_photolink
 
     # 유저가 이 게임을 했다.
 
@@ -962,17 +962,43 @@ def debugdebug():
 
 
 
-
-
-
-@app.route('/comment/create', methods=['GET', 'POST'])
-def comment_create():
+@app.route('/comment/create/<int:match_id>/<int:gamegroup>', methods=['GET', 'POST'])
+def comment_create(match_id, gamegroup):
     if request.method == 'POST':
+        users_commented = UserCommentHistory.query.filter(UserCommentHistory.commented_match==match_id).all()
+
+        count=1
+        user_index=1
+        for num, user in enumerate(users_commented):
+            if user.user_email==g.user_email:
+                count=0
+                user_index = num+1
+                break
+            user_index = num+2
+
+        if count ==1:
+            user_comment_history = UserCommentHistory(
+                user_email = g.user_email,
+                commented_match = int(match_id)
+            )
+            db.session.add(user_comment_history)
+
         comment = Comment(
-            content=request.form['content']
+            content=request.form['content'],
+            match_id=int(match_id),
+            user_index=user_index
         )
         db.session.add(comment)
         db.session.commit()
-        return redirect(url_for('testest'))
-    return render_template('home.html')
+        if gamegroup == 1:
+            return redirect(url_for('match_A'))
+        elif gamegroup == 2:
+            return redirect(url_for('match_B'))
+        elif gamegroup == 3:
+            return redirect(url_for('match_C'))
+        elif gamegroup == 4:
+            return redirect(url_for('match_D'))
+        else:
+            return redirect(url_for('match_E'))
 
+    return render_template('home.html')

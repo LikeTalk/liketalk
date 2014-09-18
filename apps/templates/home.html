@@ -136,7 +136,7 @@
             </label>
         </div>
         <div class="llCommentCreate">
-                <form action="{{ url_for('comment_create') }}" role="form" method="post">
+                <form action="{{ url_for('comment_create', match_id = match_id, gamegroup = player_game.group) }}" role="form" method="post">
                         <textarea class="text required form-control" name="content" cols="40" placeholder=" 댓 글 댓 글 댓 글 댓 글 댓 글 " required="required" rows="3" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 73px;"></textarea>
             <button class="btn" name="comment_btn" type="submit" value="POST">댓글</button>
                     </form>
@@ -148,7 +148,7 @@
             {% if comments %}
                 {% for comment in comments %}
                     <div class="well well-sm">
-                        <span class="badge">익명{{ loop.index }}</span> {{ comment.content }}
+                        <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
                         <span class="float-right">
                             <small>
                                <em style="float: right">{{ comment.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</em>

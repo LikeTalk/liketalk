@@ -32,6 +32,9 @@ class Candidate(db.Model):
 
 class Comment(db.Model):
     Comment_id = db.Column(db.Integer, primary_key = True)
+    match = db.relationship('Match')
+    match_id = db.Column(db.Integer, db.ForeignKey('match.match_id'))
+    user_index = db.Column(db.Integer)
     content = db.Column(db.Text())
     date_created = db.Column(db.DateTime(), default=db.func.now())
     likecount = db.Column(db.Integer, default = 0, nullable = False)
@@ -59,3 +62,8 @@ class Winner(db.Model):
     winner_A_photolink = db.Column(db.String(255))
 
 
+class UserCommentHistory(db.Model):
+    UCH_id=db.Column(db.Integer, primary_key = True)
+    user = db.relationship('User')
+    user_email = db.Column(db.String(255), db.ForeignKey('user.email'))
+    commented_match = db.Column(db.Integer, default=0, nullable = False)
