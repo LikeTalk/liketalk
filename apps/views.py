@@ -5,12 +5,44 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy import desc, asc
 from apps import app, db
 from apps.forms import CommentForm, JoinForm, LoginForm
-from apps.models import User, Comment, Match, Candidate, GameHistory
+from apps.models import User, Comment, Match, Candidate, GameHistory, Winner
 
 import random
 import math
 from itertools import count, izip
 from person_info import uos, ajou, gachon, hanyang, kaist, khu, korea, mju, sejong, snu_yonsei, ssu, teacher
+
+'''
+@app.route('/fill_in_user_indiv_model')
+def fill_in_user_indiv():
+    user_email = g.user_email
+    My_Match = Match.query.all()
+    for each_match in My_Match:
+        season = each_match.season_num
+        game_round = each_match.game_round
+        A_name = each_match.candidate_A_namename
+        A_school = each_match.candidate_A_school
+        A_photo = each_match.candidate_A_photolink
+        B_name = each_match.candidate_B_namename
+        B_school = each_match.candidate_B_school
+        B_photo = each_match.candidate_B_photolink
+
+        each_game = User_Indiv_Game(
+            user_email = user_email,
+            game_season = season,
+            game_round = game_round,
+            candidate_A_namename = A_name,
+            candidate_A_school = A_school,
+            candidate_A_photolink = A_photo,
+            candidate_B_namename = B_name,
+            candidate_B_school = B_school,
+            candidate_B_photolink = B_photo
+        )
+
+        db.session.add(each_game)
+        db.session.commit()
+'''
+
 
 
 def chunk(mylist):
@@ -33,7 +65,7 @@ def newnew():
     uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
 
     all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info
-    #random.shuffle(all_info)
+    # random.shuffle(all_info)
 
     idx = 0
     for each_member in all_info:
@@ -44,14 +76,14 @@ def newnew():
         photo_link = each_member[2]
 
         each_match = Match(
-            season_num = 0,
-            game_round = idx,
+            season_num=0,
+            game_round=idx,
             candidate_A_namename=name,
             candidate_A_photolink=photo_link,
             candidate_A_school=school,
-            candidate_B_namename= dummy,
-            candidate_B_photolink = dummy,
-            candidate_B_school = dummy
+            candidate_B_namename=dummy,
+            candidate_B_photolink=dummy,
+            candidate_B_school=dummy
         )
         db.session.add(each_match)
         db.session.commit()
@@ -81,9 +113,9 @@ def all_in():
         photo_link = each_member[2]
 
         member = Candidate(
-            name = name,
-            photolink = photo_link,
-            school = school
+            name=name,
+            photolink=photo_link,
+            school=school
         )
 
         db.session.add(member)
@@ -108,8 +140,8 @@ def grouping():
     all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info + master_info
 
     # 이렇게 불러오는거야 ㅋㅋㅋ
-    #candidate_members = Candidate.query.all()
-    #candidate_members[0].photolink
+    # candidate_members = Candidate.query.all()
+    # candidate_members[0].photolink
 
     candidate_members = Candidate.query.all()
     random.shuffle(candidate_members)
@@ -117,7 +149,7 @@ def grouping():
     candidate_members = chunk(candidate_members)
 
     idx = 0
-
+    game_round = 1
     for each_pair in candidate_members:
         A = each_pair[0]
         B = each_pair[1]
@@ -130,38 +162,35 @@ def grouping():
         orgB = B.school
         photoB = B.photolink
 
-        if idx < 32:
-            game_group = "A"
-        elif idx <= 32 and idx < 64:
-            game_group = "B"
-        elif idx <= 64 and idx < 96:
-            game_group = "C"
-        elif idx <= 96 and idx < 128:
-            game_group = "D"
+        if idx < 16:
+            game_group = 1
+        elif idx >= 16 and idx < 32:
+            game_group = 2
+        elif idx >= 32 and idx < 48:
+            game_group = 3
+        elif idx >= 48 and idx < 60:
+            game_group = 4
         #elif idx <= 128 and idx < 160:
         else:
-            game_group = "E"
+            game_group = 5
 
         my_match = Match(
             season_num=32,
-            game_round=idx,
+            game_round=game_round,
             candidate_A_namename=nameA,
             candidate_A_photolink=photoA,
             candidate_A_school=orgA,
             candidate_B_namename=nameB,
             candidate_B_photolink=photoB,
             candidate_B_school=orgB,
-            group = game_group
+            group=game_group
         )
         db.session.add(my_match)
         db.session.commit()
         idx += 1
-
-
-
-
-
-
+        game_round += 1
+        if game_round == 17:
+            game_round = 1
 
 
 # 뭐하지?
@@ -275,10 +304,12 @@ def test():
 
     next_game = db.session.query(Match).filter(Match.season_num == season, Match.game_round == roundnum + 1)[0]
 
-    next_data = {"Aphotolink": str('static/')+str(next_game.candidate_A_photolink), "Bphotolink": str('static/')+str(next_game.candidate_B_photolink),
+    next_data = {"Aphotolink": str('static/') + str(next_game.candidate_A_photolink),
+                 "Bphotolink": str('static/') + str(next_game.candidate_B_photolink),
                  "Acount": next_game.candidate_A_count, "Bcount": next_game.candidate_B_count,
-                 "Aname" : next_game.candidate_A_namename, "Bname" : next_game.candidate_B_namename, "Aschool" : next_game.candidate_A_school,
-                 "Bschool" : next_game.candidate_B_school, "next_round" : roundnum + 1 }
+                 "Aname": next_game.candidate_A_namename, "Bname": next_game.candidate_B_namename,
+                 "Aschool": next_game.candidate_A_school,
+                 "Bschool": next_game.candidate_B_school, "next_round": roundnum + 1}
 
     if cand1_selected == 0 and cand1_count == 0:
         # cand2 selected
@@ -294,13 +325,16 @@ def test():
     )
     db.session.add(this_game)
     db.session.commit()
-    return jsonify(next_data = next_data)
+    return jsonify(next_data=next_data)
 
 
-
-@app.route('/testtest')
+@app.route('/group')
 def testest():
-    return "\n".join([student[0] for student in uos.students])
+    if g.user_email == None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
+    else:
+        return render_template("Select_Group.html", active_tab="group")
 
 
 @app.route('/match_data', methods=['GET'])
@@ -353,7 +387,6 @@ def match_data():
     return json.dumps(r)
 
 
-
 @app.route('/', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -373,7 +406,9 @@ def login():
                 session.permanent = True
                 session['user_email'] = user.email
                 flash(u'로그인 완료', 'success')
-                return redirect(url_for('match'))
+                # render_template('Select_Group.html')
+                # return redirect(url_for('match'))
+                return redirect(url_for('testest'))
     return render_template('user/login.html', form=form, active_tab='log_in')
 
 
@@ -384,33 +419,175 @@ def before_request():
         g.user_email = session['user_email']
 
 
-def check_user_match(user_email):
-    # user_id 은 로그인한 유저의 아이디
+'''
+어떤 게임을 줘야 할까?
 
+1.
+
+'''
+
+
+def check_user_match(user_email):
+    # 로그인한 유저가 했던 게임을 쪼아아아아악 나열
     user_game_history = GameHistory.query.order_by(asc(GameHistory.done_game)).filter(
         GameHistory.user_email == user_email).all()
 
+    # 먼저 유저의 게임을 그룹별로 분류
+    user_game_A = []
+    user_game_B = []
+    user_game_C = []
+    user_game_D = []
+    user_game_E = []
+
+    for each_user_game in user_game_history:
+        if each_user_game.done_game_group == 1:
+            user_game_A.append(each_user_game)
+        elif each_user_game.done_game_group == 2:
+            user_game_B.append(each_user_game)
+        elif each_user_game.done_game_group == 3:
+            user_game_C.append(each_user_game)
+        elif each_user_game.done_game_group == 4:
+            user_game_D.append(each_user_game)
+        elif each_user_game.done_game_group == 5:
+            user_game_E.append(each_user_game)
+
     # Return 값은 List of dictionaries
 
+    # 각각에 대해서, 한 게임, 안 한 게임을 나누는 작업 시도
+
+    user_new_A = []
+    for each_game in user_game_A:
+        if each_game.done_game not in user_game_A:
+            user_new_A.append(each_game.done_game)
+
+    user_new_B = []
+    for each_game in user_game_B:
+        if each_game.done_game not in user_game_B:
+            user_new_B.append(each_game.done_game)
+
+    user_new_C = []
+    for each_game in user_game_C:
+        if each_game.done_game not in user_game_C:
+            user_new_C.append(each_game.done_game)
+
+    user_new_D = []
+    for each_game in user_game_D:
+        if each_game.done_game not in user_game_D:
+            user_new_D.append(each_game.done_game)
+
+    user_new_E = []
+    for each_game in user_game_E:
+        if each_game.done_game not in user_game_E:
+            user_new_E.append(each_game.done_game)
+
+    '''
     user_new_history = []
     for idx in user_game_history:
         # 따라서 Idx 는 각각 dictionary
         if idx.done_game not in user_new_history:
             user_new_history.append(idx.done_game)
+    '''
 
     def missing_elements(L):
         start, end = L[0], L[-1]
         return sorted(set(range(start, end + 1)).difference(L))
 
-    if len(user_new_history) == 0:
-        user_new_history.append(1)
-        return 1
-    else:
-        A = missing_elements(user_new_history)
-        if len(A) > 0:
-            return A[0]
+
+    def each_game_var(user_new_list):
+        if len(user_new_list) == 0:
+            user_new_list.append(1)
+            return 1
         else:
-            return user_new_history[len(user_new_history) - 1] + 1
+            A = missing_elements(user_new_list)
+            if len(A) > 0:
+                return A[0]
+            else:
+                return user_new_list[len(user_new_list) - 1] + 1
+
+    game_A = each_game_var(user_new_A)
+    game_B = each_game_var(user_new_B)
+    game_C = each_game_var(user_new_C)
+    game_D = each_game_var(user_new_D)
+    game_E = each_game_var(user_new_E)
+
+    return [game_A, game_B, game_C, game_D, game_E]
+
+
+@app.route('/main/A', methods=['GET', 'POST'])
+def match_A():
+    if g.user_email is None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
+    else:
+        # 얘는 리스트가 되었다!
+        match_id = check_user_match(g.user_email)
+        player_game = Match.query.filter(Match.group == 1, Match.game_round == match_id[0]).all()
+        player_game = player_game[0]
+        comments = Comment.query.order_by(asc(Comment.date_created)).all()
+
+        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments)
+
+
+@app.route('/main/B', methods=['GET', 'POST'])
+def match_B():
+    if g.user_email is None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
+    else:
+        match_id = check_user_match(g.user_email)
+        player_game = Match.query.filter(Match.group == 2, Match.game_round == match_id[1]).all()
+        player_game = player_game[0]
+
+        comments = Comment.query.order_by(asc(Comment.date_created)).all()
+
+        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments)
+
+
+@app.route('/main/C', methods=['GET', 'POST'])
+def match_C():
+    if g.user_email is None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
+    else:
+        match_id = check_user_match(g.user_email)
+        player_game = Match.query.filter(Match.group == 3, Match.game_round == match_id[2]).all()
+        player_game = player_game[0]
+
+        comments = Comment.query.order_by(asc(Comment.date_created)).all()
+
+        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments)
+
+
+@app.route('/main/D', methods=['GET', 'POST'])
+def match_D():
+    if g.user_email is None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
+    else:
+        match_id = check_user_match(g.user_email)
+        player_game = Match.query.filter(Match.group == 4, Match.game_round == match_id[3]).all()
+        player_game = player_game[0]
+
+        comments = Comment.query.order_by(asc(Comment.date_created)).all()
+
+        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments)
+
+
+@app.route('/main/E', methods=['GET', 'POST'])
+def match_E():
+    if g.user_email is None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
+    else:
+        match_id = check_user_match(g.user_email)
+        # flash(match_id)
+        # player_game = Match.query.filter(Match.game_round == match_id).all()
+        player_game = Match.query.filter(Match.group == 5, Match.game_round == match_id[4]).all()
+        player_game = player_game[0]
+
+        comments = Comment.query.order_by(asc(Comment.date_created)).all()
+
+        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments)
 
 
 @app.route('/main', methods=['GET', 'POST'])
@@ -421,7 +598,7 @@ def match():
     else:
 
         match_id = check_user_match(g.user_email)
-        #flash(match_id)
+        # flash(match_id)
         player_game = Match.query.filter(Match.game_round == match_id).all()
         player_game = player_game[0]
 
@@ -433,51 +610,83 @@ def match():
         next_data['Aname'] = player_game.candidate_A_namename
         next_data['Bname'] = player_game.candidate_B_namename
 
-
-        return render_template("home.html", player_game=player_game, active_tab="match", comments = comments)
-
-
-'''
-1. 로그인한 유저는 자기가 안 했던 게임부터 시작해야 한다.
-2. 게임이 시작되면, 유저는 자신이 했던 게임의 정보를 받아서 자신이 안한 게임을 보내주게 된다.
-    2-1. 이는 처음에는 match함수로 구현이 되어야 한다.
-3. 그 이후로 사진을 클릭하여 투표를 하게 되면
-   3-1-1. 사진이 슥슥 넘어가게 된다.
-   3-1-2. 얘는 Vote 함수를 고쳐서 해결이 되어야 한다.
-        3-1-1-1. 이는 JavaScript 로 구현된다.
-
-'''
-
-'''
-유저가 클릭하는 순간!
-Game의 round number 와 candidate 번호가 request.args 의 형태로 전달된다.
-그럼, candidate 번호는 투표 결과로써, DB에 저장하고,
-round number 는 1만 올린다.
-그리고 DB에 접속해서, 필요한 사진번호, 이름 등등을 모두 뽑아내서 JSON형태로 저장한다.
-그리고 얘를 다시 HTML에 보내준다.
-'''
+        return render_template("home.html", player_game=player_game, active_tab="match", comments=comments)
 
 
-@app.route('/vote/<matnum>/ <int:candnum>', methods=['GET'])
-def vote(matnum, candnum):
+@app.route('/vote/<matnum>/ <int:candnum> / <int:gamegroup> ', methods=['GET'])
+def vote(matnum, candnum, gamegroup):
+    # # SEASON 도 뽑아오기
     matnum = int(matnum)
     # 얘는 match round
     this_match = Match.query.filter(Match.game_round == matnum).all()
     this_match = this_match[0]
+    gameresult = 0
     if candnum == 1:
         this_match.candidate_A_count += 1
+        gameresult = candnum
+        winner_name = this_match.candidate_A_namename
+        winner_school = this_match.candidate_A_school
+        winner_photo = this_match.candidate_A_school
     elif candnum == 2:
         this_match.candidate_B_count += 1
+        gameresult = candnum
+        winner_name = this_match.candidate_B_namename
+        winner_school = this_match.candidate_B_school
+        winner_photo = this_match.candidate_B_school
 
     # 유저가 이 게임을 했다.
+
+
+    user_email = g.user_email
+    Game_table = GameHistory.query.filter(GameHistory.user_email == user_email)
+    User_Game_Season = []
+
+    for each in Game_table:
+        User_Game_Season.append(each.done_game_season)
+
+    if len(User_Game_Season) > 0:
+        current_season = min(User_Game_Season)
+    else:
+        current_season = 32
+
+
+    # Winner DB에 사람을 채워 넣장
+
+
+    winner_data = Winner(
+        user_email = user_email,
+        game_season = current_season / 2,
+        game_round = matnum,
+        game_group = gamegroup,
+        winner_A_namename = winner_name,
+        winner_A_school = winner_school,
+        winner_A_photolink = winner_photo
+    )
+
+
+
+
     this_game = GameHistory(
         user_email=g.user_email,
-        done_game=matnum
+        done_game=matnum,
+        done_game_group=gamegroup,
+        done_game_season= current_season,
+        done_game_result=gameresult
     )
     db.session.add(this_game)
+    db.session.add(winner_data)
     db.session.commit()
 
-    return redirect(url_for('match'))
+    if gamegroup == 1:
+        return redirect(url_for('match_A'))
+    elif gamegroup == 2:
+        return redirect(url_for('match_B'))
+    elif gamegroup == 3:
+        return redirect(url_for('match_C'))
+    elif gamegroup == 4:
+        return redirect(url_for('match_D'))
+    else:
+        return redirect(url_for('match_E'))
 
 
 @app.route('/logout', methods=['GET'])
@@ -520,22 +729,192 @@ def tournament():
         return render_template("tournament.html", active_tab="tournament")
 
 
-@app.route('/candidate_list', methods=['GET', 'POST'])
-def candidate_list():
+@app.route('/candidate_list/A', methods=['GET', 'POST'])
+def candidate_list_A():
     if g.user_email == None:
         flash(u'로그인 후에 이용해주세요', 'danger')
         return redirect(url_for('login'))
     else:
-        return render_template("candidate_list.html")
+        group_people = Match.query.order_by(asc(Match.game_round)).filter(Match.group == 1).all()
+        total_people = []
+        people = []
+        people_count = 0
+        for each_people in group_people:
+            A_info = {}
+            B_info = {}
+            A_info.update({'name': each_people.candidate_A_namename, 'school': each_people.candidate_A_school,
+                           'photo': each_people.candidate_A_photolink, 'season': each_people.season_num,
+                           'game_round': each_people.game_round, 'group': each_people.group})
+            B_info.update({'name': each_people.candidate_B_namename, 'school': each_people.candidate_B_school,
+                           'photo': each_people.candidate_B_photolink, 'season': each_people.season_num,
+                           'game_round': each_people.game_round, 'group': each_people.group})
+
+            people.append(A_info)
+            people.append(B_info)
+            people_count += 2
+            if people_count == 6:
+                people_count = 0
+                total_people.append(people)
+
+        return render_template("candidate_list.html", total_people=total_people[0])
+        # return total_people[0][30]['photo']
 
 
-@app.route('/candidate', methods=['GET', 'POST'])
-def candidate():
+@app.route('/candidate_list/B', methods=['GET', 'POST'])
+def candidate_list_B():
     if g.user_email == None:
         flash(u'로그인 후에 이용해주세요', 'danger')
         return redirect(url_for('login'))
     else:
-        return render_template("candidate_page.html", active_tab="candidate")
+        group_people = Match.query.order_by(asc(Match.game_round)).filter(Match.group == 2).all()
+        total_people = []
+        people = []
+        people_count = 0
+        for each_people in group_people:
+            A_info = {}
+            B_info = {}
+            A_info.update({'name': each_people.candidate_A_namename, 'school': each_people.candidate_A_school,
+                           'photo': each_people.candidate_A_photolink, 'season': each_people.season_num,
+                           'game_round': each_people.game_round, 'group': each_people.group})
+            B_info.update({'name': each_people.candidate_B_namename, 'school': each_people.candidate_B_school,
+                           'photo': each_people.candidate_B_photolink, 'season': each_people.season_num,
+                           'game_round': each_people.game_round, 'group': each_people.group})
+
+            people.append(A_info)
+            people.append(B_info)
+            people_count += 2
+            if people_count == 6:
+                people_count = 0
+                total_people.append(people)
+
+        return render_template("candidate_list.html", total_people=total_people[0])
+
+
+@app.route('/candidate_list/C', methods=['GET', 'POST'])
+def candidate_list_C():
+    if g.user_email == None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
+    else:
+        group_people = Match.query.order_by(asc(Match.game_round)).filter(Match.group == 3).all()
+        total_people = []
+        people = []
+        people_count = 0
+        for each_people in group_people:
+            A_info = {}
+            B_info = {}
+            A_info.update({'name': each_people.candidate_A_namename, 'school': each_people.candidate_A_school,
+                           'photo': each_people.candidate_A_photolink, 'season': each_people.season_num,
+                           'game_round': each_people.game_round, 'group': each_people.group})
+            B_info.update({'name': each_people.candidate_B_namename, 'school': each_people.candidate_B_school,
+                           'photo': each_people.candidate_B_photolink, 'season': each_people.season_num,
+                           'game_round': each_people.game_round, 'group': each_people.group})
+
+            people.append(A_info)
+            people.append(B_info)
+            people_count += 2
+            if people_count == 6:
+                people_count = 0
+                total_people.append(people)
+
+        return render_template("candidate_list.html", total_people=total_people[0])
+
+
+@app.route('/candidate_list/D', methods=['GET', 'POST'])
+def candidate_list_D():
+    if g.user_email == None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
+    else:
+        group_people = Match.query.order_by(asc(Match.game_round)).filter(Match.group == 4).all()
+        total_people = []
+        people = []
+        people_count = 0
+        for each_people in group_people:
+            A_info = {}
+            B_info = {}
+            A_info.update({'name': each_people.candidate_A_namename, 'school': each_people.candidate_A_school,
+                           'photo': each_people.candidate_A_photolink, 'season': each_people.season_num,
+                           'game_round': each_people.game_round, 'group': each_people.group})
+            B_info.update({'name': each_people.candidate_B_namename, 'school': each_people.candidate_B_school,
+                           'photo': each_people.candidate_B_photolink, 'season': each_people.season_num,
+                           'game_round': each_people.game_round, 'group': each_people.group})
+
+            people.append(A_info)
+            people.append(B_info)
+            people_count += 2
+            if people_count == 6:
+                people_count = 0
+                total_people.append(people)
+
+        return render_template("candidate_list.html", total_people=total_people[0])
+
+
+@app.route('/candidate_list/E', methods=['GET', 'POST'])
+def candidate_list_E():
+    if g.user_email == None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
+    else:
+        group_people = Match.query.order_by(asc(Match.game_round)).filter(Match.group == 5).all()
+        total_people = []
+        people = []
+        people_count = 0
+        for each_people in group_people:
+            A_info = {}
+            B_info = {}
+            A_info.update({'name': each_people.candidate_A_namename, 'school': each_people.candidate_A_school,
+                           'photo': each_people.candidate_A_photolink, 'season': each_people.season_num,
+                           'game_round': each_people.game_round, 'group': each_people.group})
+            B_info.update({'name': each_people.candidate_B_namename, 'school': each_people.candidate_B_school,
+                           'photo': each_people.candidate_B_photolink, 'season': each_people.season_num,
+                           'game_round': each_people.game_round, 'group': each_people.group})
+
+            people.append(A_info)
+            people.append(B_info)
+            people_count += 2
+            if people_count == 6:
+                people_count = 0
+                total_people.append(people)
+
+        return render_template("candidate_list.html", total_people=total_people[0])
+
+
+@app.route('/candidate/<int:myseason>/<int:mygame_round>/<int:mygroup>/<int:idx>', methods=['GET', 'POST'])
+def candidate(myseason, mygame_round,mygroup,idx):
+    if g.user_email == None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
+    else:
+        cand_data = {}
+        each_match = Match.query.filter(Match.group == mygroup, Match.game_round == mygame_round)[0]
+        if idx % 2 == 1:
+            name = each_match.candidate_A_namename
+            school = each_match.candidate_A_school
+            photo = each_match.candidate_A_photolink
+        else:
+            name = each_match.candidate_B_namename
+            school = each_match.candidate_B_school
+            photo = each_match.candidate_B_photolink
+
+        cand_data['name'] = name
+        cand_data['school'] = school
+        cand_data['photo'] = photo
+        return render_template("candidate_page.html", cand_data=cand_data, active_tab="candidate")
+        #return render_template("candidate_page.html",  active_tab="candidate")
+        #return name
+
+
+
+@app.route('/debug')
+def debugdebug():
+    A = Match.query.filter(Match.game_round == 1, Match.group == 1)[0]
+    return A.candidate_A_photolink
+
+
+
+
+
 
 
 @app.route('/comment/create', methods=['GET', 'POST'])
@@ -546,6 +925,12 @@ def comment_create():
         )
         db.session.add(comment)
         db.session.commit()
-        return redirect(url_for('match'))
+        return redirect(url_for('testest'))
     return render_template('home.html')
+
+
+
+
+
+
 
