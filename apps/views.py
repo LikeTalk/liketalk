@@ -10,7 +10,7 @@ from apps.models import User, Comment, Match, Candidate, GameHistory
 import random
 import math
 from itertools import count, izip
-from person_info import uos, ajou, gachon, hanyang, kaist, khu, korea, mju, sejong, snu_yonsei, ssu
+from person_info import uos, ajou, gachon, hanyang, kaist, khu, korea, mju, sejong, snu_yonsei, ssu, teacher
 
 
 def chunk(mylist):
@@ -64,6 +64,114 @@ def newnew():
         idx += 1
 
 
+
+# Candidate DB에 선수들을 다 집어넣는 함수
+@app.route('/total_allinone')
+def all_in():
+    ajou_info = [st for st in ajou.students] + [tc for tc in ajou.teachers]
+    gachon_info = [st for st in gachon.students] + [tc for tc in gachon.teachers]
+    hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
+    kaist_info = [st for st in kaist.students] + [tc for tc in kaist.teachers]
+    khu_info = [st for st in khu.students] + [tc for tc in khu.teachers]
+    mju_info = [st for st in mju.students] + [tc for tc in mju.teachers]
+    sejong_info = [st for st in sejong.students] + [tc for tc in sejong.teachers]
+    snu_yonseig_info = [st for st in snu_yonsei.students] + [tc for tc in snu_yonsei.teachers]
+    ssu_info = [st for st in ssu.students] + [tc for tc in ssu.teachers]
+    uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
+    master_info = [tc for tc in teacher.master]
+
+    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info + master_info
+
+    for each_member in all_info:
+        name = each_member[0]
+        school = each_member[1]
+        photo_link = each_member[2]
+
+        member = Candidate(
+            name = name,
+            photolink = photo_link,
+            school = school
+        )
+
+        db.session.add(member)
+        db.session.commit()
+
+
+# Candidate DB에서 꺼내와서 선수들을 그룹별로 집어넣는 함수
+@app.route('/group_likelion')
+def grouping():
+    ajou_info = [st for st in ajou.students] + [tc for tc in ajou.teachers]
+    gachon_info = [st for st in gachon.students] + [tc for tc in gachon.teachers]
+    hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
+    kaist_info = [st for st in kaist.students] + [tc for tc in kaist.teachers]
+    khu_info = [st for st in khu.students] + [tc for tc in khu.teachers]
+    mju_info = [st for st in mju.students] + [tc for tc in mju.teachers]
+    sejong_info = [st for st in sejong.students] + [tc for tc in sejong.teachers]
+    snu_yonseig_info = [st for st in snu_yonsei.students] + [tc for tc in snu_yonsei.teachers]
+    ssu_info = [st for st in ssu.students] + [tc for tc in ssu.teachers]
+    uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
+    master_info = [tc for tc in teacher.master]
+
+    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info + master_info
+
+    # 이렇게 불러오는거야 ㅋㅋㅋ
+    #candidate_members = Candidate.query.all()
+    #candidate_members[0].photolink
+
+    candidate_members = Candidate.query.all()
+    random.shuffle(candidate_members)
+    candidate_members = candidate_members[:160]
+    candidate_members = chunk(candidate_members)
+
+    idx = 0
+
+    for each_pair in candidate_members:
+        A = each_pair[0]
+        B = each_pair[1]
+
+        nameA = A.name
+        orgA = A.school
+        photoA = A.photolink
+
+        nameB = B.name
+        orgB = B.school
+        photoB = B.photolink
+
+        if idx < 16:
+            game_group = "A"
+        elif idx > 15 and idx < 32:
+            game_group = "B"
+        elif idx > 31 and idx < 48:
+            game_group = "C"
+        elif idx > 47 and idx < 64:
+            game_group = "D"
+        #elif idx <= 128 and idx < 160:
+        else:
+            game_group = "E"
+
+        my_match = Match(
+            season_num=32,
+            game_round=idx,
+            candidate_A_namename=nameA,
+            candidate_A_photolink=photoA,
+            candidate_A_school=orgA,
+            candidate_B_namename=nameB,
+            candidate_B_photolink=photoB,
+            candidate_B_school=orgB,
+            group = game_group
+        )
+        db.session.add(my_match)
+        db.session.commit()
+        idx += 1
+
+
+
+
+
+
+
+
+
 # 뭐하지?
 '''
 1. 유저가 로그인을 했습니다.
@@ -72,6 +180,7 @@ def newnew():
 
 
 # 한 번 들어가면 season을 입력시켜준다.
+# 지워도 되는 부분
 @app.route('/input_match')
 def input_match():
     # return "\n".join( [ student[0] for student in  kaist.students] )
@@ -209,49 +318,123 @@ def testest():
 
 @app.route('/match_data', methods=['GET'])
 def match_data():
-    r = [
-        [
-            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1, "displaySeed": "D1", "score": 47},
-             {"name": "Andrew Miller", "id": "andrew-miller", "seed": 2}],
-            [{"name": "James Coutry", "id": "james-coutry", "seed": 3},
-             {"name": "Sam Merrill", "id": "sam-merrill", "seed": 4}],
-            [{"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5},
-             {"name": "Everett Zettersten", "id": "everett-zettersten", "seed": 6}],
-            [{"name": "John Scott", "id": "john-scott", "seed": 7},
-             {"name": "Teddy Koufus", "id": "teddy-koufus", "seed": 8}],
-            [{"name": "Arnold Palmer", "id": "arnold-palmer", "seed": 9},
-             {"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10}],
-            [{"name": "Jesse James", "id": "jesse-james", "seed": 1},
-             {"name": "Scott Anderson", "id": "scott-anderson", "seed": 12}],
-            [{"name": "Josh Groben", "id": "josh-groben", "seed": 13},
-             {"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14}],
-            [{"name": "Jake Coutry", "id": "jake-coutry", "seed": 15},
-             {"name": "Spencer Zettersten", "id": "spencer-zettersten", "seed": 16}]
-        ],
-        [
-            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
-             {"name": "James Coutry", "id": "james-coutry", "seed": 3}],
-            [{"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5},
-             {"name": "Teddy Koufus", "id": "teddy-koufus", "seed": 8}],
-            [{"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10},
-             {"name": "Scott Anderson", "id": "scott-anderson", "seed": 12}],
-            [{"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14},
-             {"name": "Jake Coutry", "id": "jake-coutry", "seed": 15}]
-        ],
-        [
-            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
-             {"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5}],
-            [{"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10},
-             {"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14}]
-        ],
-        [
-            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
-             {"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10}]
-        ],
-        [
-            [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1}]
-        ]
-    ]
+    match_all = Match.query.all()
+    count_data = []
+    candidate_data = []
+    seed_data = []
+    # test_name = match_all[0].candidate_A_namename
+
+    #일단 A그룹에 대해서만 생각해보자
+    r = [[], [], [], [], [], []]
+
+    for i in range(16):
+        name_A = match_all[i].candidate_A_namename
+        name_B = match_all[i].candidate_B_namename
+        seed_num_A = (i + 1) * 2 - 1
+        seed_num_B = (i + 1) * 2
+        add_name = [{"name": name_A, "id": name_A, "seed": seed_num_A}, {"name": name_B, "id": name_B, "seed": seed_num_B}]
+        r[0].append(add_name)
+
+        if match_all[i].candidate_A_count > match_all[i].candidate_B_count:
+            count_data.append(match_all[i].candidate_A_count)
+            candidate_data.append(name_A)
+            seed_data.append(seed_num_A)
+        else:
+            count_data.append(match_all[i].candidate_B_count)
+            candidate_data.append(name_B)
+            seed_data.append(seed_num_B)
+
+
+    ### tournament
+    totalgames = len(count_data)-1
+    gameid = 0
+    roundid = 0
+    count_nextround = []
+    candidate_nextround = []
+    seed_nextround = []
+    r_num = 1
+    teamlist = count_data
+
+    while gameid < totalgames:
+        if gameid in [8, 12, 14]:
+            teamlist = count_nextround
+            candidate_data = candidate_nextround
+            seed_data = seed_nextround
+            count_nextround = []
+            candidate_nextround = []
+            seed_nextround = []
+            roundid = 0
+            r_num += 1
+
+        homeid = teamlist[roundid]
+        awayid = teamlist[roundid + 1]
+        name_A = candidate_data[roundid]
+        name_B = candidate_data[roundid + 1]
+        seed_num_A = seed_data[roundid]
+        seed_num_B = seed_data[roundid + 1]
+        add_name = [{"name": name_A, "id": name_A, "seed": seed_num_A}, {"name": name_B, "id": name_B, "seed": seed_num_B}]
+        r[r_num].append(add_name)
+
+        if homeid > awayid:
+            count_nextround.append(homeid)
+            candidate_nextround.append(name_A)
+            seed_nextround.append(seed_num_A)
+
+        else:
+            count_nextround.append(awayid)
+            candidate_nextround.append(name_B)
+            seed_nextround.append(seed_num_B)
+    
+        gameid += 1
+        roundid += 2
+
+    add_name = [{"name": candidate_nextround, "id": candidate_nextround, "seed": seed_nextround}]
+    r[r_num + 1].append(add_name)
+
+
+    # r = [
+    #     [
+    #         [{"name": test_name, "id": test_name, "seed": 1, "displaySeed": "D1", "score": 47},
+    #          {"name": "Andrew Miller", "id": "andrew-miller", "seed": 2}],
+    #         [{"name": "James Coutry", "id": "james-coutry", "seed": 3},
+    #          {"name": "Sam Merrill", "id": "sam-merrill", "seed": 4}],
+    #         [{"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5},
+    #          {"name": "Everett Zettersten", "id": "everett-zettersten", "seed": 6}],
+    #         [{"name": "John Scott", "id": "john-scott", "seed": 7},
+    #          {"name": "Teddy Koufus", "id": "teddy-koufus", "seed": 8}],
+    #         [{"name": "Arnold Palmer", "id": "arnold-palmer", "seed": 9},
+    #          {"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10}],
+    #         [{"name": "Jesse James", "id": "jesse-james", "seed": 1},
+    #          {"name": "Scott Anderson", "id": "scott-anderson", "seed": 12}],
+    #         [{"name": "Josh Groben", "id": "josh-groben", "seed": 13},
+    #          {"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14}],
+    #         [{"name": "Jake Coutry", "id": "jake-coutry", "seed": 15},
+    #          {"name": "Spencer Zettersten", "id": "spencer-zettersten", "seed": 16}]
+    #     ],
+    #     [
+    #         [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
+    #          {"name": "James Coutry", "id": "james-coutry", "seed": 3}],
+    #         [{"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5},
+    #          {"name": "Teddy Koufus", "id": "teddy-koufus", "seed": 8}],
+    #         [{"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10},
+    #          {"name": "Scott Anderson", "id": "scott-anderson", "seed": 12}],
+    #         [{"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14},
+    #          {"name": "Jake Coutry", "id": "jake-coutry", "seed": 15}]
+    #     ],
+    #     [
+    #         [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
+    #          {"name": "Anothy Hopkins", "id": "anthony-hopkins", "seed": 5}],
+    #         [{"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10},
+    #          {"name": "Sammy Zettersten", "id": "sammy-zettersten", "seed": 14}]
+    #     ],
+    #     [
+    #         [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1},
+    #          {"name": "Ryan Anderson", "id": "ryan-anderson", "seed": 10}]
+    #     ],
+    #     [
+    #         [{"name": "Erik Zettersten", "id": "erik-zettersten", "seed": 1}]
+    #     ]
+    # ]
 
     # return jsonify(name = "Erik", id = "erik", seed = 1)
     return json.dumps(r)

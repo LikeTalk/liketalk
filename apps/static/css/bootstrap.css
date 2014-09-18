@@ -3972,6 +3972,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
   .navbar-nav.navbar-right:last-child {
     margin-right: -15px;
+
   }
 }
 @media (min-width: 768px) {
@@ -3980,6 +3981,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
   .navbar-right {
     float: right !important;
+    padding-top : 15px;
   }
 }
 .navbar-form {

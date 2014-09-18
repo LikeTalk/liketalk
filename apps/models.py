@@ -10,6 +10,7 @@ class Match(db.Model):
     match_id = db.Column(db.Integer, primary_key = True)
     season_num = db.Column(db.Integer)
     game_round = db.Column(db.Integer)
+    group = db.Column(db.String(255))
 
     candidate_A_namename = db.Column(db.String(255))
     candidate_A_school = db.Column(db.String(255))
@@ -23,8 +24,10 @@ class Match(db.Model):
 
 
 class Candidate(db.Model):
-    name = db.Column(db.String(255), primary_key = True)
+    candidate_id = db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(255))
     school = db.Column(db.String(255))
+    photolink = db.Column(db.String(255))
 
 
 class Comment(db.Model):
