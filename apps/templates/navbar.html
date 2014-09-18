@@ -6,14 +6,7 @@
         <ul class="nav navbar-nav">
             <li {% if active_tab == 'group' %} class="active"{% endif %}><a href="{{ url_for('testest') }}">그룹!</a></li>
             <li{% if active_tab == 'tournament' %} class ="active"{% endif %}><a href="{{url_for('tournament')}}">대진표 및 결과</a></li>
-<<<<<<< HEAD
             <li{% if active_tab == 'candidate_list' %} class ="active"{% endif %}><a href="{{url_for('candidate_list_A')}}">조별 그룹</a></li>
-            <li{% if active_tab == 'log_in' %} class ="active"{% endif %}><a href="{{url_for('user_join')}}">회원가입 </a></li>
-            <li{% if active_tab == 'log_in' %} class ="active"{% endif %}><a href="{{url_for('login')}}">로그인 </a></li>
-            <li{% if active_tab == 'log_out' %} class ="active"{% endif %}><a href="{{url_for('log_out')}}">로그아웃 </a></li>
-=======
-            <li{% if active_tab == 'candidate_list' %} class ="active"{% endif %}><a href="{{url_for('candidate_list')}}">조별 그룹</a></li>
-
             {% if g.user_email != None %}
             <li><a href = "{{ url_for('log_out')}}"> 로그아웃 </a></li>
             <li {% if active_tab == 'log_in' %} class="active" {% endif %}>
@@ -22,7 +15,6 @@
             <li><a href="{{ url_for('login')}}"> 로그인</a> </li>
             <li {% if active_tab == 'user_join' %} class ="active"{% endif %}><a href="{{url_for('user_join')}}">회원가입 </a></li>
             {% endif %}
->>>>>>> 544c54da35737c5ced6fcc9da569a339eb6bebe1
         </ul>
         
         <ul class="nav navbar-nav navbar-right">
