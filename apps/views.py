@@ -846,8 +846,8 @@ def match_A():
 
 
     player_game = game_address()
-    comments = Comment.query.filter(Comment.match_id == 1).order_by(asc(Comment.date_created)).all()
-    return render_template("home.html", player_game=player_game, active_tab="match", comments=comments, match_id = 1)
+    comments = Comment.query.filter(Comment.comment_group == group).order_by(desc(Comment.date_created)).all()
+    return render_template("home.html", player_game=player_game, comments = comments, active_tab="match")
 
 
 
@@ -938,8 +938,8 @@ def match_B():
 
 
     player_game = game_address()
-    comments = Comment.query.filter(Comment.match_id == 1).order_by(asc(Comment.date_created)).all()
-    return render_template("home.html", player_game=player_game, active_tab="match", comments=comments, match_id = 1)
+    comments = Comment.query.filter(Comment.comment_group == group).order_by(desc(Comment.date_created)).all()
+    return render_template("home.html", player_game=player_game, comments = comments, active_tab="match")
 
 
 
@@ -1030,8 +1030,8 @@ def match_C():
 
 
     player_game = game_address()
-    comments = Comment.query.filter(Comment.match_id == 1).order_by(asc(Comment.date_created)).all()
-    return render_template("home.html", player_game=player_game, active_tab="match", comments=comments, match_id = 1)
+    comments = Comment.query.filter(Comment.comment_group == group).order_by(desc(Comment.date_created)).all()
+    return render_template("home.html", player_game=player_game, comments = comments, active_tab="match")
 
 
 
@@ -1122,8 +1122,8 @@ def match_D():
 
 
     player_game = game_address()
-    comments = Comment.query.filter(Comment.match_id == 1).order_by(asc(Comment.date_created)).all()
-    return render_template("home.html", player_game=player_game, active_tab="match", comments=comments, match_id = 1)
+    comments = Comment.query.filter(Comment.comment_group == group).order_by(desc(Comment.date_created)).all()
+    return render_template("home.html", player_game=player_game, comments = comments, active_tab="match")
 
 
 
@@ -1214,15 +1214,15 @@ def match_E():
 
 
     player_game = game_address()
-    comments = Comment.query.filter(Comment.match_id == 1).order_by(asc(Comment.date_created)).all()
-    return render_template("home.html", player_game=player_game, active_tab="match", comments=comments, match_id = 1)
+    comments = Comment.query.filter(Comment.comment_group == group).order_by(desc(Comment.date_created)).all()
+    return render_template("home.html", player_game=player_game, comments = comments, active_tab="match")
 
 
 
 
 
 @app.route('/vote/<matnum>/<int:candnum>/<int:gamegroup>/<int:season>/<name>', methods=['GET'])
-def vote(matnum, candnum, gamegroup, season,name):
+def vote(matnum, candnum, gamegroup, season, name):
     # # SEASON 도 뽑아오기
     matnum = int(matnum)
     # 얘는 match round
@@ -1510,8 +1510,8 @@ def candidate_list_E():
         return render_template("candidate_list.html", total_people=total_people[0])
 
 
-@app.route('/candidate/<int:myseason>/<int:mygame_round>/<int:mygroup>/<int:idx>', methods=['GET', 'POST'])
-def candidate(myseason, mygame_round,mygroup,idx):
+@app.route('/candidate/<int:myseason>/<int:mygame_round>/<int:mygroup>/<int:idx>/<name>', methods=['GET', 'POST'])
+def candidate(myseason, mygame_round,mygroup,idx,name):
     if g.user_email == None:
         flash(u'로그인 후에 이용해주세요', 'danger')
         return redirect(url_for('login'))
@@ -1530,19 +1530,24 @@ def candidate(myseason, mygame_round,mygroup,idx):
         cand_data['name'] = name
         cand_data['school'] = school
         cand_data['photo'] = photo
-        return render_template("candidate_page.html", cand_data=cand_data, active_tab="candidate")
-        #return render_template("candidate_page.html",  active_tab="candidate")
-        #return name
+
+        comments_A = Comment.query.order_by(desc(Comment.date_created)).filter(Comment.comment_A == name).all()
+        comments_B = Comment.query.order_by(desc(Comment.date_created)).filter(Comment.comment_B == name).all()
+        comments = comments_A + comments_B
+
+
+        return render_template("candidate_page.html", cand_data=cand_data, comments = comments, active_tab="candidate")
 
 
 
 
-@app.route('/comment/create/<int:match_id>/<int:gamegroup>', methods=['GET', 'POST'])
-def comment_create(match_id, gamegroup):
+
+@app.route('/comment/create/<int:gamegroup>/<int:season>/<int:game_round>/<comment_A>/<comment_B>', methods=['GET', 'POST'])
+def comment_create(gamegroup, season, game_round, comment_A, comment_B):
     if request.method == 'POST':
-        users_commented = UserCommentHistory.query.filter(UserCommentHistory.commented_match==match_id).all()
-        count=1
-        user_index=1
+        users_commented = UserCommentHistory.query.filter(UserCommentHistory.commented_group == gamegroup, UserCommentHistory.commented_season == season, UserCommentHistory.commented_match==game_round).all()
+        count = 1
+        user_index = 1
         for num, user in enumerate(users_commented):
             if user.user_email==g.user_email:
                 count=0
@@ -1550,17 +1555,23 @@ def comment_create(match_id, gamegroup):
                 break
             user_index = num+2
 
-        if count ==1:
+        if count == 1:
             user_comment_history = UserCommentHistory(
                 user_email = g.user_email,
-                commented_match = int(match_id)
+                commented_match = game_round,
+                commented_group = gamegroup,
+                commented_season = season
             )
             db.session.add(user_comment_history)
 
         comment = Comment(
             content=request.form['content'],
-            match_id=int(match_id),
-            user_index=user_index
+            user_index=user_index,
+            comment_group = gamegroup,
+            comment_gameround = game_round,
+            comment_season = season,
+            comment_A = comment_A,
+            comment_B = comment_B
         )
         db.session.add(comment)
         db.session.commit()
@@ -1576,3 +1587,10 @@ def comment_create(match_id, gamegroup):
             return redirect(url_for('match_E'))
 
     return render_template('home.html')
+
+
+
+@app.route('/all_comments')
+def all_comments():
+    comments = Comment.query.order_by(desc(Comment.date_created)).all()
+    return render_template('all_comment.html', comments = comments, active_tab = 'all_comments')
