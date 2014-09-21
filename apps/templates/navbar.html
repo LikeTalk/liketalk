@@ -7,6 +7,7 @@
             <li {% if active_tab == 'group' %} class="active"{% endif %}><a href="{{ url_for('testest') }}">그룹!</a></li>
             <li{% if active_tab == 'tournament' %} class ="active"{% endif %}><a href="{{url_for('tournament')}}">대진표 및 결과</a></li>
             <li{% if active_tab == 'candidate_list' %} class ="active"{% endif %}><a href="{{url_for('candidate_list_A')}}">조별 그룹</a></li>
+            <li{% if active_tab == 'all_comments' %} class ="active"{% endif %}><a href="{{url_for('all_comments')}}">댓글 모아보기</a></li>
             {% if g.user_email != None %}
             <li><a href = "{{ url_for('log_out')}}"> 로그아웃 </a></li>
             <li {% if active_tab == 'log_in' %} class="active" {% endif %}>

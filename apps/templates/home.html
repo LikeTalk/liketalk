@@ -3,7 +3,7 @@
 {% block contents %}
 <div class="panel panel-danger">
 	<div class=panel-heading>
-		<h1 class="text-center"> 오늘의 매치업,  {{ player_game.season_num     }} 강,    {{player_game.group}}  </h1>
+		<h1 class="text-center"> 오늘의 매치업,  {{ player_game.season_num     }} 강,    {{player_game.game_round}}  </h1>
 	</div>
 	<br>
 
@@ -67,7 +67,7 @@
 	<div class="container-fluid panel-footer">
 		<div class="row">
 			<div class="col-xs-4 col-xs-offset-1">
-                <center><p><a id = "cand1" href = "{{ url_for('vote', gamegroup = player_game.group , matnum = player_game.game_round , candnum = 1 ) }}"  class="btn btn-primary btn-lg " role="button">{{ player_game.candidate_A_namename }}</a></p></center>
+                <center><p><a id = "cand1" href = "{{ url_for('vote', gamegroup = player_game.group , matnum = player_game.game_round , candnum = 1, season = player_game.season_num, name = player_game.candidate_A_namename ) }}"  class="btn btn-primary btn-lg " role="button">{{ player_game.candidate_A_namename }}</a></p></center>
 
 			</div>
             <!-- TEST -->
@@ -75,7 +75,7 @@
             <!-- TEST -->
 
 			<div class="col-xs-4 col-xs-offset-2">
-                <center><p><a id = "cand2" href = "{{ url_for('vote', gamegroup = player_game.group, matnum = player_game.game_round , candnum = 2 ) }}" class="btn btn-primary btn-lg " role="button">{{ player_game.candidate_B_namename }}</a></p></center>
+                <center><p><a id = "cand2" href = "{{ url_for('vote', gamegroup = player_game.group, matnum = player_game.game_round , candnum = 2, season = player_game.season_num, name= player_game.candidate_B_namename ) }}" class="btn btn-primary btn-lg " role="button">{{ player_game.candidate_B_namename }}</a></p></center>
 
 			</div>
 			<div class="col-xs-1">
@@ -136,18 +136,22 @@
             </label>
         </div>
         <div class="llCommentCreate">
-                <form action="{{ url_for('comment_create', match_id = match_id, gamegroup = player_game.group) }}" role="form" method="post">
+                <form action="{{ url_for('comment_create', game_round = player_game.game_round, gamegroup = player_game.group, season = player_game.season_num, comment_A = player_game.candidate_A_namename, comment_B = player_game.candidate_B_namename ) }}" role="form" method="post">
                         <textarea class="text required form-control" name="content" cols="40" placeholder=" 댓 글 댓 글 댓 글 댓 글 댓 글 " required="required" rows="3" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 73px;"></textarea>
             <button class="btn" name="comment_btn" type="submit" value="POST">댓글</button>
                     </form>
         </div>
         <br>
     </div>
+
     <div class=panel-body>
         <div class="llCommentList">
             {% if comments %}
                 {% for comment in comments %}
                     <div class="well well-sm">
+                        <span class="badge">그룹{{ comment.comment_group }}</span>
+                        <span class="badge">{{ comment.comment_season }}강</span>
+                        <span class="badge">{{comment.comment_A}} vs {{comment.comment_B}}   </span>
                         <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
                         <span class="float-right">
                             <small>
