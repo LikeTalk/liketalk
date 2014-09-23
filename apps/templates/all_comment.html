@@ -1,17 +1,19 @@
 {% extends "layout.html" %}
 
 {% block contents %}
-
+<div class="panel panel-danger">
 <div class=panel-body>
+
     <div class="llCommentList">
 
         <!-- Standard button -->
-        <a href = "{{url_for('comments_group', group = 1)}}"><button type="button" class="btn btn-primary">그룹 A</button></a>
-        <a href = "{{url_for('comments_group', group = 2)}}"><button type="button" class="btn btn-primary">그룹 B</button></a>
-        <a href = "{{url_for('comments_group', group = 3)}}"><button type="button" class="btn btn-primary">그룹 C</button></a>
-        <a href = "{{url_for('comments_group', group = 4)}}"><button type="button" class="btn btn-primary">그룹 D</button></a>
-        <a href = "{{url_for('comments_group', group = 5)}}"><button type="button" class="btn btn-primary">그룹 E</button></a>
-
+        <div class="group_button">
+            <a href = "{{url_for('comments_group', group = 1)}}"><button type="button" class="btn btn-liketalk_group">Group A</button></a>
+            <a href = "{{url_for('comments_group', group = 2)}}"><button type="button" class="btn btn-liketalk_group">Group B</button></a>
+            <a href = "{{url_for('comments_group', group = 3)}}"><button type="button" class="btn btn-liketalk_group">Group C</button></a>
+            <a href = "{{url_for('comments_group', group = 4)}}"><button type="button" class="btn btn-liketalk_group">Group D</button></a>
+            <a href = "{{url_for('comments_group', group = 5)}}"><button type="button" class="btn btn-liketalk_group">Group E</button></a>
+        </div>
         <br><br><br>
 
 
@@ -50,6 +52,6 @@
 
     </div>
 </div>
-
+</div>
 
 {% endblock %}

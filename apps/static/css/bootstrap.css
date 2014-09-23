@@ -6364,10 +6364,10 @@ $tournament-match-min-height: 100px;
 
 
 .body_m {background:#999;}
-#social {padding-left:30px;color:#1FFFB4; text-decoration:none;font-size:18px;}
+#social {padding-left:0px;color:#7F7F7F;font-size:18px;font-family:'Jeju Gothic'}
 #social:hover {color:#fff;}
 #list {border-radius:50%; height:120px;}
-.sub { bottom:0px; width:100%; position:absolute; background:#BA1E55; height:40px; text-align:center;color:#fff; padding-bottom:20px; padding-top:5px; font-size:18px; font-weight:300; }
+.sub { margin-left: -18px;bottom:0px; width:100%; position:absolute; background:#FF7A7B; height:40px; text-align:center;color:#fff; padding-bottom:20px; padding-top:6px; font-size:18px; font-weight:300; font-family:'Hanna'; }
 #titulo {font-size:20px;}
 
 .titulo{
@@ -6376,12 +6376,10 @@ $tournament-match-min-height: 100px;
 
 
 .flip-container {
-  margin: 0 auto;
+  margin-bottom:10px;
   -webkit-perspective: 1000;
   -moz-perspective: 1000;
- margin-right: 20px;
-  
-
+  margin-right: 20px;
 }
 
 .flip-container:hover .flipper {
@@ -6413,23 +6411,23 @@ $tournament-match-min-height: 100px;
   padding-top:30px;
    background:#fffff9;
   z-index: 1;
+  padding-left: 1em;
 }
 
 .flip-container, .front, .back {
-  width: 12em;
-  height: 15em;
+  width: 11em;
+  height: 12em;
 }
 
 .back {
-   background:#BA1E55;
+   background:#FF7A7B;
   padding-top:30px;
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
 }
 .back p {
-  margin-left:10px;
   color:white;font-weight:300;
-
+  font-family: 'Jeju Gothic';
 }
 
 .baby_lion_list {

@@ -4,11 +4,13 @@
 
 <div class="panel panel-danger">
   <div class=panel-heading>
-    <a href = "{{ url_for('candidate_list', group = 1)  }}" ><button> Group A</button></a>
-    <a href = "{{ url_for('candidate_list', group = 2)  }}" ><button> Group B</button></a>
-    <a href = "{{ url_for('candidate_list', group = 3)  }}" ><button> Group C</button></a>
-    <a href = "{{ url_for('candidate_list', group = 4)  }}" ><button> Group D</button></a>
-    <a href = "{{ url_for('candidate_list', group = 5)  }}" ><button> Group E</button></a>
+    <div class="group_button">
+        <a href = "{{ url_for('candidate_list', group = 1)  }}" ><button class="group-btn btn btn-liketalk_group"> Group A</button></a>
+        <a href = "{{ url_for('candidate_list', group = 2)  }}" ><button class="group-btn btn btn-liketalk_group"> Group B</button></a>
+        <a href = "{{ url_for('candidate_list', group = 3)  }}" ><button class="group-btn btn btn-liketalk_group"> Group C</button></a>
+        <a href = "{{ url_for('candidate_list', group = 4)  }}" ><button class="group-btn btn btn-liketalk_group"> Group D</button></a>
+        <a href = "{{ url_for('candidate_list', group = 5)  }}" ><button class="group-btn btn btn-liketalk_group"> Group E</button></a>
+    </div>
   </div>
 <table class="baby_lion_list">
 {% for people in total_people %}
@@ -17,16 +19,14 @@
     {% endif %}
         <td>
             <div class="flip-container">
-
                 <div class="flipper">
                     <div class="front">
                     <img id="list" src="/static{{ people.photo     }}"/>
-                    <p class='name'>{{people.name}}</p>
-                    <div class="sub"><p>{{people.school}}</p></div>
+                    <div class="sub"><p class='name'>{{people.name}}</p></div>
                     </div>
-                <div class="back">
-                    <p class="titulo">{{people.name}}</p>
-                    <p>{{people.school}}</p>
+                <div class="back text-center">
+                    <p class="titulo">"{{people.name}}"</p>
+                    <p class="name_school">{{people.school}}</p>
                     <a href= "{{ url_for('candidate', name = people.name ) }}"  id="social">더보기</a>
                 </div>
                 </div>
