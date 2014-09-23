@@ -2,14 +2,13 @@
 
 {% block contents %}
 
-
-<div class="container">
-	<div class="panel panel-danger">
-		<div class=panel-heading>
-			<h1 class="text-center"> 아기사자 프로필 </h1>
-		</div>
+<div class="panel panel-danger">
+	<div class=panel-heading>
+        <br>
+		<h1 id="lion_profile" class="text-center"> ★ 아기사자 프로필 ★</h1>
 	</div>
-<!--profile contents-->
+	
+    <!--profile contents-->
 	<div class="panel panel-body">
 		<div class="row">
 			<div class="col-xs-4"></div>
@@ -18,30 +17,20 @@
 				<br>
 				<br>
 				<div ="container-fluid">
-<!--put primary candidate_id, name, shool-->
-					<table class="table">
-						<tr>
-							<td> 이름</td>
-							<td> {{cand_data.name}} </td>
-						</tr>
-						<tr>
-							<td> 학교</td>
-							<td> {{cand_data.school}} </td>
-						</tr>
-
-					</table>
+                    <!--put primary candidate_id, name, shool-->
+                    <p id="profile_info">이름 : {{cand_data.name}} </p>
+                    <p id="profile_info">학교 : {{cand_data.school}} </p>					
 				</div>
 				</br></br>
-				</div>
-					<div class="col-xs-4"></div>
-				</div>
+			</div>
+				<div class="col-xs-4"></div>
+		</div>
 	</div>
-</div>
-<div class="panel panel-danger">
+
+<div class="profile_comment_panel">
 	<div class=panel-heading>
-		<h1 class="text-center"> 응원글</h1>
+		<h1 id="profile_comment"> ★응원글★</h1>
 	</div>
-	<br><br><br>
 
     <div class="llCommentCreate">
                 <form action="{{ url_for('candidate_comment',group = cand_data.group, name = cand_data.name) }}" role="form" method="post">
@@ -84,6 +73,7 @@
         {% endif %}
 
     </div>
+</div>
 </div>
 {% endblock %}
 

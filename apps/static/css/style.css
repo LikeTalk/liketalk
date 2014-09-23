@@ -104,3 +104,64 @@ p .hello_user{
     top: 0;
     bottom: 0;
 }
+
+
+/*candidate_page*/
+#lion_profile{
+    font-family: 'Jeju Gothic'; 
+    font-size:35px;
+    color:#7F7F7F;
+}
+
+#profile_info{
+    font-family: 'Jeju Gothic'; 
+    font-size:24px;
+    color:#7F7F7F;
+}
+
+.profile_comment_panel{
+    background: #FFF57F;
+    width:100%;
+}
+
+#profile_comment{
+    font-family: 'Jeju Gothic'; 
+    font-size:20px;
+    color:#595959;
+}
+
+/*end page*/
+#your_winner{
+    font-family: 'Hanna'; 
+    font-size:30px;
+    color:#7F7F7F;
+}
+#winner_img{
+    border-radius:10%;
+    border: 8px solid #11818D;
+}
+#winner_name { 
+    font-family: 'Hanna'; 
+    font-size: 40px;
+    color:#159DAB;
+}
+#winner_school{
+    font-family: 'Jeju Gothic';
+    font-size:20px;
+    color:#7F7F7F;
+    text-align: center;
+}
+
+.winner_panel{
+    border-radius:  20px 20px 20px 20px;
+    background-color: #fff;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+#end_page_end{
+    background: #FFF57F;
+    width: 100%;
+    height: 80px;
+    border-radius:  0 0 20px 20px;
+}

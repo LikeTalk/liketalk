@@ -2,40 +2,32 @@
 
 {% block contents %}
 
-<div class="container">
-	<div class="panel panel-danger">
-		<div class=panel-heading>
-			<h1 class="text-center"> {{last_game.user_email}} 님의 {{last_game.game_group}} 그룹 우승자! </h1>
-		</div>
+<div class="winner_panel panel-danger">
+	<div class=panel-heading>
+		<h1 id="your_winner" class="text-center"> {{last_game.user_email}} 님의 {{last_game.game_group}} 그룹 우승자! </h1>
 	</div>
-<!--profile contents-->
-	<div class="panel panel-body">
+	<!--profile contents-->
+	<div class="panel-body">
 		<div class="row">
-			<div class="col-xs-4"></div>
+			<div class="col-xs-4 "></div>
 			<div class="col-xs-4 ">
-				<img src="/static{{photo}}" class="img-responsive img-rounded" alt="Resposive Image">
-				<br>
+				<img id="winner_img" src="/static{{photo}}" class="img-responsive img-rounded" alt="Resposive Image">
 				<br>
 				<div ="container-fluid">
-<!--put primary candidate_id, name, shool-->
-					<table class="table">
-						<tr>
-							<td> 이름</td>
-							<td> {{last_game.winner_A_namename}} </td>
-						</tr>
-						<tr>
-							<td> 학교</td>
-							<td> {{last_game.winner_A_school}} </td>
-						</tr>
-
-					</table>
+					<!--put primary candidate_id, name, shool-->
+					<h2 id="winner_name" class="text-center">★ {{last_game.winner_A_namename}} ★ </h2>
+					<p id="winner_school">{{last_game.winner_A_school}}</p>
 				</div>
-				</br></br>
-				</div>
-					<div class="col-xs-4"></div>
-				</div>
+			<br>
+			</div>
+		<div class="col-xs-4"></div>
+		</div>
 	</div>
+	<div id="end_page_end"></div>
 </div>
+
+
+
 
 
 {% endblock %}
