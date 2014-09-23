@@ -4,6 +4,17 @@
 
 <div class=panel-body>
     <div class="llCommentList">
+
+        <!-- Standard button -->
+        <a href = "{{url_for('comments_group', group = 1)}}"><button type="button" class="btn btn-primary">그룹 A</button></a>
+        <a href = "{{url_for('comments_group', group = 2)}}"><button type="button" class="btn btn-primary">그룹 B</button></a>
+        <a href = "{{url_for('comments_group', group = 3)}}"><button type="button" class="btn btn-primary">그룹 C</button></a>
+        <a href = "{{url_for('comments_group', group = 4)}}"><button type="button" class="btn btn-primary">그룹 D</button></a>
+        <a href = "{{url_for('comments_group', group = 5)}}"><button type="button" class="btn btn-primary">그룹 E</button></a>
+
+        <br><br><br>
+
+
         {% if comments %}
             {% for comment in comments %}
                 <div class="well well-sm">
@@ -19,6 +30,24 @@
                 </div>
             {% endfor %}
         {% endif %}
+
+        <br><br><br>
+
+        {% if indiv_comments %}
+            {% for comment in indiv_comments %}
+                <div class="well well-sm">
+                    <span class="badge">그룹{{ comment.comment_group }}</span>
+                    <span class="badge">{{comment.comment_name}}  </span>
+                    <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
+                    <span class="float-right">
+                        <small>
+                           <em style="float: right">{{ comment.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</em>
+                        </small>
+                    </span>
+                </div>
+            {% endfor %}
+        {% endif %}
+
     </div>
 </div>
 

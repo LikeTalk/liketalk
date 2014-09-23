@@ -66,6 +66,18 @@ class Comment(db.Model):
     comment_B = db.Column(db.String(255))
 
 
+class Indiv_Comment(db.Model):
+    Comment_id = db.Column(db.Integer, primary_key = True)
+    user_index = db.Column(db.Integer)
+    content = db.Column(db.Text())
+    date_created = db.Column(db.DateTime(), default=db.func.now())
+    comment_name = db.Column(db.String(255))
+    comment_group = db.Column(db.Integer)
+    user_index = db.Column(db.Integer)
+    user_email = db.Column(db.String(255))
+
+
+
 class UserCommentHistory(db.Model):
     UCH_id=db.Column(db.Integer, primary_key = True)
     user = db.relationship('User')
@@ -73,3 +85,4 @@ class UserCommentHistory(db.Model):
     commented_match = db.Column(db.Integer, default=0, nullable = False)
     commented_group = db.Column(db.Integer)
     commented_season = db.Column(db.Integer)
+    user_index = db.Column(db.Integer)

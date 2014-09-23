@@ -4,11 +4,11 @@
 
 <div class="panel panel-danger">
   <div class=panel-heading>
-    <a href = "{{ url_for('candidate_list_A')  }}" ><button> Group A</button></a>
-    <a href = "{{ url_for('candidate_list_B')  }}" ><button> Group B</button></a>
-    <a href = "{{ url_for('candidate_list_C')  }}" ><button> Group C</button></a>
-    <a href = "{{ url_for('candidate_list_D')  }}" ><button> Group D</button></a>
-    <a href = "{{ url_for('candidate_list_E')  }}" ><button> Group E</button></a>
+    <a href = "{{ url_for('candidate_list', group = 1)  }}" ><button> Group A</button></a>
+    <a href = "{{ url_for('candidate_list', group = 2)  }}" ><button> Group B</button></a>
+    <a href = "{{ url_for('candidate_list', group = 3)  }}" ><button> Group C</button></a>
+    <a href = "{{ url_for('candidate_list', group = 4)  }}" ><button> Group D</button></a>
+    <a href = "{{ url_for('candidate_list', group = 5)  }}" ><button> Group E</button></a>
   </div>
 <table class="baby_lion_list">
 {% for people in total_people %}
@@ -27,7 +27,7 @@
                 <div class="back">
                     <p class="titulo">{{people.name}}</p>
                     <p>{{people.school}}</p>
-                    <a href= "{{ url_for('candidate', myseason = people.season, mygame_round = people.game_round, mygroup = people.group, idx = loop.index, name = people.name ) }}"  id="social">더보기</a>
+                    <a href= "{{ url_for('candidate', name = people.name ) }}"  id="social">더보기</a>
                 </div>
                 </div>
             </div>
