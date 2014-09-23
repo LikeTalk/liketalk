@@ -12,7 +12,7 @@
   </div>
 <table class="baby_lion_list">
 {% for people in total_people %}
-    {% if (loop.index -1)  % 6 == 0 %}
+    {% if (loop.index -1)  % 5 == 0 %}
         <tr>
     {% endif %}
         <td>
@@ -34,7 +34,7 @@
         </td>
 
 
-    {% if (loop.index % 6) == 0 %}
+    {% if (loop.index % 5) == 0 %}
         </tr>
     {% endif %}
 

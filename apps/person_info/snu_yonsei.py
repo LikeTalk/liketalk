@@ -15,7 +15,7 @@ students = [
     ["김다예", "서울대학교 건축학과", "/members/snu-yonsei/s2.jpg"],
     ["김대홍", "서울대학교 건축학과", "/members/snu-yonsei/s3.jpg"],
     ["김민석", "서울대학교 산업공학과", "/members/snu-yonsei/s4.jpg"],
-    ["노승은", "서울대학교 자유전공학부", "/members/snu_yonsei/s5.jpg"],
+    ["노승은", "서울대학교 자유전공학부", "/members/snu-yonsei/s5.jpg"],
     ["류기현", "서울대학교 경영학과", "/members/snu-yonsei/s6.jpg"],
     ["류재희", "연세대학교 컴퓨터과학과", "/members/snu-yonsei/s7.jpg"],
     ["백재현", "연세대학교 전기전자공학", "/members/snu-yonsei/s8.jpg"],

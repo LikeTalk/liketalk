@@ -533,12 +533,106 @@ def intersection_removal(mylist):
 
 @app.route('/debug')
 def debugdebug():
-    return str(check_user_match(g.user_email, 32))
+    user_email = g.user_email
+    group = 3
+
+    def check_user_status_by_season(season):
+        # for all Game History Model of Logged in USER
+        logged_user_game = GameHistory.query.order_by(asc(GameHistory.done_game)).filter(GameHistory.user_email == user_email, GameHistory.done_game_season == season, GameHistory.done_game_group == group).all()
+
+        if len(logged_user_game) == 0:
+            return -1 # EMPTY
+        else:
+            return logged_user_game
+
+        # 시즌별로 각 게임의 done_game을 Dict 형태로 출력
+    def each_season_status():
+        season = [32,16,8,4,2,1]
+        season_done_game = {}
+        for each_season in season:
+            each_history = check_user_status_by_season(each_season)
+            if each_history != -1:
+                for each_game_season in each_history:
+                    season_done_game.update( {each_season :  each_game_season.done_game}   )
+            else:
+                season_done_game.update( {each_season :  0}   )
+        return season_done_game
+
+    # 각 시즌별로 done인지 아닌지 살피고, 어떤 시즌을 돌려야하는지 알려준다.
+    def which_season(season_done_game):
+        season_status = {}
+        status_val = season_done_game.values()
+        for key in season_done_game:
+            if season_done_game[key] >= key/2:
+                # 이럼 이 시즌은 다 했다는 뜻
+                season_status.update({key : "done"})
+            elif 0< season_done_game[key] < key/2:
+                season_status.update({key: "ongoing"})
+            else:
+                season_status.update({key:"yet"})
+                # 아직 시작
+
+        status_val = season_status.values()
+        if intersection_removal(status_val)[0] == "yet":
+            season_status[32] = "ongoing"
+
+        for prev_key in season_done_game:
+            next_key = prev_key / 2
+            if next_key != 0 and season_status[prev_key] == "done" and season_status[next_key] == "yet":
+                season_status[next_key] = "ongoing"
+        for key in season_status:
+            if season_status[key] == "ongoing":
+                return key
+            elif key == 32 and season_status[key] == 1:
+                return 32
 
 
-@app.route('/main/congat')
-def END():
-    return "END!"
+    def game_address():
+        # 유저가 할 게임의 시즌과 라운드를 불러준다.
+        season_done_game = each_season_status()
+        season = which_season(season_done_game=season_done_game)
+        if season == 32:
+            match_id = check_user_match(g.user_email, season)
+            player_game = Match.query.filter(Match.group == group, Match.game_round == match_id[group-1]).all()
+            player_game = player_game[0]
+            return player_game
+        else:
+            match_id = check_user_match(user_email, season)
+            new_game_list = Winner.query.order_by(asc(Winner.game_round)).filter(Winner.user_email == user_email, Winner.game_group == group, Winner.game_season == season).all()
+            match = chunk(new_game_list)
+            if season == 1:
+                return "STOP"
+            else:
+                player_game = {}
+                player_game['season_num'] = season
+                player_game['game_round'] = match_id[group-1]
+                player_game['candidate_A_namename'] = match[match_id[group-1]-1][0].winner_A_namename
+                player_game['candidate_A_school'] = match[match_id[group-1]-1][0].winner_A_school
+                player_game['candidate_A_photolink'] = match[match_id[group-1]-1][0].winner_A_photolink
+                player_game['candidate_B_namename'] = match[match_id[group-1]-1][1].winner_A_namename
+                player_game['candidate_B_school'] = match[match_id[group-1]-1][1].winner_A_school
+                player_game['candidate_B_photolink'] = match[match_id[group-1]-1][1].winner_A_photolink
+                player_game['group'] = group
+                return player_game
+
+    season_done_game = each_season_status()
+    season = which_season(season_done_game=season_done_game)
+    return str(season)
+
+@app.route('/main/congat/<int:group>', methods=['GET', 'POST'])
+def END(group):
+    user_email = g.user_email
+    last_game = Winner.query.filter(Winner.game_season == 1, Winner.game_group == group, Winner.user_email == user_email).all()[0]
+    name = last_game.winner_A_namename
+
+    try:
+        your_winner = Match.query.filter(Match.candidate_A_namename == name).all()[0]
+        photo_address = your_winner.candidate_A_photolink
+    except:
+        your_winner = Match.query.filter(Match.candidate_B_namename == name).all()[0]
+        photo_address = your_winner.candidate_B_photolink
+
+    return render_template("end.html", last_game = last_game, photo = photo_address)
 
 
 
@@ -610,24 +704,26 @@ def match(group):
             match_id = check_user_match(user_email, season)
             new_game_list = Winner.query.order_by(asc(Winner.game_round)).filter(Winner.user_email == user_email, Winner.game_group == group, Winner.game_season == season).all()
             match = chunk(new_game_list)
-
-            player_game = {}
-            player_game['season_num'] = season
-            player_game['game_round'] = match_id[group-1]
-            player_game['candidate_A_namename'] = match[match_id[group-1]-1][0].winner_A_namename
-            player_game['candidate_A_school'] = match[match_id[group-1]-1][0].winner_A_school
-            player_game['candidate_A_photolink'] = match[match_id[group-1]-1][0].winner_A_photolink
-            player_game['candidate_B_namename'] = match[match_id[group-1]-1][1].winner_A_namename
-            player_game['candidate_B_school'] = match[match_id[group-1]-1][1].winner_A_school
-            player_game['candidate_B_photolink'] = match[match_id[group-1]-1][1].winner_A_photolink
-            player_game['group'] = group
-
-            return player_game
-
-
+            if season == None:
+                return "STOP"
+            else:
+                player_game = {}
+                player_game['season_num'] = season
+                player_game['game_round'] = match_id[group-1]
+                player_game['candidate_A_namename'] = match[match_id[group-1]-1][0].winner_A_namename
+                player_game['candidate_A_school'] = match[match_id[group-1]-1][0].winner_A_school
+                player_game['candidate_A_photolink'] = match[match_id[group-1]-1][0].winner_A_photolink
+                player_game['candidate_B_namename'] = match[match_id[group-1]-1][1].winner_A_namename
+                player_game['candidate_B_school'] = match[match_id[group-1]-1][1].winner_A_school
+                player_game['candidate_B_photolink'] = match[match_id[group-1]-1][1].winner_A_photolink
+                player_game['group'] = group
+                return player_game
     player_game = game_address()
-    comments = Comment.query.filter(Comment.comment_group == group).order_by(desc(Comment.date_created)).all()
-    return render_template("home.html", player_game=player_game, comments = comments, active_tab="match")
+    if player_game == "STOP":
+        return redirect(url_for("END", group = group))
+    else:
+        comments = Comment.query.filter(Comment.comment_group == group).order_by(desc(Comment.date_created)).all()
+        return render_template("home.html", player_game=player_game, comments = comments, active_tab="match")
 
 
 
@@ -706,7 +802,7 @@ def vote(matnum, candnum, gamegroup, season, name):
         if season != 2:
             return redirect(url_for('match', group = gamegroup))
         else:
-            return redirect(url_for('testest'))
+            return redirect(url_for('END', group = gamegroup))
 
 
 @app.route('/logout', methods=['GET'])

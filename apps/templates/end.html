@@ -2,9 +2,40 @@
 
 {% block contents %}
 
-<p class="bg-info">게임이 모두 끝났습니다.</p>
+<div class="container">
+	<div class="panel panel-danger">
+		<div class=panel-heading>
+			<h1 class="text-center"> {{last_game.user_email}} 님의 {{last_game.game_group}} 그룹 우승자! </h1>
+		</div>
+	</div>
+<!--profile contents-->
+	<div class="panel panel-body">
+		<div class="row">
+			<div class="col-xs-4"></div>
+			<div class="col-xs-4 ">
+				<img src="/static{{photo}}" class="img-responsive img-rounded" alt="Resposive Image">
+				<br>
+				<br>
+				<div ="container-fluid">
+<!--put primary candidate_id, name, shool-->
+					<table class="table">
+						<tr>
+							<td> 이름</td>
+							<td> {{last_game.winner_A_namename}} </td>
+						</tr>
+						<tr>
+							<td> 학교</td>
+							<td> {{last_game.winner_A_school}} </td>
+						</tr>
 
-<button type="button" class="btn btn-primary">그룹으로 돌아가기</button>
+					</table>
+				</div>
+				</br></br>
+				</div>
+					<div class="col-xs-4"></div>
+				</div>
+	</div>
+</div>
 
 
 {% endblock %}
