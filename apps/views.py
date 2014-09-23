@@ -130,102 +130,6 @@ def grouping():
             game_round = 1
 
 
-
-# 한 번 들어가면 season을 입력시켜준다.
-# 지워도 되는 부분
-@app.route('/input_match')
-def input_match():
-    # return "\n".join( [ student[0] for student in  kaist.students] )
-    ajou_info = [st for st in ajou.students] + [tc for tc in ajou.teachers]
-    gachon_info = [st for st in gachon.students] + \
-        [tc for tc in gachon.teachers]
-    hanyang_info = [st for st in hanyang.students] + \
-        [tc for tc in hanyang.teachers]
-    kaist_info = [st for st in kaist.students] + [tc for tc in kaist.teachers]
-    khu_info = [st for st in khu.students] + [tc for tc in khu.teachers]
-    mju_info = [st for st in mju.students] + [tc for tc in mju.teachers]
-    sejong_info = [st for st in sejong.students] + \
-        [tc for tc in sejong.teachers]
-    snu_yonseig_info = [st for st in snu_yonsei.students] + [
-        tc for tc in snu_yonsei.teachers]
-    ssu_info = [st for st in ssu.students] + [tc for tc in ssu.teachers]
-    uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
-
-    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + \
-        khu_info + mju_info + sejong_info + \
-        snu_yonseig_info + ssu_info + uos_info
-    random.shuffle(all_info)
-    all_info = chunk(all_info)
-    random.shuffle(all_info)
-
-    season = int(math.log(len(all_info), 2))
-
-    all_info = all_info[:2 ** season]
-
-    idx = 0
-    for each in all_info:
-        A = each[0]
-        B = each[1]
-
-        nameA = A[0]
-        nameA = unicode(nameA, 'utf-8')
-        orgA = A[1]
-        orgA = unicode(orgA, 'utf-8')
-        photoA = A[2]
-
-        nameB = B[0]
-        nameB = unicode(nameB, 'utf-8')
-        orgB = B[1]
-        orgB = unicode(orgB, 'utf-8')
-        photoB = B[2]
-
-        my_match = Match(
-            season_num=2 ** season,
-            game_round=idx,
-            candidate_A_namename=nameA,
-            candidate_A_photolink=photoA,
-            candidate_A_school=orgA,
-            candidate_B_namename=nameB,
-            candidate_B_photolink=photoB,
-            candidate_B_school=orgB
-        )
-        db.session.add(my_match)
-        db.session.commit()
-        idx += 1
-
-
-@app.route('/new_match/<int:season>')
-def new_match(season):
-    new_cand = []
-    idx = 0
-    for idx in range(season):
-        cand_num = db.session.query(Match).filter(
-            Match.season_num == season, Match.game_round == idx)[0]
-        candA_num = cand_num.candidate_A_count
-        candB_num = cand_num.candidate_B_count
-        if int(candA_num) >= int(candB_num):
-            winner = cand_num.candidate_A_namename
-            new_cand.append(winner)
-            # winner = unicode(winner, 'utf-8')
-        else:
-            winner = cand_num.candidate_B_namename
-            # winner = unicode(winner, 'utf-8')
-            new_cand.append(winner)
-
-    random.shuffle(new_cand)
-    my_iter = 0
-    for idx in xrange(0, len(new_cand), 2):
-        my_match = Match(
-            season_num=int(season / 2),
-            game_round=my_iter,
-            candidate_A_namename=new_cand[idx],
-            candidate_B_namename=new_cand[idx + 1],
-        )
-        my_iter += 1
-        db.session.add(my_match)
-        db.session.commit()
-
-
 @app.route('/test')
 def test():
     roundnum = request.args.get('roundnum', 0, type=int)
@@ -722,8 +626,14 @@ def match(group):
     if player_game == "STOP":
         return redirect(url_for("END", group = group))
     else:
+        try :
+            season = player_game.season_num
+            season = int(season / 2)
+        except:
+            season = player_game['season_num']
+            season = int(season / 2)
         comments = Comment.query.filter(Comment.comment_group == group).order_by(desc(Comment.date_created)).all()
-        return render_template("home.html", player_game=player_game, comments = comments, active_tab="match")
+        return render_template("home.html", player_game=player_game, comments = comments, active_tab="match", season = season)
 
 
 
