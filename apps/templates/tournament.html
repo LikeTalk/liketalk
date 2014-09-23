@@ -5,17 +5,17 @@
 
 	<!-- basic styles -->
 	<style type="text/css">
-		.g_gracket { width: 9999px; background-color: #fff; padding: 55px 15px 5px; line-height: 100%; position: relative; overflow: hidden;}
+		.g_gracket { width: 100%; background-color: #fff; padding: 55px 45px 5px; line-height: 100%; position: relative; overflow: hidden;}
 		.g_round { float: left; margin-right: 70px; }
 		.g_game { position: relative; margin-bottom: 15px; }
-		.g_gracket h3 { margin: 0; padding: 10px 8px 8px; font-size: 18px; font-weight: normal; color: #fff}
-		.g_team { background: #3597AE; }
-		.g_team:last-child {  background: #FCB821; }
+		.g_gracket h3 { margin: 0; padding: 10px 8px 8px; font-size: 16px; font-weight: normal; color: #444; font-family: 'Jeju Gothic'; }
+		.g_team { background: #FF7A7B; }
+		.g_team:last-child {  background: #FFF57F; }
 		.g_round:last-child { margin-right: 20px; }
-		.g_winner { background: #444; }
+		.g_winner { background: #11818D; }
 		.g_winner .g_team { background: none; }
-		.g_current { cursor: pointer; background: #A0B43C!important; }
-		.g_round_label { top: -5px; font-weight: normal; color: #CCC; text-align: center; font-size: 18px; }
+		.g_current { cursor: pointer;  background: #999!important;}
+		.g_round_label { top: -5px; font-weight: normal; color: #999; text-align: center; font-size: 18px; font-family: 'Jeju Gothic'; }
 	</style>
 
 </head>
@@ -25,16 +25,16 @@
 {% block contents %}
 <div class="panel panel-danger">
   <div class=panel-heading>
-    <a class="group-btn btn btn-default" param="0" role="button">Group A</a>
-    <a class="group-btn btn btn-default" param="1" role="button"> Group B</a>
-    <a class="group-btn btn btn-default" param="2" role="button"> Group C</a>
-    <a class="group-btn btn btn-default" param="3" role="button"> Group D</a>s
-    <a class="group-btn btn btn-default" param="4" role="button"> Group E</a>
-
+  	<div class="group_button">
+    <a class="group-btn btn btn-tournament" param="0" role="button"> Group A</a>
+    <a class="group-btn btn btn-tournament" param="1" role="button"> Group B</a>
+    <a class="group-btn btn btn-tournament" param="2" role="button"> Group C</a>
+    <a class="group-btn btn btn-tournament" param="3" role="button"> Group D</a>
+    <a class="group-btn btn btn-tournament" param="4" role="button"> Group E</a>
+	</div>
   </div>
 	<!-- empty gracket element -->
-	<div class="my_gracket"></div>
-
+	<div class="my_gracket text-center"></div>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$.getJSON('/match_data/0', function(data) {

@@ -1,37 +1,88 @@
-.no-list {
-    padding: 10px;
+p .hello_user{
+    font-family: 'Jeju Gothic';
+    font-size: 10px;
+    color:#7F7F7F;
+}
+
+/*mathup_page*/
+#matchup { 
+    font-family: 'Hanna'; 
+    font-size:30px;
+    color:#fff;
+    background-color: #FF7A7B;
+}
+#show_round { 
+    font-family: 'Hanna'; 
+    font-size:20px;
+    color:#595959;
+    padding-top: 40px;
+    margin-bottom: -10px;
+}
+#vs { 
+    font-family: 'Hanna'; 
+    font-size:50px;
+    font-style: bold;
+    color:#7F7F7F;
+}
+.list-unstyled{
+    font-family: 'Jeju Gothic';
+    font-size: 12px;
+    color:#7F7F7F;
+}
+
+#matchup_img{
+    border-radius:10%;
+    border: 8px solid #11818D;
+}
+
+
+#comment_part{
+    background: #FFF57F;
+    width:100%;
+}
+
+#comment { 
+    font-family: 'Hanna'; 
+    font-size:20px;
+    color:#595959;
+}
+
+#cand1 {
+    font-family: 'Hanna'; 
+    font-size:25px;
+    color:#404040;
+    margin-bottom: -20px;
+    margin-top: 10px;
+}
+
+#cand2 {
+    font-family: 'Hanna'; 
+    font-size:25px;
+    color:#404040;
+    margin-bottom: -20px;
+    margin-top: 10px;
+}
+
+/*tournament_page*/
+.group_button{
+    padding: 20px 30px 20px;
+}
+.btn-tournament {
+  color: #333;
+  background-color:  #7F7F7F;
+  border-color:  #7F7F7F;
+  font-family: 'Hanna';
+  color:#404040;
+}
+
+.btn-tournament:hover,
+.btn-tournament:focus,
+.btn-tournament.active{
+  color: #8FCEB9;
+  background-color: #C6C4B6;
+  border-color: #C6C4B6;
+}
+
+.my_gracket{
     text-align: center;
-}
-
-.col-xs-15,
-.col-sm-15,
-.col-md-15,
-.col-lg-15 {
-    position: relative;
-    min-height: 1px;
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-.col-xs-15 {
-    width: 20%;
-    float: left;
-}
-@media (min-width: 768px) {
-.col-sm-15 {
-        width: 20%;
-        float: left;
-    }
-}
-@media (min-width: 992px) {
-    .col-md-15 {
-        width: 20%;
-        float: left;
-    }
-}
-@media (min-width: 1200px) {
-    .col-lg-15 {
-        width: 20%;
-        float: left;
-    }
 }
