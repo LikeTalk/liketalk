@@ -1,7 +1,13 @@
 {% extends "layout.html" %}
 
 {% block contents %}
-    <div class = "llCommentCreate">
+<div class="signup_page">
+  <div class="signup_container container">
+    <div class="row">
+      <div class="col-lg-4 col-lg-offset-4 text-center signup_inner">
+        <h1 class="signup_title"> ★ 회원가입 ★ </h1>
+
+
         <form role = "form" method="post">
             {{ form.hidden_tag() }}
 
@@ -20,10 +26,12 @@
 
             {% from "_form_field.html" import render_field %}
             {% for field in form if field.widget.input_type != 'hidden' %}
-                    {{ render_field(field, class = "form-control") }}
+                    {{ render_field(field, class = "form-control", placeholder=field.description['placeholder']) }}
             {% endfor %}
 
-            <button type = "submit" class="btn btn-default">회원가입</button>
+            <div class="signup_btn_outer" align="center" >
+                <button type = "submit" class="btn btn-default" id="signup_btn">SIGN UP</button>
+            </div>
         </form>
     </div>
 {% endblock %}

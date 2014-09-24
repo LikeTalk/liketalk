@@ -30,10 +30,11 @@ p .hello_user{
     color:#7F7F7F;
 }
 
-#matchup_img{
+#matchup_img_1, #matchup_img_2 {
     border-radius:10%;
     border: 8px solid #11818D;
 }
+
 
 #comment_part{
     background: #FFF57F;
@@ -115,7 +116,13 @@ p .hello_user{
     top: 0;
     bottom: 0;
 }
-
+.list_end_panel{
+    width:100%;
+    height:20px;
+    border-radius:  0 0 20px 20px;
+    margin-bottom: 20px;
+    background: white;
+}
 
 /*candidate_page*/
 #lion_profile{
@@ -185,3 +192,60 @@ p .hello_user{
     height: 80px;
     border-radius:  0 0 20px 20px;
 }
+
+/*login, signup*/
+.login_inner, .signup_inner {
+    margin: 0;
+    position: absolute;
+    float: none;
+    margin: 0 auto;
+    margin-top: 120px;
+
+    background-color: #ffffff;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.login_title, .signup_title {
+    text-align: center; 
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Hanna';
+}
+
+.login_btn_outer, .signup_btn_outer {
+    margin-bottom: 15px; 
+}
+
+.login_btn_outer > .btn, .signup_btn_outer > .btn {
+    color: #fff;
+    background-color: #FF7A7B;
+    font-family: "Hanna";
+    text-align: center;
+    font-size: 20px;
+}
+
+.login_btn_outer > .btn:hover, .signup_btn_outer >.btn:hover {
+    background-color: #E98B8B;
+    color: #E7E7E7;
+}
+
+#login_btn, #signup_btn{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: :10px;
+}
+
+.go_signup{
+    text-align: right;
+}
+#btn_go_signup {
+    font-family: 'Hanna';
+    font-size: 20px;
+    color:#DCDCDC;
+}
+/*#btn_go_signup > .btn:hover, #btn_go_signup >.btn:hover {
+    color: #E7E7E7;
+}*/

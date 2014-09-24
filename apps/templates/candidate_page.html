@@ -35,7 +35,7 @@
     <div class="row">
         <div class="llCommentCreate">
                 <form action="{{ url_for('candidate_comment',group = cand_data.group, name = cand_data.name) }}" role="form" method="post">
-                        <textarea class="text required form-control" name="content" cols="40" placeholder=" 댓 글 댓 글 댓 글 댓 글 댓 글 " required="required" rows="3" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 73px;"></textarea>
+                        <textarea class="text required form-control" name="content" cols="40" placeholder=" 응원글을 입력해주세요.  " required="required" rows="3" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 73px;"></textarea>
             <button id="btn_comment"class="btn btn-liketalk_group" name="comment_btn" type="submit" value="POST">submit</button>
                     </form>
         </div>
@@ -61,7 +61,7 @@
         {% if comments_indiv %}
             {% for comment in comments_indiv %}
                 <div class="well well-sm">
-                    <span class="badge">친구응원!</span>
+                    <span class="badge">친구응원</span>
                     <span class="badge">{{comments.comment_name}} </span>
                     <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
                     <span class="float-right">
