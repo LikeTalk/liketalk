@@ -35,10 +35,16 @@ p .hello_user{
     border: 8px solid #11818D;
 }
 
-
 #comment_part{
     background: #FFF57F;
     width:100%;
+    border-radius:  0 0 20px 20px;
+    margin-bottom: 20px;
+}
+
+.inner_container{
+    width:96%;
+    padding-left: 15px;
 }
 
 #comment { 
@@ -61,6 +67,11 @@ p .hello_user{
     color:#404040;
     margin-bottom: -20px;
     margin-top: 10px;
+}
+
+#btn_comment{
+    float :right;
+    margin: 5px 0px 10px 0;
 }
 
 /*tournament_page*/
@@ -122,12 +133,21 @@ p .hello_user{
 .profile_comment_panel{
     background: #FFF57F;
     width:100%;
+    border-radius:  0 0 20px 20px;
+    margin-bottom: 20px;
 }
 
 #profile_comment{
     font-family: 'Jeju Gothic'; 
     font-size:20px;
     color:#595959;
+    padding-left: 20px;
+}
+
+.profile_inner{
+    width:97%;
+    padding-left: 35px;
+    border-radius:  0 0 20px 20px;
 }
 
 /*end page*/

@@ -1399,6 +1399,7 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  width:95%;
 }
 @media (min-width: 768px) {
   .container {
@@ -1414,8 +1415,8 @@ pre code {
   .container {
     width: 1140px;
   }
-}
-.container-fluid {
+}container-fluid
+. {
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
