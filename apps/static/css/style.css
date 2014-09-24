@@ -67,7 +67,7 @@ p .hello_user{
 .group_button{
     padding: 20px 30px 20px;
 }
-.btn-tournament {
+.btn-liketalk_group {
   color: #333;
   background-color:  #7F7F7F;
   border-color:  #7F7F7F;
@@ -75,9 +75,9 @@ p .hello_user{
   color:#404040;
 }
 
-.btn-tournament:hover,
-.btn-tournament:focus,
-.btn-tournament.active{
+.btn-liketalk_group:hover,
+.btn-liketalk_group:focus,
+.btn-liketalk_group.active{
   color: #8FCEB9;
   background-color: #C6C4B6;
   border-color: #C6C4B6;
@@ -85,4 +85,83 @@ p .hello_user{
 
 .my_gracket{
     text-align: center;
+}
+
+/*candidate_list page*/
+.titulo{
+    font-size: 25px;
+    color: #fff;
+}
+.name_school{
+    font-size: 12px;
+    color: #F5F5F5;
+}
+
+.baby_lion_list{
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+/*candidate_page*/
+#lion_profile{
+    font-family: 'Jeju Gothic'; 
+    font-size:35px;
+    color:#7F7F7F;
+}
+
+#profile_info{
+    font-family: 'Jeju Gothic'; 
+    font-size:24px;
+    color:#7F7F7F;
+}
+
+.profile_comment_panel{
+    background: #FFF57F;
+    width:100%;
+}
+
+#profile_comment{
+    font-family: 'Jeju Gothic'; 
+    font-size:20px;
+    color:#595959;
+}
+
+/*end page*/
+#your_winner{
+    font-family: 'Hanna'; 
+    font-size:30px;
+    color:#7F7F7F;
+}
+#winner_img{
+    border-radius:10%;
+    border: 8px solid #11818D;
+}
+#winner_name { 
+    font-family: 'Hanna'; 
+    font-size: 40px;
+    color:#159DAB;
+}
+#winner_school{
+    font-family: 'Jeju Gothic';
+    font-size:20px;
+    color:#7F7F7F;
+    text-align: center;
+}
+
+.winner_panel{
+    border-radius:  20px 20px 20px 20px;
+    background-color: #fff;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+#end_page_end{
+    background: #FFF57F;
+    width: 100%;
+    height: 80px;
+    border-radius:  0 0 20px 20px;
 }
