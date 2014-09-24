@@ -169,7 +169,7 @@ def test():
     return jsonify(next_data=next_data)
 
 
-@app.route('/tutorial_page')
+@app.route('/')
 def tutorial_page():
     return render_template("tutorial.html")
 
@@ -309,7 +309,7 @@ def match_data(group_sort):
     return json.dumps(r)
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
     if request.method == 'POST':

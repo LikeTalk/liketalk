@@ -12,15 +12,13 @@ header .container {
 header img{
     display: block;
     margin:0 auto 20px;
-
 }
 
 header .intro-text .name{
     display:block;
-    font-family:Arial;
     font-size:3em;
     font-family: 'Hanna';
-    font-weight:700;
+    font-weight:300;
 }
 
 header .intro-text .welcome{
@@ -38,10 +36,14 @@ section h2{
     margin:0;
     font-family:'Hanna';
     font-size:3em;
-    font-weight:bold;
     color:#454549;
 }
-
+section h3{
+    margin:0;
+    font-family:'Hanna';
+    font-size:2em;
+    color:#454549;
+}
 section p{
     font-family:'Jeju Gothic';
     color:#2C2C2E;
