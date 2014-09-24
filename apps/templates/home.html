@@ -12,7 +12,7 @@
 		<div class="row">
 			<div class="col-lg-4 col-lg-offset-1">
 				<center>
-				<a href = "{{ url_for('vote', gamegroup = player_game.group , matnum = player_game.game_round , candnum = 1, season = player_game.season_num, name = player_game.candidate_A_namename ) }}" ><img id="matchup_img" src="/static{{player_game.candidate_A_photolink}}" class="img-responsive img-rounded" alt="Resposive Image"></a>
+				<a href = "{{ url_for('vote', gamegroup = player_game.group , matnum = player_game.game_round , candnum = 1, season = player_game.season_num, name = player_game.candidate_A_namename ) }}" ><img id="matchup_img_1" src="/static{{player_game.candidate_A_photolink}}" class="img-responsive img-rounded" alt="Resposive Image"></a>
 				</center>
 			</div>
 			<div class="col-lg-2">
@@ -23,7 +23,7 @@
 			</div>
 			<div class="col-lg-4">
 				<center>
-				<a href = "{{ url_for('vote', gamegroup = player_game.group , matnum = player_game.game_round , candnum = 2, season = player_game.season_num, name = player_game.candidate_B_namename ) }}" ><img id="matchup_img" src="/static{{player_game.candidate_B_photolink}}"  class="img-responsive img-rounded" alt="Resposive Image"></a>
+				<a href = "{{ url_for('vote', gamegroup = player_game.group , matnum = player_game.game_round , candnum = 2, season = player_game.season_num, name = player_game.candidate_B_namename ) }}" ><img id="matchup_img_2" src="/static{{player_game.candidate_B_photolink}}"  class="img-responsive img-rounded" alt="Resposive Image"></a>
 				</center>
 			</div>
 			<div class="col-lg-1">
