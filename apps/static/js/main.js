@@ -1,6 +1,4 @@
-(function($) {
-  "use strict";
-  // Add "loaded" class when a section has been loaded
+$(document).ready((function($) {
   $(window).scroll(function() {
     var scrollTop = $(window).scrollTop();
     $(".section").each(function() {
@@ -11,18 +9,17 @@
     });
   });
 
-  // One Page Navigation Setup
-  $('.one-page-nav #navigation').singlePageNav({
-    offset: $('.one-page-nav').outerHeight(),
-    filter: ':not(.external)',
-    speed: 750,
-    currentClass: 'active',
+  $(window).keydown(function(e){
+      if (e.keyCode == 37){
+        $('#matchup_img_1').click();
+      }
+      else if (e.keyCode == 39){
+        $('#matchup_img_2').click();
+      }
+    });
 
-    beforeStart: function() {
-    },
-    onComplete: function() {
-    }
-  });
+  // One Page Navigation Setup
+
 
   // Sticky Navbar Affix
   $('.one-page-nav').affix({
@@ -99,7 +96,5 @@
     return false;
 
   });
+}))
 
-  
-
-})(jQuery);
