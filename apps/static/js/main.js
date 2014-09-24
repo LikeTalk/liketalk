@@ -22,14 +22,7 @@
     }
   });
 
-  $(window).keydown(function(e){
-      if (e.keyCode == 37){
-        $('#matchup_img_1').click();
-      }
-      else if (e.keyCode == 39){
-        $('#matchup_img_2').click();
-      }
-    });
+  
 
   // One Page Navigation Setup
 
