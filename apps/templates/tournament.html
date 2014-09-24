@@ -39,7 +39,6 @@
 		$(document).ready(function() {
 			$.getJSON('/match_data/0', function(data) {
                   $(".my_gracket").gracket({ src : data });
-
                 });
 	
 			$('.group-btn').click(function() {
@@ -56,6 +55,7 @@
 		});
 	</script>
 </div>
+<div class="list_end_panel"></div>
 {% endblock %}
 </body>
 </html>

@@ -169,6 +169,11 @@ def test():
     return jsonify(next_data=next_data)
 
 
+@app.route('/tutorial_page')
+def tutorial_page():
+    return render_template("tutorial.html")
+
+
 @app.route('/group')
 def testest():
     if g.user_email == None:

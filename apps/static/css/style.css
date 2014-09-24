@@ -1,3 +1,70 @@
+/*tutorial*/
+header{
+    text-align:center;
+    color:#ffffff;
+    background:#8FCEB9;
+}
+
+header .container {
+    padding:100px 0 50px;
+}
+
+header img{
+    display: block;
+    margin:0 auto 20px;
+    width:100px;
+    height:100px;
+    border-radius:100%
+}
+
+header .intro-text .name{
+    display:block;
+    font-family:Arial;
+    font-size:3em;
+    font-family: 'Hanna';
+    font-weight:700;
+}
+
+header .intro-text .welcome{
+    font-family:Helvetica;
+    font-size:1.5em;
+    font-family: 'Jeju Gothic';
+    font-weight:300;
+}
+
+section{
+    padding: 100px 0;
+}
+
+section h2{
+    margin:0;
+    font-family:Arial;
+    font-size:3em;
+    font-weight:bold;
+    color:#454549;
+}
+
+section p{
+    font-family:Helvetica;
+    color:#2C2C2E;
+    font-size:14px;
+}
+
+#matchup_intro{
+    background: #ffffff;
+ }
+
+#tournament_intro{
+    background: #f6f6f6;
+ }
+
+ #comment_intro{
+    background: #ffffff;
+ }
+
+
+ 
+/*navbar*/
 p .hello_user{
     font-family: 'Jeju Gothic';
     font-size: 10px;
