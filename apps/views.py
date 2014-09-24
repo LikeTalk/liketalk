@@ -791,7 +791,7 @@ def candidate_list(group):
                 people_count = 0
                 total_people.append(people)
         random.shuffle(total_people[0])
-        return render_template("candidate_list.html", total_people=total_people[0])
+        return render_template("candidate_list.html", total_people=total_people[0], active_tab = "candidate_list")
 
 
 @app.route('/candidate/<name>', methods=['GET', 'POST'])
