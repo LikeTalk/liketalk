@@ -1,4 +1,5 @@
-$(document).ready((function($) {
+//$(document).ready((function($) {
+(function($) {
   $(window).scroll(function() {
     var scrollTop = $(window).scrollTop();
     $(".section").each(function() {
@@ -7,6 +8,18 @@ $(document).ready((function($) {
         $(this).addClass('loaded');
       }
     });
+  });
+
+  $('.one-page-nav #navigation').singlePageNav({
+    offset: $('.one-page-nav').outerHeight(),
+    filter: ':not(.external)',
+    speed: 750,
+    currentClass: 'active',
+
+    beforeStart: function() {
+    },
+    onComplete: function() {
+    }
   });
 
   $(window).keydown(function(e){
@@ -96,5 +109,5 @@ $(document).ready((function($) {
     return false;
 
   });
-}))
+}))(jQuery);
 
