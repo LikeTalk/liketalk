@@ -312,6 +312,17 @@ p .hello_user{
     font-size: 20px;
     color:#DCDCDC;
 }
+
+
 /*#btn_go_signup > .btn:hover, #btn_go_signup >.btn:hover {
     color: #E7E7E7;
 }*/
+
+
+
+/* Select Group Page */ 
+#select_group {
+    font-family:'Hanna';
+    font-size:3em;
+    color:#454549;
+}

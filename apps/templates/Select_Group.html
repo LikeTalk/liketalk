@@ -2,42 +2,32 @@
 
 {% block contents %}
 
-<div class = "row placeholders" style="margin-top: 15%;">
-       <div class="col-md-2 col  -sm-2">
-
+<div class = "row placeholders" style="margin-top: 10%;">
+    <div id = "select_group" class="col-md-8 col-md-offset-2 text-center">
+        그룹을 선택해주세요! <br>
+        (각 그룹은 32강!)
     </div>
-
-    <div class="col-md-8 col-sm-8">
-        그룹을 선택해주세요! (각 그룹은 32강으로 구성되어 있습니다.)
-    </div>
-
-    <div class="col-md-2 col-sm-2">
-
-    </div>
-
 </div>
 
-
-
-<div class = "row placeholders" style="margin-top: 15%;">
+<div class = "row placeholders" style="margin-top: 5%;">
     <div class="col-md-15 col-sm-3">
-        <a href = "{{ url_for('match', group = 1) }}">  <img class="img-responsive" alt="200x200" src="static/images/A.png"> </a>
+        <a href = "{{ url_for('match', group = 1) }}">  <img id="A" class="img-responsive" alt="200x200" src="static/images/A.png"> </a>
     </div>
 
     <div class="col-md-15 col-sm-3">
-        <a href = "{{ url_for('match', group = 2)  }}">   <img class="img-responsive" alt="200x200" src="static/images/B.png"></a>
+        <a href = "{{ url_for('match', group = 2)  }}">   <img id="B" class="img-responsive" alt="200x200" src="static/images/B.png"></a>
     </div>
 
     <div class="col-md-15 col-sm-3">
-        <a href = "{{ url_for('match', group = 3)  }}">   <img class="img-responsive" alt="200x200" src="static/images/C.png"> </a>
+        <a href = "{{ url_for('match', group = 3)  }}">   <img id="C" class="img-responsive" alt="200x200" src="static/images/C.png"> </a>
     </div>
 
     <div class="col-md-15 col-sm-3">
-        <a href = "{{ url_for('match', group = 4)  }}">   <img class="img-responsive" alt="200x200" src="static/images/D.png"> </a>
+        <a href = "{{ url_for('match', group = 4)  }}">   <img id="D" class="img-responsive" alt="200x200" src="static/images/D.png"> </a>
     </div>
 
     <div class="col-md-15 col-sm-3">
-        <a href = "{{ url_for('match', group = 5)  }}">   <img class="img-responsive" alt="200x200" src="static/images/E.png"> </a>
+        <a href = "{{ url_for('match', group = 5)  }}">   <img id="E" class="img-responsive" alt="200x200" src="static/images/E.png"> </a>
     </div>
 
 </div>
