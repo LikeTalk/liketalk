@@ -84,7 +84,7 @@
     		<p id="comment"> ★ 댓글 ★ </p>
     	</div>
         <div class="row">
-	        <div class="llCommentCreate">
+	        <div id="comment_div" class="llCommentCreate" >
 	                <form action="{{ url_for('comment_create', game_round = player_game.game_round, gamegroup = player_game.group, season = player_game.season_num, comment_A = player_game.candidate_A_namename, comment_B = player_game.candidate_B_namename ) }}" role="form" method="post">
 	                        <textarea class="text required form-control" name="content" cols="40" placeholder=" 댓글을 입력하세요. " required="required" rows="3" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 73px;"></textarea>
             				<button id="btn_comment"class="btn btn-liketalk_group" name="comment_btn" type="submit" value="POST">submit</button>
@@ -94,7 +94,7 @@
     	</div>
 
     	<div class="row">
-	        <div class="llCommentList">
+	        <div id="comment_div" class="llCommentList">
 	            {% if comments %}
 	                {% for comment in comments %}
 	                    <div class="well well-sm">

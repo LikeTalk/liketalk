@@ -64,8 +64,8 @@ section p{
 }
 
 #tutorial_img1{
-    margin-bottom: 50px;
     height:200px;
+    margin-bottom: 50px;
 }
 
 #tutorial_img2{
@@ -213,6 +213,17 @@ p .hello_user{
     margin: 5px 0px 10px 0;
 }
 
+
+
+/*comment part*/
+#comment_div{
+    font-family: 'Jeju Gothic';
+}
+
+
+
+
+
 /*tournament_page*/
 .group_button{
     padding: 20px 30px 20px;
@@ -294,6 +305,15 @@ p .hello_user{
     width:97%;
     padding-left: 35px;
     border-radius:  0 0 20px 20px;
+}
+
+
+/*all_comment page*/
+#title_comment{
+    font-family: 'Jeju Gothic'; 
+    font-size:20px;
+    color: #11818D;
+    font-weight: bold;
 }
 
 /*end page*/
