@@ -6,7 +6,7 @@
 }
 
 header .container {
-    padding:100px 0 50px;
+    padding:50px 0 50px;
 }
 
 header img{
@@ -22,8 +22,7 @@ header .intro-text .name{
 }
 
 header .intro-text .welcome{
-    font-family:Helvetica;
-    font-size:1.5em;
+    font-size:30px;
     font-family: 'Jeju Gothic';
     font-weight:300;
 }
@@ -31,21 +30,52 @@ header .intro-text .welcome{
 section h2{
     margin:0;
     font-family:'Hanna';
-    font-size:3em;
+    font-size:70px;
     color:#454549;
+    padding-bottom: 50px;
 }
 section h3{
     margin:0;
     font-family:'Hanna';
-    font-size:2em;
+    font-size:50px;
     color:#454549;
 }
 section p{
     font-family:'Jeju Gothic';
-    color:#2C2C2E;
-    font-size:14px;
 }
 
+#tutorial_contents{
+    font-size: 26px;
+    color: #595959;
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+#tutorial_contents_sub{
+    font-size: 17px;
+    color: #BDBDBD;
+    line-height: 1.1;
+}
+
+#tutorial_img1{
+    margin-bottom: 50px;
+}
+
+#tutorial_img2{
+    height:270px;
+}
+
+#tutorial_img3{
+    padding: 10px 0 10px;
+    height:230px;
+}
+.line{
+    background: #9FBFB3;
+    width:100%;
+    height:6px;
+    margin: 20px 0 30px;
+
+}
 #matchup_intro{
     background: #ffffff;
     padding: 100px 0;
@@ -61,7 +91,11 @@ section p{
     padding: 100px 0;
  }
 
-
+#page-top-link{
+    font-size:20px;
+    font-family: 'Jeju Gothic';
+    color: #8FCEB9;
+}
 
 /*navbar*/
 p .hello_user{
