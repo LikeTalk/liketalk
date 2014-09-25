@@ -11,7 +11,7 @@ header .container {
 
 header img{
     display: block;
-    margin:0 auto 20px;
+    margin:50px auto 40px;
 }
 
 header .intro-text .name{
@@ -52,13 +52,14 @@ section p{
 }
 
 #tutorial_contents_sub{
-    font-size: 17px;
+    font-size: 18px;
     color: #BDBDBD;
     line-height: 1.1;
 }
 
 #tutorial_img1{
     margin-bottom: 50px;
+    height:200px;
 }
 
 #tutorial_img2{

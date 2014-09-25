@@ -1,12 +1,12 @@
-<nav class="navbar navbar-default navbar-static-top" role="navigation">
+<nav class="navbar navbar-default navbar-static-top navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{ url_for('tutorial_page') }}">멋쟁이 사자차럼 인기투표</a>
+            <a class="navbar-brand" href="{{ url_for('tutorial_page') }}">★라이온픽★</a>
         </div>
         <ul class="nav navbar-nav">
-            <li {% if active_tab == 'group' %} class="active"{% endif %}><a href="{{ url_for('testest') }}">그룹!</a></li>
-            <li{% if active_tab == 'tournament' %} class ="active"{% endif %}><a href="{{url_for('tournament')}}">대진표 및 결과</a></li>
-            <li{% if active_tab == 'candidate_list' %} class ="active"{% endif %}><a href="{{url_for('candidate_list', group = 1)}}">조별 그룹</a></li>
+            <li {% if active_tab == 'group' %} class="active"{% endif %}><a href="{{ url_for('testest') }}">그룹별 투표</a></li>
+            <li{% if active_tab == 'tournament' %} class ="active"{% endif %}><a href="{{url_for('tournament')}}">대진표</a></li>
+            <li{% if active_tab == 'candidate_list' %} class ="active"{% endif %}><a href="{{url_for('candidate_list', group = 1)}}">구성원</a></li>
             <li{% if active_tab == 'all_comments' %} class ="active"{% endif %}><a href="{{url_for('all_comments')}}">댓글 모아보기</a></li>
             {% if g.user_email != None %}
             <li><a href = "{{ url_for('log_out')}}"> 로그아웃 </a></li>
