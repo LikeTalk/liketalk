@@ -4,7 +4,14 @@
 <header id="matchup_part">
 	<div class="panel panel-danger">
 		<div class="panel-heading">
-			<h2 id="matchup" class="text-center"> ★ {% if player_game.group == '1' %} 그룹 A {% elif player_game.group == '2' %} 그룹 B {% elif player_game.group == '3' %} 그룹 C {% elif player_game.group == '4' %} 그룹 D {% else %} 그룹 E {% endif %} 매치업 ★ </h2>
+<!-- 			<h2 id="matchup" class="text-center"> ★ {% if player_game.group == '1' %} 그룹 A {% elif player_game.group == '2' %} 그룹 B {% elif player_game.group == '3' %} 그룹 C {% elif player_game.group == '4' %} 그룹 D {% else %} 그룹 E {% endif %} 매치업 ★ </h2>
+		</div> 
+		<br> -->
+			<div class="col-lg-12 text-center">
+				<div id="matchup_ribbon">
+					<h2 id="matchup" class="text-center"> ★ {% if player_game.group == '1' %} 그룹 A {% elif player_game.group == '2' %} 그룹 B {% elif player_game.group == '3' %} 그룹 C {% elif player_game.group == '4' %} 그룹 D {% else %} 그룹 E {% endif %} 매치업 ★ </h2>
+				</div>
+			</div>
 		</div>
 		<br>
 
