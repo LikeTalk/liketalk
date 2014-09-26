@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+<header id="matchup_part">
+	<div class="panel panel-danger">
+		<div class="panel-heading">
+			<div class="col-lg-12 text-center">
+				<div id="matchup_ribbon">
+					<h2 id="matchup" class="text-center"> ★ 매치업 ★ </h2>
+				</div>
+			</div>
+		</div>
+		<br>
+
+<!-- 각자 candidate 설명:이름과 학교, 나이 -->
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset-1">
+				<center>
+				<img id="matchup_img_1_final" src="/static{{photo1}}" class="img-responsive img-rounded" alt="Resposive Image"></a>
+				</center>
+			</div>
+			<div class="col-lg-2">
+				<center>
+                <br><br>
+				<p id="vs" class="text-center"> VS </p>
+				</center>
+			</div>
+			<div class="col-lg-4">
+				<center>
+				<img id="matchup_img_2_final" src="/static{{photo2}}" class="img-responsive img-rounded" alt="Resposive Image"></a>
+				</center>
+			</div>
+			<div class="col-lg-1">
+			</div>
+		</div>
+
+		<!-- 투표하는 버튼 --> <!-- if 투표안했으면 - 이 창 보여주기  -->
+
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset-1">
+                <center><p>{{ name1 }}</p></center>
+			</div>
+
+			<div class="col-lg-4 col-lg-offset-2">
+                <center><p>{{ name2}}</p></center>
+			</div>
+			<div class="col-lg-1">
+			</div>
+		</div>
+    	<br>
+
+    </div>
+</header>
+
+<section id="comment_part">
+        <p id="title_comment">★해당매치 댓글들★</p>
+        <div id="comment_div" class="llCommentList">
+
+        {% if two_people %}
+            {% for comment in two_people %}
+                <div class="well well-sm">
+                    <span class="badge">{{comment.comment_A}} vs {{comment.comment_B}}</span>
+                    <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
+                    <span class="float-right">
+                        <small>
+                           <em style="float: right">{{ comment.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</em>
+                        </small>
+                    </span>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+          </div>
+</section>
+
+
+{% endblock %}

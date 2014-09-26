@@ -23,7 +23,7 @@
                 <div id="comment_div" class="well well-sm">
                     <span class="badge">그룹{{ comment.comment_group }}</span>
                     <span class="badge">{{ comment.comment_season }}강</span>
-                    <span class="badge">{{comment.comment_A}} vs {{comment.comment_B}}   </span>
+                    <a href = "{{url_for('two_people_show', name1 = comment.comment_A, name2 = comment.comment_B)}}"><span class="badge">{{comment.comment_A}} vs {{comment.comment_B}}   </span></a>
                     <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
                     <span class="float-right">
                         <small>
@@ -36,22 +36,6 @@
 
         <br><br>
 
-        <p id="title_comment">★매치댓글 모아보기★</p>
-        {% if comments %}
-            {% for comment in comments %}
-                <div id="comment_div" class="well well-sm">
-                    <span class="badge">그룹{{ comment.comment_group }}</span>
-                    <span class="badge">{{ comment.comment_season }}강</span>
-                    <span class="badge">{{comment.comment_A}} vs {{comment.comment_B}}   </span>
-                    <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
-                    <span class="float-right">
-                        <small>
-                           <em style="float: right">{{ comment.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</em>
-                        </small>
-                    </span>
-                </div>
-            {% endfor %}
-        {% endif %}
 
         <br>
         <p id="title_comment">★응원댓글 모아보기★</p>
@@ -59,7 +43,7 @@
             {% for comment in indiv_comments %}
                 <div id="comment_div" class="well well-sm">
                     <span class="badge">그룹{{ comment.comment_group }}</span>
-                    <span class="badge">{{comment.comment_name}}  </span>
+                    <a href = "{{url_for('candidate', name = comment.comment_name)}}" ><span class="badge">{{comment.comment_name}}  </span></a>
                     <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
                     <span class="float-right">
                         <small>

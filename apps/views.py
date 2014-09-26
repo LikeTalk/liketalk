@@ -985,3 +985,37 @@ def comments_group(group):
         comments = Comment.query.order_by(desc(Comment.date_created)).filter(Comment.comment_group == group).all()
         indiv_comments = Indiv_Comment.query.order_by(desc(Indiv_Comment.date_created)).filter(Indiv_Comment.comment_group == group).all()
         return render_template('all_comment.html', comments = comments, indiv_comments = indiv_comments, active_tab = 'all_comments')
+
+
+@app.route('/two_people/<name1>/<name2>', methods = ['GET','POST'])
+def two_people_show(name1,name2):
+    if g.user_email == None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
+    else:
+        two_people = Comment.query.order_by(desc(Comment.date_created)).filter(Comment.comment_A == name1, Comment.comment_B == name2).all()
+        if len(two_people) == 0:
+            two_people = Comment.query.order_by(desc(Comment.date_created)).filter(Comment.comment_A == name2, Comment.comment_B == name1).all()
+
+        try:
+            cand1 = Match.query.filter(Match.candidate_A_namename == name1).all()
+            cand1 = cand1[0]
+            photo1 = cand1.candidate_A_photolink
+        except:
+            cand1 = Match.query.filter(Match.candidate_B_namename == name1).all()
+            cand1 = cand1[0]
+            photo1 = cand1.candidate_B_photolink
+
+        try:
+            cand2 = Match.query.filter(Match.candidate_A_namename == name2).all()
+            cand2 = cand2[0]
+            photo2 = cand2.candidate_A_photolink
+        except:
+            cand2 = Match.query.filter(Match.candidate_B_namename == name2).all()
+            cand2 = cand2[0]
+            photo2 = cand2.candidate_B_photolink
+
+        return render_template('two_people.html', two_people = two_people, photo1 = photo1, photo2 = photo2, name1 = name1, name2 = name2)
+
+
+
