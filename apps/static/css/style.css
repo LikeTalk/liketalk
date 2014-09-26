@@ -15,7 +15,7 @@ header .container {
     padding:50px 0 50px;
 }
 
-header img{
+#main_img{
     display: block;
     margin:50px auto 40px;
 }
@@ -125,6 +125,7 @@ p .hello_user{
     padding: 0;
     position: relative;
     margin: auto;
+    margin-bottom: 40px;
 }
 #matchup_ribbon::before {
     content:"";

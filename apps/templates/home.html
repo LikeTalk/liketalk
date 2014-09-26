@@ -22,7 +22,7 @@
 				<a href = "{{ url_for('vote', gamegroup = player_game.group , matnum = player_game.game_round , candnum = 1, season = player_game.season_num, name = player_game.candidate_A_namename ) }}" ><img id="matchup_img_1" src="/static{{player_game.candidate_A_photolink}}" class="img-responsive img-rounded" alt="Resposive Image"></a>
 				</center>
 			</div>
-			<div class="col-lg-2">
+			<div class="col-lg-2" style="padding-top: 50px;">
 				<center>
 				<p id ="show_round" class="text-center">{{ player_game.season_num     }}강 - {{player_game.game_round}} / {{  season }} </p>
 				<p id="vs" class="text-center"> VS </p>
