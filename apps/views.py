@@ -327,7 +327,7 @@ def login():
             else:
                 session.permanent = True
                 session['user_email'] = user.email
-                flash(u'로그인 완료', 'success')
+                # flash(u'로그인 완료', 'success')
                 # render_template('Select_Group.html')
                 # return redirect(url_for('match'))
                 return redirect(url_for('testest'))
@@ -744,7 +744,7 @@ def user_join():
 
                 session.permanent = True
                 session['user_email'] = user.email
-                flash(u'로그인 완료', 'success')
+                # flash(u'로그인 완료', 'success')
                 return redirect(url_for('testest'))
             else:
                 flash(u'이미 존재하는 USER', 'danger')

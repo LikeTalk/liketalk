@@ -14,6 +14,7 @@
             <a href = "{{url_for('comments_group', group = 4)}}"><button type="button" class="btn btn-liketalk_group">Group D</button></a>
             <a href = "{{url_for('comments_group', group = 5)}}"><button type="button" class="btn btn-liketalk_group">Group E</button></a>
         </div>
+
         <br><br><br>
 
         <div class="row">
@@ -26,9 +27,10 @@
 	        <br>
     	</div>
 
+        <p id="title_comment">★매치댓글 모아보기★</p>
         {% if comments %}
             {% for comment in comments %}
-                <div class="well well-sm">
+                <div id="comment_div" class="well well-sm">
                     <span class="badge">그룹{{ comment.comment_group }}</span>
                     <span class="badge">{{ comment.comment_season }}강</span>
                     <span class="badge">{{comment.comment_A}} vs {{comment.comment_B}}   </span>
@@ -42,11 +44,11 @@
             {% endfor %}
         {% endif %}
 
-        <br><br><br>
-
+        <br>
+        <p id="title_comment">★응원댓글 모아보기★</p>
         {% if indiv_comments %}
             {% for comment in indiv_comments %}
-                <div class="well well-sm">
+                <div id="comment_div" class="well well-sm">
                     <span class="badge">그룹{{ comment.comment_group }}</span>
                     <span class="badge">{{comment.comment_name}}  </span>
                     <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}

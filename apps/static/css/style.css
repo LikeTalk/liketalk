@@ -1,3 +1,9 @@
+/*blank*/
+.blank{
+    height: 70px;
+    width: 100%;
+}
+
 /*tutorial*/
 header{
     text-align:center;
@@ -6,12 +12,12 @@ header{
 }
 
 header .container {
-    padding:100px 0 50px;
+    padding:50px 0 50px;
 }
 
 header img{
     display: block;
-    margin:0 auto 20px;
+    margin:50px auto 40px;
 }
 
 header .intro-text .name{
@@ -22,8 +28,7 @@ header .intro-text .name{
 }
 
 header .intro-text .welcome{
-    font-family:Helvetica;
-    font-size:1.5em;
+    font-size:30px;
     font-family: 'Jeju Gothic';
     font-weight:300;
 }
@@ -35,21 +40,53 @@ section{
 section h2{
     margin:0;
     font-family:'Hanna';
-    font-size:3em;
+    font-size:70px;
     color:#454549;
+    padding-bottom: 50px;
 }
 section h3{
     margin:0;
     font-family:'Hanna';
-    font-size:2em;
+    font-size:50px;
     color:#454549;
 }
 section p{
     font-family:'Jeju Gothic';
-    color:#2C2C2E;
-    font-size:14px;
 }
 
+#tutorial_contents{
+    font-size: 26px;
+    color: #595959;
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+#tutorial_contents_sub{
+    font-size: 18px;
+    color: #BDBDBD;
+    line-height: 1.1;
+}
+
+#tutorial_img1{
+    height:200px;
+    margin-bottom: 50px;
+}
+
+#tutorial_img2{
+    height:270px;
+}
+
+#tutorial_img3{
+    padding: 10px 0 10px;
+    height:230px;
+}
+.line{
+    background: #9FBFB3;
+    width:100%;
+    height:6px;
+    margin: 20px 0 30px;
+
+}
 #matchup_intro{
     background: #ffffff;
  }
@@ -62,7 +99,11 @@ section p{
     background: #ffffff;
  }
 
-
+#page-top-link{
+    font-size:20px;
+    font-family: 'Jeju Gothic';
+    color: #8FCEB9;
+}
 
 /*navbar*/
 p .hello_user{
@@ -72,11 +113,42 @@ p .hello_user{
 }
 
 /*mathup_page*/
+#matchup_ribbon{
+    background: #FF7A7B;
+    width: 300px;
+    height: 48px;
+    padding: 0;
+    position: relative;
+    margin: auto;
+}
+#matchup_ribbon::before {
+    content:"";
+    position: absolute;
+    top:0;
+    right: 100%;
+    width: 0;
+    height: 0;
+    border: 24px solid #FF7A7B;
+    border-left-color:transparent;
+}
+#matchup_ribbon::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 0;
+    height: 0;
+    border: 24px solid #FF7A7B;
+    border-right-color: transparent;
+}
+
+
 #matchup { 
     font-family: 'Hanna'; 
     font-size:30px;
     color:#fff;
-    background-color: #FF7A7B;
+    padding-top: 8px;
+    /*background-color: #FF7A7B;*/
 }
 #show_round { 
     font-family: 'Hanna'; 
@@ -142,6 +214,17 @@ p .hello_user{
     margin: 5px 0px 10px 0;
 }
 
+
+
+/*comment part*/
+#comment_div{
+    font-family: 'Jeju Gothic';
+}
+
+
+
+
+
 /*tournament_page*/
 .group_button{
     padding: 20px 30px 20px;
@@ -156,6 +239,7 @@ p .hello_user{
 
 .btn-liketalk_group:hover,
 .btn-liketalk_group:focus,
+.btn-liketalk_group:active,
 .btn-liketalk_group.active{
   color: #8FCEB9;
   background-color: #C6C4B6;
@@ -222,6 +306,15 @@ p .hello_user{
     width:97%;
     padding-left: 35px;
     border-radius:  0 0 20px 20px;
+}
+
+
+/*all_comment page*/
+#title_comment{
+    font-family: 'Jeju Gothic'; 
+    font-size:20px;
+    color: #11818D;
+    font-weight: bold;
 }
 
 /*end page*/
