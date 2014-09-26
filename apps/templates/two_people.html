@@ -38,7 +38,7 @@
 
 		<div class="row">
 			<div class="col-lg-4 col-lg-offset-1">
-                <center><p>{{ name1 }}</p></center>
+                <center><p style = "color : black">{{ name1 }}</p></center>
 			</div>
 
 			<div class="col-lg-4 col-lg-offset-2">
@@ -55,34 +55,6 @@
 
 
 <section id="comment_part">
-        <p id="title_comment">★해당매치 댓글들★</p>
-        <div id="comment_div" class="llCommentList">
-
-        {% if two_people %}
-            {% for comment in two_people %}
-                <div class="well well-sm">
-                    <span class="badge">{{comment.comment_A}} vs {{comment.comment_B}}</span>
-                    <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
-                    <span class="float-right">
-                        <small>
-                           <em style="float: right">{{ comment.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</em>
-                        </small>
-                    </span>
-                </div>
-            {% endfor %}
-        {% endif %}
-
-          </div>
-</section>
-
-
-{% endblock %}
-
-
-
-
-
-<section id="comment_part">
     <div class="container">
     	<div class="inner_container">
     	<div class="col-lg-12">
@@ -91,9 +63,9 @@
     		<p id="comment"> ★해당매치 댓글들★ </p>
     		</div>
 	        <div class="row">
-		        <div id="comment_div" class="llCommentCreate" >
+		        <div id="comment_show" class="llCommentCreate" >
 	                {% if two_people %}
-	       			 {% for comment in two_people %}
+                        {% for comment in two_people %}
 	            		<div class="well well-sm">
 		                    <span class="badge">{{comment.comment_A}} vs {{comment.comment_B}}</span>
 		                    <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
@@ -103,8 +75,8 @@
 		                        </small>
 		                    </span>
 	            		</div>
-	            {% endfor %}
-	        {% endif %}
+                        {% endfor %}
+                    {% endif %}
 		        </div>
 	        <br>
     		</div>
