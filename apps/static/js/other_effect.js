@@ -1,10 +1,24 @@
 $(document).ready((function() {
+    $('textarea').keydown(function(event) {
+      // console.log('asdf');
+        if (event.keyCode == 37 || event.keyCode == 39){
+            event.preventDefault();
+
+        }
+        return false;
+    });
+
+    var block = false;
 	$(window).keydown(function(e){
+      if(block) return;
+      // console.log($(this));  
       if (e.keyCode == 37){
         $('#matchup_img_1').click();
+        block = true;
       }
       else if (e.keyCode == 39){
         $('#matchup_img_2').click();
+        block = true;
       }
     });
 
@@ -77,6 +91,11 @@ $(document).ready((function() {
     $("#matchup_img_2").mouseleave(function(){
     	$(this).css("opacity", 1);
     });
+
+
+
+
+
 
 
 }))

@@ -751,6 +751,8 @@ def user_join():
                 return redirect(url_for('user_join'))
         else:
             flash(u'작성형식에 맞지 않습니다.', 'success')
+            return redirect(url_for('user_join'))
+
     else:
         return render_template('user/join.html', form=form, active_tab="user_join")
 
