@@ -447,6 +447,7 @@ def debugdebug():
     hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
     kaist_info = [st for st in kaist.students] + [tc for tc in kaist.teachers]
     khu_info = [st for st in khu.students] + [tc for tc in khu.teachers]
+    korea_info = [st for st in korea.students] + [tc for tc in korea.teachers]
     mju_info = [st for st in mju.students] + [tc for tc in mju.teachers]
     sejong_info = [st for st in sejong.students] + [tc for tc in sejong.teachers]
     snu_yonseig_info = [st for st in snu_yonsei.students] + [tc for tc in snu_yonsei.teachers]
@@ -454,21 +455,7 @@ def debugdebug():
     uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
     master_info = [tc for tc in teacher.master]
 
-    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info + master_info
-
-    for each_member in all_info:
-        name = each_member[0]
-        school = each_member[1]
-        photo_link = each_member[2]
-
-        member = Candidate(
-            name=name,
-            photolink=photo_link,
-            school=school
-        )
-
-        db.session.add(member)
-        db.session.commit()
+    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info + master_info + korea_info
 
     return str(len(all_info))
 
