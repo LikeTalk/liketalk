@@ -180,6 +180,11 @@ p .hello_user{
 }
 
 
+#comment_show{
+    word-break:break-all;
+}
+
+
 #comment_part{
     background: #FFF57F;
     width:100%;
