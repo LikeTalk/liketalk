@@ -33,9 +33,9 @@ header .intro-text .welcome{
     font-weight:300;
 }
 
-section{
+/*section{
     padding: 100px 0;
-}
+}*/
 
 section h2{
     margin:0;
@@ -89,14 +89,17 @@ section p{
 }
 #matchup_intro{
     background: #ffffff;
+    padding: 100px 0;
  }
 
 #tournament_intro{
     background: #f6f6f6;
+    padding: 100px 0;
  }
 
  #comment_intro{
     background: #ffffff;
+    padding: 100px 0;
  }
 
 #page-top-link{
