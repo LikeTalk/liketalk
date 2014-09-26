@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+<div class="panel panel-danger">
+<div class="panel-body">
+
+    <div class="llCommentList">
+
+        <div class="row">
+	        <div id="bulletin" class="llCommentCreate">
+	                <form action="{{ url_for('bulletin_create')}}" role="form" method="post">
+	                        <textarea class="text required form-control" name="content" cols="40" placeholder=" 댓글을 입력하세요. " required="required" rows="3" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 73px;" ></textarea>
+            				<button id="btn_comment"class="btn btn-liketalk_group" name="comment_btn" type="submit" value="POST">submit</button>
+                    </form>
+	        </div>
+	        <br>
+    	</div>
+        <br>
+
+        <p id="title_comment">★게시글★</p>
+        {% if bulletin %}
+            {% for each in bulletin %}
+                <div id="comment_div" class="well well-sm">
+                    <span class="badge">익명{{ each.user_index }}</span> {{ each.content }}
+                    <span class="float-right">
+                        <small>
+                           <em style="float: right">{{ each.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</em>
+                        </small>
+                    </span>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    </div>
+</div>
+
+</div>
+<div class="list_end_panel"></div>
+
+{% endblock %}

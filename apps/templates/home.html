@@ -9,7 +9,7 @@
 		<br> -->
 			<div class="col-lg-12 text-center">
 				<div id="matchup_ribbon">
-					<h2 id="matchup" class="text-center"> ★ {% if player_game.group == '1' %} 그룹 A {% elif player_game.group == '2' %} 그룹 B {% elif player_game.group == '3' %} 그룹 C {% elif player_game.group == '4' %} 그룹 D {% else %} 그룹 E {% endif %} 매치업 ★ </h2>
+					<h2 id="matchup" class="text-center"> ★ {% if player_game.group == 1 %} 그룹 A {% elif player_game.group == 2 %} 그룹 B {% elif player_game.group == 3 %} 그룹 C {% elif player_game.group == 4 %} 그룹 D {% else %} 그룹 E {% endif %} 매치업 ★ </h2>
 				</div>
 			</div>
 		</div>
@@ -87,7 +87,7 @@
 	        <div id="comment_div" class="llCommentCreate" >
 	                <form action="{{ url_for('comment_create', game_round = player_game.game_round, gamegroup = player_game.group, season = player_game.season_num, comment_A = player_game.candidate_A_namename, comment_B = player_game.candidate_B_namename ) }}" role="form" method="post">
 	                        <textarea class="text required form-control" name="content" cols="40" placeholder=" 댓글을 입력하세요. " required="required" rows="3" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 73px;" ></textarea>
-            				<button id="btn_comment"class="btn btn-liketalk_group" name="comment_btn" type="submit" value="POST">submit</button>
+            				<button id="btn_comment"class="btn btn-liketalk_group" name="comment_btn" type="submit"  value="POST">submit</button>
 	                    </form>
 	        </div>
 	        <br>

@@ -86,3 +86,12 @@ class UserCommentHistory(db.Model):
     commented_group = db.Column(db.Integer)
     commented_season = db.Column(db.Integer)
     user_index = db.Column(db.Integer)
+
+
+class Bulletin(db.Model):
+    Comment_id = db.Column(db.Integer, primary_key = True)
+    user = db.relationship('User')
+    user_email = db.Column(db.String(255), db.ForeignKey('user.email'))
+    user_index = db.Column(db.Integer)
+    content = db.Column(db.Text())
+    date_created = db.Column(db.DateTime(), default=db.func.now())

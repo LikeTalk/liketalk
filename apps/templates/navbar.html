@@ -8,12 +8,13 @@
             <li{% if active_tab == 'tournament' %} class ="active"{% endif %}><a href="{{url_for('tournament')}}">대진표</a></li>
             <li{% if active_tab == 'candidate_list' %} class ="active"{% endif %}><a href="{{url_for('candidate_list', group = 1)}}">구성원</a></li>
             <li{% if active_tab == 'all_comments' %} class ="active"{% endif %}><a href="{{url_for('all_comments')}}">댓글 모아보기</a></li>
+            <li{% if active_tab == 'bulletin' %} class ="active"{% endif %}><a href="{{url_for('bulletin')}}">게시판</a></li>
             {% if g.user_email != None %}
             <li><a href = "{{ url_for('log_out')}}"> 로그아웃 </a></li>
             <li {% if active_tab == 'log_in' %} class="active" {% endif %}>
 
             {% else %}
-            <li><a href="{{ url_for('login')}}"> 로그인</a> </li>
+            <li{% if active_tab == 'log_in' %} class ="active" {% endif %}><a href="{{ url_for('login')}}"> 로그인</a> </li>
             <li {% if active_tab == 'user_join' %} class ="active"{% endif %}><a href="{{url_for('user_join')}}">회원가입 </a></li>
             {% endif %}
         </ul>

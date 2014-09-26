@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy import desc, asc
 from apps import app, db
 from apps.forms import CommentForm, JoinForm, LoginForm
-from apps.models import User, Comment, Match, Candidate, GameHistory, Winner, UserCommentHistory, Indiv_Comment
+from apps.models import User, Comment, Match, Candidate, GameHistory, Winner, UserCommentHistory, Indiv_Comment, Bulletin
 
 import random
 import math
@@ -917,15 +917,71 @@ def candidate_comment(group, name):
         return redirect(url_for('candidate', name = name ))
 
 
+
+
+@app.route('/bulletin_create', methods = ['GET', 'POST'])
+def bulletin_create():
+    group = 1
+    if request.method == 'POST':
+        all_comments = Bulletin.query.order_by(asc(Bulletin.user_index)).all()
+        user_comments = Bulletin.query.filter(Bulletin.user_email == g.user_email).all()
+        if len(all_comments) == 0:
+            user_idx = 1
+        elif len(all_comments) > 0 and len(user_comments) == 0:
+            #누군가가 댓글 입력했는데, 내가 안했으면
+            existed_idx = []
+            for each in all_comments:
+                existed_idx.append(each.user_index)
+            existed_idx = intersection_removal(existed_idx)
+            sorted(existed_idx)
+            user_idx = existed_idx[len(existed_idx)-1] + 1
+        else:
+            #누군가 댓글 입력하고, 나도 했으면
+            user_idx = user_comments[0].user_index
+
+        my_all_comment = Bulletin(
+            user_index = user_idx,
+            content = request.form['content'],
+            user_email = g.user_email
+        )
+        db.session.add(my_all_comment)
+        db.session.commit()
+
+        return redirect(url_for('bulletin'))
+    else:
+        return redirect(url_for('bulleti'))
+
+
+
+@app.route('/bulletin', methods = ['GET', 'POST'])
+def bulletin():
+    if g.user_email == None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
+    else:
+        all_bulletin = Bulletin.query.order_by(desc(Bulletin.date_created)).all()
+        return render_template('bulletin.html', bulletin = all_bulletin, active_tab = 'bulletin')
+
+
+
+
 @app.route('/all_comments', methods = ['GET','POST'])
 def all_comments():
-    comments = Comment.query.order_by(desc(Comment.date_created)).all()
-    indiv_comments = Indiv_Comment.query.order_by(desc(Indiv_Comment.date_created)).all()
-    return render_template('all_comment.html',indiv_comments = indiv_comments, comments = comments, active_tab = 'all_comments')
+    if g.user_email == None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
+    else:
+        comments = Comment.query.order_by(desc(Comment.date_created)).all()
+        indiv_comments = Indiv_Comment.query.order_by(desc(Indiv_Comment.date_created)).all()
+        return render_template('all_comment.html', indiv_comments = indiv_comments, comments = comments, active_tab = 'all_comments')
 
 
 @app.route('/all_comments/<int:group>', methods=['GET', 'POST'])
 def comments_group(group):
-    comments = Comment.query.order_by(desc(Comment.date_created)).filter(Comment.comment_group == group).all()
-    indiv_comments = Indiv_Comment.query.order_by(desc(Indiv_Comment.date_created)).filter(Indiv_Comment.comment_group == group).all()
-    return render_template('all_comment.html', comments = comments, indiv_comments = indiv_comments, active_tab = 'all_comments')
+    if g.user_email == None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
+    else:
+        comments = Comment.query.order_by(desc(Comment.date_created)).filter(Comment.comment_group == group).all()
+        indiv_comments = Indiv_Comment.query.order_by(desc(Indiv_Comment.date_created)).filter(Indiv_Comment.comment_group == group).all()
+        return render_template('all_comment.html', comments = comments, indiv_comments = indiv_comments, active_tab = 'all_comments')
