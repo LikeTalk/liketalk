@@ -35,6 +35,7 @@ def all_in():
     gachon_info = [st for st in gachon.students] + [tc for tc in gachon.teachers]
     hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
     kaist_info = [st for st in kaist.students] + [tc for tc in kaist.teachers]
+    korea_info = [st for st in korea.students] + [tc for tc in korea.teachers]
     khu_info = [st for st in khu.students] + [tc for tc in khu.teachers]
     mju_info = [st for st in mju.students] + [tc for tc in mju.teachers]
     sejong_info = [st for st in sejong.students] + [tc for tc in sejong.teachers]
@@ -43,7 +44,12 @@ def all_in():
     uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
     master_info = [tc for tc in teacher.master]
 
-    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info + master_info
+    seed_num = [1,3,5,6,9]
+    developer_seed = []
+    for seed in seed_num:
+        developer_seed.append(kaist.students[seed])
+
+    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info + master_info + developer_seed + korea_info
 
     for each_member in all_info:
         name = each_member[0]
@@ -68,14 +74,19 @@ def grouping():
     hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
     kaist_info = [st for st in kaist.students] + [tc for tc in kaist.teachers]
     khu_info = [st for st in khu.students] + [tc for tc in khu.teachers]
+    korea_info = [st for st in korea.students] + [tc for tc in korea.teachers]
     mju_info = [st for st in mju.students] + [tc for tc in mju.teachers]
     sejong_info = [st for st in sejong.students] + [tc for tc in sejong.teachers]
     snu_yonseig_info = [st for st in snu_yonsei.students] + [tc for tc in snu_yonsei.teachers]
     ssu_info = [st for st in ssu.students] + [tc for tc in ssu.teachers]
     uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
     master_info = [tc for tc in teacher.master]
+    seed_num = [1,3,5,6,9]
+    developer_seed = []
+    for seed in seed_num:
+        developer_seed.append(kaist.students[seed])
 
-    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info + master_info
+    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info + master_info + korea_info + developer_seed
 
     # 이렇게 불러오는거야 ㅋㅋㅋ
     # candidate_members = Candidate.query.all()
@@ -83,7 +94,7 @@ def grouping():
 
     candidate_members = Candidate.query.all()
     random.shuffle(candidate_members)
-    candidate_members = candidate_members[:160]
+    #candidate_members = candidate_members[:160]
     candidate_members = chunk(candidate_members)
 
     idx = 0
@@ -108,8 +119,10 @@ def grouping():
             game_group = 3
         elif idx >= 48 and idx < 64:
             game_group = 4
-        else:
+        elif idx >= 64 and idx < 80:
             game_group = 5
+        else:
+            game_group = 6
 
         my_match = Match(
             season_num=32,
@@ -353,6 +366,7 @@ def check_user_match(user_email, season):
     user_game_C = []
     user_game_D = []
     user_game_E = []
+    user_game_F = []
 
     for each_user_game in user_game_history:
         if each_user_game.done_game_group == 1:
@@ -365,6 +379,8 @@ def check_user_match(user_email, season):
             user_game_D.append(each_user_game)
         elif each_user_game.done_game_group == 5:
             user_game_E.append(each_user_game)
+        elif each_user_game.done_game_group == 6:
+            user_game_F.append(each_user_game)
 
     # Return 값은 List of dictionaries
 
@@ -395,6 +411,11 @@ def check_user_match(user_email, season):
         if each_game.done_game not in user_game_E:
             user_new_E.append(each_game.done_game)
 
+    user_new_F = []
+    for each_game in user_game_F:
+        if each_game.done_game not in user_game_F:
+            user_new_F.append(each_game.done_game)
+
     '''
     user_new_history = []
     for idx in user_game_history:
@@ -424,8 +445,9 @@ def check_user_match(user_email, season):
     game_C = each_game_var(user_new_C)
     game_D = each_game_var(user_new_D)
     game_E = each_game_var(user_new_E)
+    game_F = each_game_var(user_new_F)
 
-    return [game_A, game_B, game_C, game_D, game_E]
+    return [game_A, game_B, game_C, game_D, game_E, game_F]
 
 
 
@@ -455,9 +477,14 @@ def debugdebug():
     uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
     master_info = [tc for tc in teacher.master]
 
+    seed_num = [1,3,5,6,9]
+    developer_seed = []
+    for seed in seed_num:
+        developer_seed.append(kaist.students[seed])
+
     all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info + master_info + korea_info
 
-    return str(len(all_info))
+    return str(kaist.students[5])
 
 @app.route('/main/congat/<int:group>', methods=['GET', 'POST'])
 def END(group):

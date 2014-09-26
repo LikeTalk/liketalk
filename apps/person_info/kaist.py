@@ -22,5 +22,4 @@ students = [
     ["유수형", "KAIST 건설및환경공학과", "/members/kaist/s11.jpg"]
 ]
 
-random.shuffle(teachers)
-random.shuffle(students)
+

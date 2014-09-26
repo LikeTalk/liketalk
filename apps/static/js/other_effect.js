@@ -58,6 +58,14 @@ $(document).ready((function($) {
     	$(this).css("opacity", 1);
     });
 
+    $("#F").mouseenter(function(){
+    	$(this).css("opacity", 0.4);
+    });
+
+    $("#F").mouseleave(function(){
+    	$(this).css("opacity", 1);
+    });
+
 
 	// 클릭하면 어두워짐 
 	$("#matchup_img_1").click(function(){
