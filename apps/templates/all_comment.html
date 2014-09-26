@@ -20,7 +20,7 @@
         <p id="title_comment">★매치댓글 모아보기★</p>
         {% if comments %}
             {% for comment in comments %}
-                <div id="comment_div" class="well well-sm">
+                <div id="comment_show" class="well well-sm">
                     <span class="badge">그룹{{ comment.comment_group }}</span>
                     <span class="badge">{{ comment.comment_season }}강</span>
                     <a href = "{{url_for('two_people_show', name1 = comment.comment_A, name2 = comment.comment_B)}}"><span class="badge">{{comment.comment_A}} vs {{comment.comment_B}}   </span></a>
@@ -38,7 +38,7 @@
         <p id="title_comment">★응원댓글 모아보기★</p>
         {% if indiv_comments %}
             {% for comment in indiv_comments %}
-                <div id="comment_div" class="well well-sm">
+                <div id="comment_show" class="well well-sm">
                     <span class="badge">그룹{{ comment.comment_group }}</span>
                     <a href = "{{url_for('candidate', name = comment.comment_name)}}" ><span class="badge">{{comment.comment_name}}  </span></a>
                     <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
