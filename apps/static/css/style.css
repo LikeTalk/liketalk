@@ -87,6 +87,8 @@ section p{
     margin: 20px 0 30px;
 
 }
+
+
 #matchup_intro{
     background: #ffffff;
     padding: 100px 0;
@@ -172,7 +174,7 @@ p .hello_user{
     color:#7F7F7F;
 }
 
-#matchup_img_1, #matchup_img_2 {
+#matchup_img_1, #matchup_img_2, #matchup_img_1_final, #matchup_img_2_final {
     border-radius:10%;
     border: 8px solid #11818D;
 }
