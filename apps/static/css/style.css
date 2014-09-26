@@ -15,10 +15,52 @@ header .container {
     padding:50px 0 50px;
 }
 
+@media (min-width: 300px) {
+    #main_img{
+        height : 120px;
+        width : 6000px;
+        display: block;
+        margin:50px auto 40px;
+}
+
+@media (min-width: 500px) {
+    #main_img{
+        height : 180px;
+        width : 770px;
+        display: block;
+        margin:50px auto 40px;
+}
+
+
+
+@media (min-width: 768px) {
+    #main_img{
+        height : 250px;
+        width : 800px;
+        display: block;
+        margin:50px auto 40px;
+}
+@media (min-width: 992px) {
+    #main_img{
+        height : 300px;
+        width : 900px;
+        display: block;
+        margin:50px auto 40px;
+}
+@media (min-width: 1200px) {
+    #main_img{
+        height : 477px;
+        width : 1162px;
+        display: block;
+        margin:50px auto 40px;
+}
+
+/*
 #main_img{
     display: block;
     margin:50px auto 40px;
 }
+*/
 
 header .intro-text .name{
     display:block;
@@ -424,6 +466,9 @@ p .hello_user{
     color: #E7E7E7;
 }*/
 
+/*
+
+*/
 
 
 /* Select Group Page */ 

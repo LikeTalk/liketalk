@@ -11,11 +11,20 @@ import random
 import math
 from itertools import count, izip
 from person_info import uos, ajou, gachon, hanyang, kaist, khu, korea, mju, sejong, snu_yonsei, ssu, teacher
+from datetime import datetime
+from pytz import timezone
 
 
 def chunk(mylist):
     temp = zip(*[iter(mylist)] * 2)
     return [list(x) for x in temp]
+
+
+def timezone_compute():
+    fmt = "%Y-%m-%d %H:%M:%S %Z%z"
+    now_time = datetime.now(timezone('Asia/Tokyo'))
+    return now_time.strftime(fmt)
+
 
 
 @app.route('/init_cand_vote')

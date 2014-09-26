@@ -20,7 +20,7 @@
         <p id="title_comment">★게시글★</p>
         {% if bulletin %}
             {% for each in bulletin %}
-                <div id="comment_div" class="well well-sm">
+                <div id="comment_show" class="well well-sm">
                     <span class="badge">익명{{ each.user_index }}</span> {{ each.content }}
                     <span class="float-right">
                         <small>
