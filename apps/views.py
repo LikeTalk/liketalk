@@ -10,7 +10,7 @@ from apps.models import User, Comment, Match, Candidate, GameHistory, Winner, Us
 import random
 import math
 from itertools import count, izip
-from person_info import uos, ajou, gachon, hanyang, kaist, khu, korea, mju, sejong, snu_yonsei, ssu, teacher
+from person_info import uos, ajou, gachon, hanyang, kaist, khu, korea, mju, sejong, snu_yonsei, ssu
 from datetime import datetime
 from pytz import timezone
 
@@ -40,6 +40,7 @@ def init_cand_vote():
 # Candidate DB에 선수들을 다 집어넣는 함수
 @app.route('/total_allinone')
 def all_in():
+    ''' 선샌님 + 학생 (옛날모델 ㅠㅠ )
     ajou_info = [st for st in ajou.students] + [tc for tc in ajou.teachers]
     gachon_info = [st for st in gachon.students] + [tc for tc in gachon.teachers]
     hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
@@ -73,11 +74,43 @@ def all_in():
 
         db.session.add(member)
         db.session.commit()
+    '''
+
+    # 선생님들만 가보자! (5명 자름)
+    ajou_info = [tc for tc in ajou.teachers]
+    gachon_info = [tc for tc in gachon.teachers]
+    hanyang_info = [tc for tc in hanyang.teachers]
+    kaist_info = [tc for tc in kaist.teachers]
+    khu_info = [tc for tc in khu.teachers]
+    korea_info = [tc for tc in korea.teachers]
+    mju_info =  [tc for tc in mju.teachers]
+    sejong_info = [tc for tc in sejong.teachers]
+    snu_yonseig_info =  [tc for tc in snu_yonsei.teachers]
+    ssu_info = [tc for tc in ssu.teachers]
+    uos_info = [tc for tc in uos.teachers]
+
+    all_teacher = [tc for tc in ajou.teachers] + [tc for tc in gachon.teachers] + [tc for tc in hanyang.teachers] + [tc for tc in kaist.teachers] + [tc for tc in khu.teachers] + [tc for tc in korea.teachers] + [tc for tc in mju.teachers] + [tc for tc in sejong.teachers] + [tc for tc in snu_yonsei.teachers] + [tc for tc in ssu.teachers] + [tc for tc in uos.teachers]
+
+    for each_member in all_teacher:
+        name = each_member[0]
+        school = each_member[1]
+        photo_link = each_member[2]
+
+        member = Candidate(
+            name=name,
+            photolink=photo_link,
+            school=school
+        )
+
+        db.session.add(member)
+        db.session.commit()
+
 
 
 # Candidate DB에서 꺼내와서 선수들을 그룹별로 집어넣는 함수
 @app.route('/group_likelion')
 def grouping():
+    '''
     ajou_info = [st for st in ajou.students] + [tc for tc in ajou.teachers]
     gachon_info = [st for st in gachon.students] + [tc for tc in gachon.teachers]
     hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
@@ -150,6 +183,75 @@ def grouping():
         game_round += 1
         if game_round == 17:
             game_round = 1
+    '''
+
+    # 선생님들만 가보자! (5명 자름)
+    ajou_info = [tc for tc in ajou.teachers]
+    gachon_info = [tc for tc in gachon.teachers]
+    hanyang_info = [tc for tc in hanyang.teachers]
+    kaist_info = [tc for tc in kaist.teachers]
+    khu_info = [tc for tc in khu.teachers]
+    korea_info = [tc for tc in korea.teachers]
+    mju_info =  [tc for tc in mju.teachers]
+    sejong_info = [tc for tc in sejong.teachers]
+    snu_yonseig_info =  [tc for tc in snu_yonsei.teachers]
+    ssu_info = [tc for tc in ssu.teachers]
+    uos_info = [tc for tc in uos.teachers]
+
+    all_teacher = [tc for tc in ajou.teachers] + [tc for tc in gachon.teachers] + [tc for tc in hanyang.teachers] + [tc for tc in kaist.teachers] + [tc for tc in khu.teachers] + [tc for tc in korea.teachers] + [tc for tc in mju.teachers] + [tc for tc in sejong.teachers] + [tc for tc in snu_yonsei.teachers] + [tc for tc in ssu.teachers] + [tc for tc in uos.teachers]
+
+    candidate_members = Candidate.query.all()
+    random.shuffle(candidate_members)
+    #candidate_members = candidate_members[:160]
+    candidate_members = chunk(candidate_members)
+
+    idx = 0
+    game_round = 1
+    for each_pair in candidate_members:
+        A = each_pair[0]
+        B = each_pair[1]
+
+        nameA = A.name
+        orgA = A.school
+        photoA = A.photolink
+
+        nameB = B.name
+        orgB = B.school
+        photoB = B.photolink
+
+        if idx < 16:
+            game_group = 1
+        '''
+        elif idx >= 16 and idx < 32:
+            game_group = 2
+        elif idx >= 32 and idx < 48:
+            game_group = 3
+        elif idx >= 48 and idx < 64:
+            game_group = 4
+        elif idx >= 64 and idx < 80:
+            game_group = 5
+        else:
+            game_group = 6
+        '''
+
+        my_match = Match(
+            season_num=32,
+            game_round=game_round,
+            candidate_A_namename=nameA,
+            candidate_A_photolink=photoA,
+            candidate_A_school=orgA,
+            candidate_B_namename=nameB,
+            candidate_B_photolink=photoB,
+            candidate_B_school=orgB,
+            group=1
+        )
+        db.session.add(my_match)
+        db.session.commit()
+        idx += 1
+        game_round += 1
+        if game_round == 17:
+            game_round = 1
+
 
 
 @app.route('/test')
@@ -194,6 +296,7 @@ def test():
 @app.route('/')
 def tutorial_page():
     return render_template("tutorial.html")
+    #return render_template('down.html')
 
 
 @app.route('/group')
@@ -352,7 +455,7 @@ def login():
                 # flash(u'로그인 완료', 'success')
                 # render_template('Select_Group.html')
                 # return redirect(url_for('match'))
-                return redirect(url_for('testest'))
+                return redirect(url_for('tutorial_page'))
     return render_template('user/login.html', form=form, active_tab='log_in')
 
 
@@ -473,27 +576,22 @@ def intersection_removal(mylist):
 
 @app.route('/debug')
 def debugdebug():
-    ajou_info = [st for st in ajou.students] + [tc for tc in ajou.teachers]
-    gachon_info = [st for st in gachon.students] + [tc for tc in gachon.teachers]
-    hanyang_info = [st for st in hanyang.students] + [tc for tc in hanyang.teachers]
-    kaist_info = [st for st in kaist.students] + [tc for tc in kaist.teachers]
-    khu_info = [st for st in khu.students] + [tc for tc in khu.teachers]
-    korea_info = [st for st in korea.students] + [tc for tc in korea.teachers]
-    mju_info = [st for st in mju.students] + [tc for tc in mju.teachers]
-    sejong_info = [st for st in sejong.students] + [tc for tc in sejong.teachers]
-    snu_yonseig_info = [st for st in snu_yonsei.students] + [tc for tc in snu_yonsei.teachers]
-    ssu_info = [st for st in ssu.students] + [tc for tc in ssu.teachers]
-    uos_info = [st for st in uos.students] + [tc for tc in uos.teachers]
-    master_info = [tc for tc in teacher.master]
+    ajou_info = [tc for tc in ajou.teachers]
+    gachon_info = [tc for tc in gachon.teachers]
+    hanyang_info = [tc for tc in hanyang.teachers]
+    kaist_info = [tc for tc in kaist.teachers]
+    khu_info = [tc for tc in khu.teachers]
+    korea_info = [tc for tc in korea.teachers]
+    mju_info =  [tc for tc in mju.teachers]
+    sejong_info = [tc for tc in sejong.teachers]
+    snu_yonseig_info =  [tc for tc in snu_yonsei.teachers]
+    ssu_info = [tc for tc in ssu.teachers]
+    uos_info = [tc for tc in uos.teachers]
 
-    seed_num = [1,3,5,6,9]
-    developer_seed = []
-    for seed in seed_num:
-        developer_seed.append(kaist.students[seed])
+    all_teacher = [tc for tc in ajou.teachers] + [tc for tc in gachon.teachers] + [tc for tc in hanyang.teachers] + [tc for tc in kaist.teachers] + [tc for tc in khu.teachers] + [tc for tc in korea.teachers] + [tc for tc in mju.teachers] + [tc for tc in sejong.teachers] + [tc for tc in snu_yonsei.teachers] + [tc for tc in ssu.teachers] + [tc for tc in uos.teachers]
 
-    all_info = ajou_info + gachon_info + hanyang_info + kaist_info + khu_info + mju_info + sejong_info + snu_yonseig_info + ssu_info + uos_info + master_info + korea_info
 
-    return str(kaist.students[5])
+    return str(len(all_teacher))
 
 @app.route('/main/congat/<int:group>', methods=['GET', 'POST'])
 def END(group):
@@ -514,98 +612,103 @@ def END(group):
 
 @app.route('/main/<int:group>', methods=['GET', 'POST'])
 def match(group):
-    user_email = g.user_email
-
-    def check_user_status_by_season(season):
-        # for all Game History Model of Logged in USER
-        logged_user_game = GameHistory.query.order_by(asc(GameHistory.done_game)).filter(GameHistory.user_email == user_email, GameHistory.done_game_season == season, GameHistory.done_game_group == group).all()
-
-        if len(logged_user_game) == 0:
-            return -1 # EMPTY
-        else:
-            return logged_user_game
-
-        # 시즌별로 각 게임의 done_game을 Dict 형태로 출력
-    def each_season_status():
-        season = [32,16,8,4,2,1]
-        season_done_game = {}
-        for each_season in season:
-            each_history = check_user_status_by_season(each_season)
-            if each_history != -1:
-                for each_game_season in each_history:
-                    season_done_game.update( {each_season :  each_game_season.done_game}   )
-            else:
-                season_done_game.update( {each_season :  0}   )
-        return season_done_game
-
-    # 각 시즌별로 done인지 아닌지 살피고, 어떤 시즌을 돌려야하는지 알려준다.
-    def which_season(season_done_game):
-        season_status = {}
-        status_val = season_done_game.values()
-        for key in season_done_game:
-            if season_done_game[key] >= key/2:
-                # 이럼 이 시즌은 다 했다는 뜻
-                season_status.update({key : "done"})
-            elif 0< season_done_game[key] < key/2:
-                season_status.update({key: "ongoing"})
-            else:
-                season_status.update({key:"yet"})
-                # 아직 시작
-
-        status_val = season_status.values()
-        if intersection_removal(status_val)[0] == "yet":
-            season_status[32] = "ongoing"
-
-        for prev_key in season_done_game:
-            next_key = prev_key / 2
-            if next_key != 0 and season_status[prev_key] == "done" and season_status[next_key] == "yet":
-                season_status[next_key] = "ongoing"
-        for key in season_status:
-            if season_status[key] == "ongoing":
-                return key
-            elif key == 32 and season_status[key] == 1:
-                return 32
-
-
-    def game_address():
-        # 유저가 할 게임의 시즌과 라운드를 불러준다.
-        season_done_game = each_season_status()
-        season = which_season(season_done_game=season_done_game)
-        if season == 32:
-            match_id = check_user_match(g.user_email, season)
-            player_game = Match.query.filter(Match.group == group, Match.game_round == match_id[group-1]).all()
-            player_game = player_game[0]
-            return player_game
-        else:
-            match_id = check_user_match(user_email, season)
-            new_game_list = Winner.query.order_by(asc(Winner.game_round)).filter(Winner.user_email == user_email, Winner.game_group == group, Winner.game_season == season).all()
-            match = chunk(new_game_list)
-            if season == None:
-                return "STOP"
-            else:
-                player_game = {}
-                player_game['season_num'] = season
-                player_game['game_round'] = match_id[group-1]
-                player_game['candidate_A_namename'] = match[match_id[group-1]-1][0].winner_A_namename
-                player_game['candidate_A_school'] = match[match_id[group-1]-1][0].winner_A_school
-                player_game['candidate_A_photolink'] = match[match_id[group-1]-1][0].winner_A_photolink
-                player_game['candidate_B_namename'] = match[match_id[group-1]-1][1].winner_A_namename
-                player_game['candidate_B_school'] = match[match_id[group-1]-1][1].winner_A_school
-                player_game['candidate_B_photolink'] = match[match_id[group-1]-1][1].winner_A_photolink
-                player_game['group'] = group
-                return player_game
-    player_game = game_address()
-    if player_game == "STOP":
-        return redirect(url_for("END", group = group))
+    if g.user_email == None:
+        flash(u'로그인 후에 이용해주세요', 'danger')
+        return redirect(url_for('login'))
     else:
-        try :
-            season = player_game.season_num
-            season = int(season / 2)
-        except:
-            season = player_game['season_num']
-            season = int(season / 2)
-        comments = Comment.query.filter(Comment.comment_group == group).order_by(desc(Comment.date_created)).all()
-        return render_template("home.html", player_game=player_game, comments = comments, active_tab="match", season = season)
+
+        user_email = g.user_email
+
+        def check_user_status_by_season(season):
+            # for all Game History Model of Logged in USER
+            logged_user_game = GameHistory.query.order_by(asc(GameHistory.done_game)).filter(GameHistory.user_email == user_email, GameHistory.done_game_season == season, GameHistory.done_game_group == group).all()
+
+            if len(logged_user_game) == 0:
+                return -1 # EMPTY
+            else:
+                return logged_user_game
+
+            # 시즌별로 각 게임의 done_game을 Dict 형태로 출력
+        def each_season_status():
+            season = [32,16,8,4,2,1]
+            season_done_game = {}
+            for each_season in season:
+                each_history = check_user_status_by_season(each_season)
+                if each_history != -1:
+                    for each_game_season in each_history:
+                        season_done_game.update( {each_season :  each_game_season.done_game}   )
+                else:
+                    season_done_game.update( {each_season :  0}   )
+            return season_done_game
+
+        # 각 시즌별로 done인지 아닌지 살피고, 어떤 시즌을 돌려야하는지 알려준다.
+        def which_season(season_done_game):
+            season_status = {}
+            status_val = season_done_game.values()
+            for key in season_done_game:
+                if season_done_game[key] >= key/2:
+                    # 이럼 이 시즌은 다 했다는 뜻
+                    season_status.update({key : "done"})
+                elif 0< season_done_game[key] < key/2:
+                    season_status.update({key: "ongoing"})
+                else:
+                    season_status.update({key:"yet"})
+                    # 아직 시작
+
+            status_val = season_status.values()
+            if intersection_removal(status_val)[0] == "yet":
+                season_status[32] = "ongoing"
+
+            for prev_key in season_done_game:
+                next_key = prev_key / 2
+                if next_key != 0 and season_status[prev_key] == "done" and season_status[next_key] == "yet":
+                    season_status[next_key] = "ongoing"
+            for key in season_status:
+                if season_status[key] == "ongoing":
+                    return key
+                elif key == 32 and season_status[key] == 1:
+                    return 32
+
+
+        def game_address():
+            # 유저가 할 게임의 시즌과 라운드를 불러준다.
+            season_done_game = each_season_status()
+            season = which_season(season_done_game=season_done_game)
+            if season == 32:
+                match_id = check_user_match(g.user_email, season)
+                player_game = Match.query.filter(Match.group == group, Match.game_round == match_id[group-1]).all()
+                player_game = player_game[0]
+                return player_game
+            else:
+                match_id = check_user_match(user_email, season)
+                new_game_list = Winner.query.order_by(asc(Winner.game_round)).filter(Winner.user_email == user_email, Winner.game_group == group, Winner.game_season == season).all()
+                match = chunk(new_game_list)
+                if season == None:
+                    return "STOP"
+                else:
+                    player_game = {}
+                    player_game['season_num'] = season
+                    player_game['game_round'] = match_id[group-1]
+                    player_game['candidate_A_namename'] = match[match_id[group-1]-1][0].winner_A_namename
+                    player_game['candidate_A_school'] = match[match_id[group-1]-1][0].winner_A_school
+                    player_game['candidate_A_photolink'] = match[match_id[group-1]-1][0].winner_A_photolink
+                    player_game['candidate_B_namename'] = match[match_id[group-1]-1][1].winner_A_namename
+                    player_game['candidate_B_school'] = match[match_id[group-1]-1][1].winner_A_school
+                    player_game['candidate_B_photolink'] = match[match_id[group-1]-1][1].winner_A_photolink
+                    player_game['group'] = group
+                    return player_game
+        player_game = game_address()
+        if player_game == "STOP":
+            return redirect(url_for("END", group = group))
+        else:
+            try :
+                season = player_game.season_num
+                season = int(season / 2)
+            except:
+                season = player_game['season_num']
+                season = int(season / 2)
+            comments = Comment.query.filter(Comment.comment_group == group).order_by(desc(Comment.date_created)).all()
+            return render_template("home.html", player_game=player_game, comments = comments, active_tab="match", season = season, group = group)
 
 
 
@@ -712,7 +815,7 @@ def user_join():
                 session.permanent = True
                 session['user_email'] = user.email
                 # flash(u'로그인 완료', 'success')
-                return redirect(url_for('testest'))
+                return redirect(url_for('tutorial_page'))
             else:
                 flash(u'이미 존재하는 USER', 'danger')
                 return redirect(url_for('user_join'))
@@ -760,7 +863,7 @@ def candidate_list(group):
                 people_count = 0
                 total_people.append(people)
         random.shuffle(total_people[0])
-        return render_template("candidate_list.html", total_people=total_people[0], active_tab = "candidate_list")
+        return render_template("candidate_list.html", total_people=total_people[0], active_tab = "candidate_list", group  = 1)
 
 
 @app.route('/candidate/<name>', methods=['GET', 'POST'])
@@ -831,6 +934,7 @@ def comment_create(gamegroup, season, game_round, comment_A, comment_B):
             user_index=user_idx,
             comment_group = gamegroup,
             comment_gameround = game_round,
+            date_created = timezone_compute(),
             comment_season = season,
             comment_A = comment_A,
             comment_B = comment_B
@@ -871,6 +975,7 @@ def candidate_comment(group, name):
         indiv_comment = Indiv_Comment(
             user_index = user_idx,
             content = request.form['content'],
+            date_created = timezone_compute(),
             comment_name = name,
             comment_group = group,
             user_email = user_email
@@ -908,6 +1013,7 @@ def bulletin_create():
 
         my_all_comment = Bulletin(
             user_index = user_idx,
+            date_created = timezone_compute(),
             content = request.form['content'],
             user_email = g.user_email
         )

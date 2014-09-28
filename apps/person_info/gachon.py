@@ -7,7 +7,7 @@ teachers = [
     ["이현아", "가천대 소프트웨어설계경영", "/members/gachon/t2.jpg", "제가 당신을 인도하겠어요."],
     ["안준형", "가천대 소프트웨어설계경영", "/members/gachon/t3.jpg", "내가 캐리한다. 나만 믿어."]
 ]
-
+'''
 students = [
     ["이다빈", "가천대 경영", "/members/gachon/s6.jpg"],
     ["이승현", "가천대 산업디자인", "/members/gachon/s8.jpg"],
@@ -18,6 +18,6 @@ students = [
     ["이상아", "가천대 소프트웨어설계경영", "/members/gachon/s7.jpg"],
     ["이혜빈", "가천대 컴퓨터공학", "/members/gachon/s9.jpg"]
 ]
-
+'''
 random.shuffle(teachers)
-random.shuffle(students)
+#random.shuffle(students)

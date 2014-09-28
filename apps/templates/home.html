@@ -9,7 +9,8 @@
 		<br> -->
 			<div class="col-lg-12 text-center">
 				<div id="matchup_ribbon">
-					<h2 id="matchup" class="text-center"> ★ {% if player_game.group == '1' %} 그룹 A {% elif player_game.group == '2' %} 그룹 B {% elif player_game.group == '3' %} 그룹 C {% elif player_game.group == '4' %} 그룹 D {% elif player_game.group == '5' %} 그룹 E {% elif player_game.group == '6' %} 그룹 F {% endif %} 매치업 ★ </h2>
+					<!-- <h2 id="matchup" class="text-center"> ★ {% if group == 1 %} 그룹 A {% elif group == 2 %} 그룹 B {% elif group == 3 %} 그룹 C {% elif group == 4 %} 그룹 D {% elif group == 5 %} 그룹 E {% elif group == 6 %} 그룹 F {% endif %} 매치업 ★ </h2> -->
+                    <h2 id="matchup" class="text-center"> ★ 매치업 ★ </h2>
 				</div>
 			</div>
 		</div>
@@ -97,13 +98,13 @@
 	            {% if comments %}
 	                {% for comment in comments %}
 	                    <div id="comment_show" class="well well-sm">
-	                        <span class="badge">그룹{{ comment.comment_group }}</span>
+	                        <!-- <span class="badge">그룹{{ comment.comment_group }}</span> -->
 	                        <span class="badge">{{ comment.comment_season }}강</span>
 	                        <span class="badge">{{comment.comment_A}} vs {{comment.comment_B}}   </span>
 	                        <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
 	                        <span class="float-right">
 	                            <small>
-	                               <em style="float: right">{{ comment.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</em>
+	                               <em style="float: right">{{ comment.date_created }}</em>
 	                            </small>
 	                        </span>
 	                    </div>

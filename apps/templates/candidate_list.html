@@ -3,15 +3,16 @@
 {% block contents %}
 
 <div class="panel panel-danger">
+
   <div class=panel-heading>
-    <div class="group_button">
-        <a href = "{{ url_for('candidate_list', group = 1)  }}" ><button class="group-btn btn btn-liketalk_group"> Group A</button></a>
-        <a href = "{{ url_for('candidate_list', group = 2)  }}" ><button class="group-btn btn btn-liketalk_group"> Group B</button></a>
+    <!-- <div class="group_button"> -->
+        <!-- <a href = "{{ url_for('candidate_list', group = 1)  }}" ><button class="group-btn btn btn-liketalk_group"> Group A</button></a> -->
+        <!-- <a href = "{{ url_for('candidate_list', group = 2)  }}" ><button class="group-btn btn btn-liketalk_group"> Group B</button></a>
         <a href = "{{ url_for('candidate_list', group = 3)  }}" ><button class="group-btn btn btn-liketalk_group"> Group C</button></a>
         <a href = "{{ url_for('candidate_list', group = 4)  }}" ><button class="group-btn btn btn-liketalk_group"> Group D</button></a>
         <a href = "{{ url_for('candidate_list', group = 5)  }}" ><button class="group-btn btn btn-liketalk_group"> Group E</button></a>
-        <a href = "{{ url_for('candidate_list', group = 6)  }}" ><button class="group-btn btn btn-liketalk_group"> Group F</button></a>
-    </div>
+        <a href = "{{ url_for('candidate_list', group = 6)  }}" ><button class="group-btn btn btn-liketalk_group"> Group F</button></a> -->
+    <!-- </div> -->
   </div>
 <table class="baby_lion_list">
 {% for people in total_people %}

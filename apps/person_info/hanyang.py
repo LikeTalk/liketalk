@@ -7,6 +7,7 @@ teachers = [
     ["이희원", "한양대 컴퓨터공학부", "/members/hanyang/t2.jpg", "프로 인디게이머"]
 ]
 
+'''
 students = [
     ["공다은", "한양대 문화인류학과", "/members/hanyang/s1.jpg"],
     ["김도희", "한양대 경영학부", "/members/hanyang/s2.jpg"],
@@ -21,7 +22,7 @@ students = [
     ["정승호", "한양대 산업디자인학과", "/members/hanyang/s11.jpg"],
     ["정호건", "한양대 건축학과", "/members/hanyang/s12.jpg"]
 ]
-
+'''
 
 random.shuffle(teachers)
-random.shuffle(students)
+#random.shuffle(students)

@@ -9,7 +9,7 @@ teachers = [
     ["최경철", "아주대 미디어학과",       "/members/ajou/t4.jpg", "자아정체성 혼란 디자이너"]
 ]
 
-
+'''
 students = [
     ["오승현", "아주대 정보컴퓨터공학과",   "/members/ajou/s1.jpg"],
     ["이승용", "아주대 전자공학과",         "/members/ajou/s2.jpg"],
@@ -33,6 +33,7 @@ students = [
     ["주정은", "아주대 심리학과",           "/members/ajou/s20.jpg"],
     ["김도아", "아주대 심리학과",           "/members/ajou/s21.jpg"]
 ]
+'''
 
 random.shuffle(teachers)
-random.shuffle(students)
+#random.shuffle(students)

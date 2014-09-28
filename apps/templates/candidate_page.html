@@ -43,13 +43,13 @@
         {% if comments %}
             {% for comment in comments %}
                 <div class="well well-sm">
-                    <span class="badge">그룹{{ comment.comment_group }}</span>
+                    <!-- <span class="badge">그룹{{ comment.comment_group }}</span> -->
                     <span class="badge">{{ comment.comment_season }}강</span>
                     <span class="badge">{{comment.comment_A}} vs {{comment.comment_B}}   </span>
                     <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
                     <span class="float-right">
                         <small>
-                           <em style="float: right">{{ comment.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</em>
+                           <em style="float: right">{{ comment.date_created }}</em>
                         </small>
                     </span>
                 </div>
@@ -64,7 +64,7 @@
                     <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
                     <span class="float-right">
                         <small>
-                           <em style="float: right">{{ comment.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</em>
+                           <em style="float: right">{{ comment.date_created }}</em>
                         </small>
                     </span>
                 </div>

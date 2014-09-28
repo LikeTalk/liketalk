@@ -7,14 +7,14 @@
     <div class="llCommentList">
 
         <!-- Standard button -->
-        <div class="group_button">
+        <!-- <div class="group_button">
             <a href = "{{url_for('comments_group', group = 1)}}"><button type="button" class="btn btn-liketalk_group">Group A</button></a>
             <a href = "{{url_for('comments_group', group = 2)}}"><button type="button" class="btn btn-liketalk_group">Group B</button></a>
             <a href = "{{url_for('comments_group', group = 3)}}"><button type="button" class="btn btn-liketalk_group">Group C</button></a>
             <a href = "{{url_for('comments_group', group = 4)}}"><button type="button" class="btn btn-liketalk_group">Group D</button></a>
             <a href = "{{url_for('comments_group', group = 5)}}"><button type="button" class="btn btn-liketalk_group">Group E</button></a>
             <a href = "{{url_for('comments_group', group = 6)}}"><button type="button" class="btn btn-liketalk_group">Group F</button></a>
-        </div>
+        </div> -->
 
         <br>
 
@@ -22,13 +22,13 @@
         {% if comments %}
             {% for comment in comments %}
                 <div id="comment_show" class="well well-sm">
-                    <span class="badge">그룹{{ comment.comment_group }}</span>
+                    <!-- <span class="badge">그룹{{ comment.comment_group }}</span> -->
                     <span class="badge">{{ comment.comment_season }}강</span>
                     <a href = "{{url_for('two_people_show', name1 = comment.comment_A, name2 = comment.comment_B)}}"><span class="badge">{{comment.comment_A}} vs {{comment.comment_B}}   </span></a>
                     <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
                     <span class="float-right">
                         <small>
-                           <em style="float: right">{{ comment.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</em>
+                           <em style="float: right">{{ comment.date_created }}</em>
                         </small>
                     </span>
                 </div>
@@ -40,12 +40,12 @@
         {% if indiv_comments %}
             {% for comment in indiv_comments %}
                 <div id="comment_show" class="well well-sm">
-                    <span class="badge">그룹{{ comment.comment_group }}</span>
+                    <!-- <span class="badge">그룹{{ comment.comment_group }}</span> -->
                     <a href = "{{url_for('candidate', name = comment.comment_name)}}" ><span class="badge">{{comment.comment_name}}  </span></a>
                     <span class="badge">익명{{ comment.user_index }}</span> {{ comment.content }}
                     <span class="float-right">
                         <small>
-                           <em style="float: right">{{ comment.date_created.strftime('%Y-%m-%d %H:%M:%S') }}</em>
+                           <em style="float: right">{{ comment.date_created}}</em>
                         </small>
                     </span>
                 </div>

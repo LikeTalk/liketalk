@@ -6,9 +6,9 @@ teachers = [
     ["박준호", "서울대학교 컴퓨터공학부", "/members/snu-yonsei/t2.jpg", "밤샘이 많다."],
     ["한영후", "Georgia Tech Computer Science",
         "/members/snu-yonsei/t3.jpg", "고민이 많다."],
-    ["남다예", "연세대학교 컴퓨터과학과", "/members/snu-yonsei/t4.jpg", "<= 바보들 =>"]
+    #["남다예", "연세대학교 컴퓨터과학과", "/members/snu-yonsei/t4.jpg", "<= 바보들 =>"]
 ]
-
+'''
 students = [
     ["강지혜", "연세대학교 경영학과", "/members/snu-yonsei/s0.jpg"],
     ["강현욱", "서울대학교 사회교육과", "/members/snu-yonsei/s1.jpg"],
@@ -31,6 +31,6 @@ students = [
     ["천현정", "이화여대 약학과", "/members/snu-yonsei/s18.jpg"],
     ["현지인", "서울대학교 서양화과", "/members/snu-yonsei/s19.jpg"]
 ]
-
+'''
 random.shuffle(teachers)
-random.shuffle(students)
+#random.shuffle(students)

@@ -57,7 +57,8 @@ class Comment(db.Model):
     Comment_id = db.Column(db.Integer, primary_key = True)
     user_index = db.Column(db.Integer)
     content = db.Column(db.Text())
-    date_created = db.Column(db.DateTime(timezone = True), default=db.func.now())
+    #date_created = db.Column(db.DateTime(timezone = True), default=db.func.now())
+    date_created = db.Column(db.String(255))
     likecount = db.Column(db.Integer, default = 0, nullable = False)
     comment_group = db.Column(db.Integer)
     comment_season = db.Column(db.Integer)
@@ -70,7 +71,8 @@ class Indiv_Comment(db.Model):
     Comment_id = db.Column(db.Integer, primary_key = True)
     user_index = db.Column(db.Integer)
     content = db.Column(db.Text())
-    date_created = db.Column(db.DateTime(timezone = True), default=db.func.now())
+    #date_created = db.Column(db.DateTime(timezone = True), default=db.func.now())
+    date_created = db.Column(db.String(255))
     comment_name = db.Column(db.String(255))
     comment_group = db.Column(db.Integer)
     user_index = db.Column(db.Integer)
@@ -88,10 +90,12 @@ class UserCommentHistory(db.Model):
     user_index = db.Column(db.Integer)
 
 
+
 class Bulletin(db.Model):
     Comment_id = db.Column(db.Integer, primary_key = True)
     user = db.relationship('User')
     user_email = db.Column(db.String(255), db.ForeignKey('user.email'))
     user_index = db.Column(db.Integer)
     content = db.Column(db.Text())
-    date_created = db.Column(db.DateTime(timezone = True), default=db.func.now())
+    #date_created = db.Column(db.DateTime(timezone = True), default=db.func.now())
+    date_created = db.Column(db.String(255))

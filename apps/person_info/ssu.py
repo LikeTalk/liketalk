@@ -9,6 +9,7 @@ teachers = [
     ["황성현", "성균관대 소프트웨어학과", "/members/ssu/t3.jpg", "sunghyun.kitchen"]
 ]
 
+'''
 students = [
     ["김영철", "성균관대 전자전기학과", "/members/ssu/s6.jpg"],
     ["박진수", "숭실대 언론홍보학과", "/members/ssu/s8.jpg"],
@@ -20,6 +21,6 @@ students = [
     ["임태양", "중앙대 심리학과", "/members/ssu/s1.jpg"],
     ["박형규", "단국대 경영학과", "/members/ssu/s9.jpg"]
 ]
-
+'''
 random.shuffle(teachers)
-random.shuffle(students)
+#random.shuffle(students)

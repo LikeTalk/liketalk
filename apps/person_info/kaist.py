@@ -7,7 +7,7 @@ teachers = [
     #여기도 마지막에 쉼표 잊지 마시고
     ["김동우", "KAIST 전산학과", "/members/kaist/t2.jpg", "Syntax Error"]
 ]
-
+'''
 students = [
     ["정지혜", "한남대 경영정보학과", "/members/kaist/s1.jpg"],
     ["정용한", "KAIST 산업및시스템공학과", "/members/kaist/s2.jpg"],
@@ -21,5 +21,5 @@ students = [
     ["손현진", "KAIST 바이오및뇌공학과", "/members/kaist/s10.jpg"],
     ["유수형", "KAIST 건설및환경공학과", "/members/kaist/s11.jpg"]
 ]
-
+'''
 
