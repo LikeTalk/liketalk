@@ -32,7 +32,7 @@ def init_cand_vote():
 
 # Candidate DB에 선수들을 다 집어넣는 함수
 @app.route('/total_allinone')
-def all_in(gachon=None):
+def all_in():
     '''
     기능
     : URL/total_allinone 이라고 치면, Candidate DB가 채워진다.

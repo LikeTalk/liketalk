@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block contents %}
+
+
+<script type=text/javascript>
+    $(function() {
+      $('.a').bind('click', function() {
+        $.getJSON('/_add_numbers', {
+          num: 1,
+          myid : event.target.id
+        }, function(data) {
+          $("#result").text("니가 방금 클릭한건 " + data.hideid);
+          $(data.hideid).hide()
+          $(data.showid).show()
+          $(data.hideid2).hide()
+          $(data.showid2).show()
+        });
+        return false;
+      });
+
+      $('.b').bind('click', function() {
+        $.getJSON('/_add_numbers', {
+          num: 2,
+          myid : event.target.id
+        }, function(data) {
+          $("#result").text("니가 방금 클릭한건 " + data.hideid);
+          $(data.hideid).hide()
+          $(data.showid).show()
+          $(data.hideid2).hide()
+          $(data.showid2).show()
+        });
+        return false;
+      });
+    });
+  </script>
+
+
+<header id="matchup_part">
+	<div class="panel panel-danger">
+		<div id = "result" class="panel-heading">
+
+		</div>
+		<br> -->
+			<div class="col-lg-12 text-center">
+				<div id="matchup_ribbon">
+                    <h2 id="matchup" class="text-center"> ★ 매치업 ★ </h2>
+				</div>
+
+
+			</div>
+    </div>
+		<br>
+
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-1">
+            <center>
+                {% for each_A_photo in A_photo %}
+                    {% if loop.index == shownum %}
+                        <img class = "a" id = "a{{loop.index}}" src = "/static{{ each_A_photo  }}">
+                    {% else %}
+                        <img class = "a" id = "a{{loop.index}}" src = "/static{{ each_A_photo  }}", style = "display : none">
+                    {% endif %}
+
+
+
+                {% endfor %}
+            </center>
+        </div>
+        <div class="col-lg-2" style="padding-top: 50px;">
+            <center>
+            <p id ="show_round" class="text-center"></p>
+            <p id="vs" class="text-center"> VS </p>
+            </center>
+        </div>
+        <div class="col-lg-4">
+            <center>
+                {% for each_B_photo in B_photo %}
+                    {% if loop.index == shownum %}
+                        <img class = "b" id = "b{{loop.index}}" src = "/static{{ each_B_photo  }}">
+                    {% else %}
+                        <img class = "b" id = "b{{loop.index}}" src = "/static{{ each_B_photo  }}", style = "display : none">
+                    {% endif %}
+
+
+
+                {% endfor %}
+            </center>
+        </div>
+        <div class="col-lg-1">
+        </div>
+    </div>
+
+{% endblock %}
